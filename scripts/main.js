@@ -1,5 +1,5 @@
-import { projects, services, reasons, prices } from "./data.js?v=10";
-import { setupDecorativeIcons } from "./icons.js?v=10";
+import { projects, services, reasons, prices } from "./data.js?v=12";
+import { setupDecorativeIcons } from "./icons.js?v=12";
 import {
   renderProjects,
   renderServices,
@@ -10,9 +10,10 @@ import {
   setupRevealAnimations,
   setupForms,
   setupQuoteModal,
+  setupPremiumInteractions,
   setupGlobalEvents,
   setCurrentYear
-} from "./ui.js?v=10";
+} from "./ui.js?v=12";
 
 const projectGrid = document.querySelector("#projectGrid");
 const serviceGrid = document.querySelector("#serviceGrid");
@@ -23,8 +24,8 @@ renderProjects(projects, projectGrid);
 renderServices(services, serviceGrid);
 renderReasons(reasons, whyGrid);
 renderPrices(prices, priceGrid);
-setupDecorativeIcons();
 
+setupDecorativeIcons();
 setupNavigation();
 setupProjectCards(projectGrid);
 setupForms();
@@ -32,7 +33,8 @@ setupQuoteModal();
 setupGlobalEvents();
 setCurrentYear();
 setupRevealAnimations();
+setupPremiumInteractions();
 
 document.querySelector(".js-show-all-projects")?.addEventListener("click", () => {
-  document.querySelector("#projektit")?.scrollIntoView({ behavior: "smooth" });
+  document.querySelector("#projectGrid .case-card")?.scrollIntoView({ behavior: "smooth", block: "center" });
 });
