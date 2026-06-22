@@ -14,19 +14,6 @@ import {
   setCurrentYear
 } from "./ui.js";
 
-function loadFinishingStyles() {
-  ["styles/premium.css", "styles/icons.css", "styles/mobile-perfect.css"].forEach((href) => {
-    if (document.querySelector(`link[href="${href}"]`)) return;
-
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  });
-}
-
-loadFinishingStyles();
-
 const projectGrid = document.querySelector("#projectGrid");
 const serviceGrid = document.querySelector("#serviceGrid");
 const whyGrid = document.querySelector("#whyGrid");
