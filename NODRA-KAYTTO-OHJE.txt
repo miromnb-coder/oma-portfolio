@@ -1,0 +1,5 @@
+NODRA valmis sivu on tiedostossa nodra-v2.html.
+
+Jotta se toimii etusivuna, kopioi nodra-v2.html tiedoston sisältö index.html tiedostoon tai nimeä tiedosto index.html.
+
+Tiedosto on itsenäinen HTML-sivu, eli kaikki tyylit ovat mukana samassa tiedostossa.
