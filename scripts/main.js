@@ -15,7 +15,7 @@ import {
 } from "./ui.js";
 
 function loadFinishingStyles() {
-  ["styles/premium.css", "styles/icons.css"].forEach((href) => {
+  ["styles/premium.css", "styles/icons.css", "styles/mobile-perfect.css"].forEach((href) => {
     if (document.querySelector(`link[href="${href}"]`)) return;
 
     const link = document.createElement("link");
