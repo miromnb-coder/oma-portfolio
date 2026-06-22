@@ -13,6 +13,18 @@ import {
   setCurrentYear
 } from "./ui.js";
 
+function loadPremiumStyles() {
+  const href = "styles/premium.css";
+  if (document.querySelector(`link[href="${href}"]`)) return;
+
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.appendChild(link);
+}
+
+loadPremiumStyles();
+
 const projectGrid = document.querySelector("#projectGrid");
 const serviceGrid = document.querySelector("#serviceGrid");
 const whyGrid = document.querySelector("#whyGrid");
