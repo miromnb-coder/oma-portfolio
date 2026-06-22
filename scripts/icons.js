@@ -11,6 +11,9 @@ export const iconSvg = (name, className = "site-icon") => {
       <path d="M15.1 8.7h.01"></path>
     `,
     phone: `
+      <path d="M7.4 4.8 9.6 7c.6.6.7 1.5.2 2.2l-1 1.4a12.4 12.4 0 0 0 4.6 4.6l1.4-1c.7-.5 1.6-.4 2.2.2l2.2 2.2c.6.6.6 1.7 0 2.3-.8.8-2 1.3-3.2 1.1-6.1-.8-11-5.7-11.8-11.8-.2-1.2.3-2.4 1.1-3.2.7-.8 1.7-.8 2.1-.2Z"></path>
+    `,
+    device: `
       <rect x="7.3" y="3.6" width="9.4" height="16.8" rx="2.1"></rect>
       <path d="M10.4 17.4h3.2"></path>
     `,
@@ -30,10 +33,6 @@ export const iconSvg = (name, className = "site-icon") => {
       <circle cx="12" cy="12" r="8.6"></circle>
       <path d="m8.4 12.1 2.4 2.4 4.9-5.1"></path>
     `,
-    badgeCheck: `
-      <path d="M12 3.5 14 5l2.5-.1.9 2.3 2 1.5-.7 2.4.7 2.4-2 1.5-.9 2.3-2.5-.1-2 1.5-2-1.5-2.5.1-.9-2.3-2-1.5.7-2.4-.7-2.4 2-1.5.9-2.3 2.5.1Z"></path>
-      <path d="m8.8 12.2 2.1 2.1 4.5-4.8"></path>
-    `,
     mail: `
       <rect x="4.3" y="6.4" width="15.4" height="11.2" rx="1.4"></rect>
       <path d="m5 7.2 7 5.7 7-5.7"></path>
@@ -49,16 +48,6 @@ export const iconSvg = (name, className = "site-icon") => {
     send: `
       <path d="M21 3 10.8 13.2"></path>
       <path d="m21 3-6.2 18-4-7.8L3 9.2Z"></path>
-    `,
-    code: `
-      <path d="m8 8-4 4 4 4"></path>
-      <path d="m16 8 4 4-4 4"></path>
-      <path d="m14 5-4 14"></path>
-    `,
-    seo: `
-      <circle cx="10.5" cy="10.5" r="5.8"></circle>
-      <path d="m15 15 5 5"></path>
-      <path d="m8.4 10.6 1.5 1.5 3-3.2"></path>
     `
   };
 
@@ -88,6 +77,7 @@ export function setupDecorativeIcons() {
     });
 
   document.querySelectorAll('.contact-info li span').forEach((el) => {
+    if (el.querySelector('svg')) return;
     const text = el.textContent.trim();
     el.innerHTML = iconSvg(text === '✉' ? 'mail' : text === '☎' ? 'phone' : 'pin');
   });
