@@ -7,14 +7,26 @@ export function renderProjects(projectList, container) {
   if (!container) return;
 
   container.innerHTML = projectList.map((project, index) => `
-    <article class="project-card reveal" tabindex="0" role="button" data-project-index="${index}" aria-label="Avaa projekti ${project.title}">
-      <div class="project-image" style="background-image: linear-gradient(180deg, rgba(7,17,31,0.04), rgba(7,17,31,0.24)), url('${project.image}')">
-        <span>${project.title}</span>
+    <article class="case-card reveal" tabindex="0" role="button" data-project-index="${index}" aria-label="Avaa case ${project.title}" style="--case-accent: ${project.accent}">
+      <div class="case-media">
+        <img src="${project.image}" alt="${project.title} - fiktiivinen case study" loading="lazy" />
+        <div class="case-device" aria-hidden="true">
+          <span></span>
+          <strong>${project.title}</strong>
+          <p>${project.industry}</p>
+        </div>
       </div>
-      <div class="project-body">
+
+      <div class="case-content">
+        <p class="case-number">0${index + 1} / CASE STUDY</p>
         <h3>${project.title}</h3>
         <p>${project.description}</p>
+        <div class="case-outcome">
+          <span>Tavoite</span>
+          <strong>${project.goal}</strong>
+        </div>
         <div class="tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+        <button class="case-link" type="button">Avaa case <span aria-hidden="true">${iconSvg("arrow")}</span></button>
       </div>
     </article>
   `).join("");
@@ -23,8 +35,9 @@ export function renderProjects(projectList, container) {
 export function renderServices(items, container) {
   if (!container) return;
 
-  container.innerHTML = items.map((item) => `
+  container.innerHTML = items.map((item, index) => `
     <article class="service-card reveal">
+      <span class="service-index">0${index + 1}</span>
       <span class="icon-bubble" aria-hidden="true">${iconSvg(item.icon)}</span>
       <h3>${item.title}</h3>
       <p>${item.text}</p>
@@ -38,8 +51,10 @@ export function renderReasons(items, container) {
   container.innerHTML = items.map((item) => `
     <article class="why-card reveal">
       <span class="icon-bubble" aria-hidden="true">${iconSvg(item.icon)}</span>
-      <h3>${item.title}</h3>
-      <p>${item.text}</p>
+      <div>
+        <h3>${item.title}</h3>
+        <p>${item.text}</p>
+      </div>
     </article>
   `).join("");
 }
@@ -52,8 +67,10 @@ export function renderPrices(items, container) {
       ${item.featured ? `<span class="price-badge">Suosituin</span>` : ""}
       <h3>${item.title}</h3>
       <p>${item.subtitle}</p>
-      <div class="price">${item.price} <small>alkaen</small></div>
-      <div class="check-line"><span aria-hidden="true">${iconSvg("check")}</span> Responsiivinen design</div>
+      <div class="price"><small>alkaen</small>${item.price}</div>
+      <ul>
+        ${item.features.map((feature) => `<li><span aria-hidden="true">${iconSvg("check")}</span>${feature}</li>`).join("")}
+      </ul>
     </article>
   `).join("");
 }
@@ -99,18 +116,42 @@ export function setupProjectCards(projectGrid) {
   if (!projectGrid) return;
 
   const openProject = (target) => {
-    const card = target.closest(".project-card");
+    const card = target.closest(".case-card");
     if (!card) return;
 
     const project = projects[Number(card.dataset.projectIndex)];
     if (!project) return;
 
     const modal = createModal(`project-${project.title.toLowerCase().replaceAll(" ", "-")}`, project.title, `
-      <p>${project.details}</p>
-      <p><strong>Tekniikat:</strong> ${project.tags.join(", ")}</p>
-      <div class="modal-actions">
-        <button class="btn btn-primary js-modal-quote" type="button">Pyydä samanlainen sivu</button>
-        <a class="btn btn-secondary" href="#yhteys" data-close-modal>Ota yhteyttä</a>
+      <div class="case-modal-grid" style="--case-accent: ${project.accent}">
+        <div class="case-modal-image">
+          <img src="${project.image}" alt="${project.title} - case-kuva" />
+        </div>
+        <div class="case-modal-content">
+          <p class="modal-kicker">${project.industry}</p>
+          <p>${project.details}</p>
+
+          <div class="case-facts">
+            <article>
+              <span>Tavoite</span>
+              <p>${project.goal}</p>
+            </article>
+            <article>
+              <span>Ratkaisu</span>
+              <p>${project.solution}</p>
+            </article>
+            <article>
+              <span>Lopputulos</span>
+              <p>${project.outcome}</p>
+            </article>
+          </div>
+
+          <div class="tags">${project.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+          <div class="modal-actions">
+            <button class="btn btn-primary js-modal-quote" type="button">Pyydä samanlainen sivu <span aria-hidden="true">${iconSvg("arrow")}</span></button>
+            <a class="btn btn-secondary" href="#yhteys" data-close-modal>Ota yhteyttä</a>
+          </div>
+        </div>
       </div>
     `);
 
@@ -149,7 +190,7 @@ export function setupNavigation() {
 
   links.forEach((link) => link.addEventListener("click", closeMenu));
 
-  const sections = ["top", "projektit", "palvelut", "prosessi", "hinnat", "minusta", "yhteys"]
+  const sections = ["top", "projektit", "palvelut", "prosessi", "hinnat", "yhteys"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -177,14 +218,17 @@ export function setupRevealAnimations() {
     return;
   }
 
+  items.forEach((item, index) => {
+    item.style.setProperty("--reveal-delay", `${Math.min(index * 45, 360)}ms`);
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
 
   items.forEach((item) => observer.observe(item));
 }
@@ -211,14 +255,14 @@ export function setupQuoteModal() {
       }
 
       const modal = createModal("quoteModal", "Pyydä tarjous", `
-        <p>Kerro lyhyesti, millaista nettisivua tarvitset. Tämä demo näyttää onnistumisviestin, mutta oikeassa käytössä lomake voidaan yhdistää sähköpostiin.</p>
+        <p class="quote-lead">Kerro lyhyesti, millaista nettisivua tarvitset. Palaan sinulle selkeällä ehdotuksella seuraavasta vaiheesta.</p>
         <form class="contact-form" id="quoteForm">
           <div class="form-row">
             <label><span class="sr-only">Nimi</span><input required name="name" placeholder="Nimi" autocomplete="name" /></label>
-            <label><span class="sr-only">Sähköposti</span><input required type="email" name="email" placeholder="Sähköposti" /></label>
+            <label><span class="sr-only">Sähköposti</span><input required type="email" name="email" placeholder="Sähköposti" autocomplete="email" /></label>
           </div>
-          <label><span class="sr-only">Projektin kuvaus</span><textarea required name="message" rows="4" placeholder="Kuvaile projektisi lyhyesti"></textarea></label>
-          <button class="btn btn-primary" type="submit">Lähetä tarjouspyyntö</button>
+          <label><span class="sr-only">Projektin kuvaus</span><textarea required name="message" rows="5" placeholder="Kuvaile projektisi lyhyesti"></textarea></label>
+          <button class="btn btn-primary" type="submit">Lähetä tarjouspyyntö <span aria-hidden="true">${iconSvg("send")}</span></button>
           <p class="form-status" aria-live="polite"></p>
         </form>
       `);
@@ -230,6 +274,20 @@ export function setupQuoteModal() {
       });
 
       openModal(modal);
+    });
+  });
+}
+
+export function setupPremiumInteractions() {
+  const cards = document.querySelectorAll(".case-card, .service-card, .price-card");
+
+  cards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty("--pointer-x", `${x}%`);
+      card.style.setProperty("--pointer-y", `${y}%`);
     });
   });
 }
