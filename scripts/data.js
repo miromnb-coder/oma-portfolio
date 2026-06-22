@@ -34,7 +34,7 @@ export const services = [
     text: "Tehokkaat ja konversio-optimoidut laskeutumissivut kampanjoihisi."
   },
   {
-    icon: "phone",
+    icon: "device",
     title: "Responsiivinen design",
     text: "Sivustot, jotka toimivat moitteettomasti kaikilla laitteilla."
   }
