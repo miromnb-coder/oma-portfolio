@@ -1,5 +1,5 @@
-import { projects, services, reasons, prices } from "./data.js";
-import { setupDecorativeIcons } from "./icons.js";
+import { projects, services, reasons, prices } from "./data.js?v=10";
+import { setupDecorativeIcons } from "./icons.js?v=10";
 import {
   renderProjects,
   renderServices,
@@ -12,7 +12,7 @@ import {
   setupQuoteModal,
   setupGlobalEvents,
   setCurrentYear
-} from "./ui.js";
+} from "./ui.js?v=10";
 
 const projectGrid = document.querySelector("#projectGrid");
 const serviceGrid = document.querySelector("#serviceGrid");
