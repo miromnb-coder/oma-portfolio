@@ -5,6 +5,7 @@ import { projects } from "@/lib/site-data";
 export default function Projects() {
   return (
     <section id="tyot" className="section projects-section">
+      <span id="palvelut" aria-hidden="true" />
       <div className="container">
         <Reveal className="section-heading">
           <p className="eyebrow">Tuloksia, joilla on merkitystä</p>
