@@ -1,0 +1,389 @@
+/* Final polish: siisti, premium ja mobiilissa ehjä */
+
+* {
+  min-width: 0;
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  line-height: 1.1;
+}
+
+@media (max-width: 900px) {
+  body {
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbfa 100%);
+  }
+
+  .site-header {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(7, 17, 31, 0.07);
+  }
+
+  .header-inner {
+    min-height: 72px;
+    padding-inline: 24px !important;
+  }
+
+  .brand-title {
+    font-size: 1.46rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero {
+    padding: 32px 24px 34px !important;
+    background:
+      radial-gradient(circle at 105% 18%, rgba(0, 120, 111, 0.08), transparent 18rem),
+      linear-gradient(180deg, #ffffff 0%, #fbfefd 100%);
+    border-bottom: 1px solid rgba(7, 17, 31, 0.06);
+  }
+
+  .eyebrow {
+    width: auto;
+    max-width: 100%;
+    padding: 9px 14px;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.7rem, 10.8vw, 3.65rem);
+    letter-spacing: -0.078em;
+  }
+
+  .hero-text {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+
+  .hero-actions {
+    margin-top: 26px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    min-height: 46px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+  }
+
+  .trust-row {
+    margin-top: 26px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+    font-size: 0.86rem;
+    font-weight: 800;
+  }
+
+  .trust-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .projects,
+  .services-why,
+  .pricing-contact {
+    padding: 28px 24px !important;
+    background: #ffffff;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .section-heading h2,
+  .services-block h2,
+  .why-block h2,
+  .pricing-block h2,
+  .contact-panel h2 {
+    font-size: clamp(1.95rem, 8vw, 2.35rem);
+    line-height: 1;
+    letter-spacing: -0.07em;
+  }
+
+  .text-link {
+    max-width: 150px;
+    font-size: 0.86rem;
+    text-align: right;
+  }
+
+  .project-grid {
+    gap: 18px;
+  }
+
+  .project-card {
+    display: grid !important;
+    grid-template-columns: 34% minmax(0, 1fr) 22px !important;
+    align-items: center;
+    min-height: 112px;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 14px 38px rgba(7, 17, 31, 0.06);
+  }
+
+  .project-image {
+    height: 112px !important;
+  }
+
+  .project-body {
+    padding: 14px 12px 14px 16px !important;
+  }
+
+  .project-body h3 {
+    font-size: 1.15rem;
+    line-height: 1.05;
+  }
+
+  .project-body p {
+    margin-top: 5px;
+    font-size: 0.86rem;
+    line-height: 1.35;
+  }
+
+  .tags {
+    margin-top: 10px;
+    gap: 7px;
+  }
+
+  .tags span {
+    padding: 5px 9px;
+    border-radius: 8px;
+    font-size: 0.68rem;
+  }
+
+  .services-why,
+  .pricing-contact {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 38px !important;
+    overflow: visible !important;
+  }
+
+  .service-grid,
+  .why-grid,
+  .price-grid {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible !important;
+  }
+
+  .service-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .service-card {
+    min-height: 128px !important;
+    padding: 18px 8px !important;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 12px 30px rgba(7, 17, 31, 0.055);
+  }
+
+  .service-card p {
+    display: none !important;
+  }
+
+  .service-card h3 {
+    margin-top: 14px;
+    font-size: 0.86rem;
+    line-height: 1.05;
+  }
+
+  .icon-bubble {
+    width: 52px;
+    height: 52px;
+    margin-inline: auto;
+    background: #eaf7f5;
+  }
+
+  .why-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .why-card {
+    min-height: 122px !important;
+    padding: 18px 10px !important;
+    border: 1px solid rgba(10, 30, 48, 0.075) !important;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 12px 30px rgba(7, 17, 31, 0.045) !important;
+  }
+
+  .why-card p {
+    display: none !important;
+  }
+
+  .why-card h3 {
+    margin-top: 14px;
+    font-size: 0.88rem;
+    line-height: 1.1;
+  }
+
+  .price-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .price-card {
+    min-height: auto !important;
+    padding: 22px 20px !important;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title price"
+      "subtitle price"
+      "check check";
+    align-items: center;
+    text-align: left;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(7, 17, 31, 0.055);
+  }
+
+  .price-card.featured {
+    border-width: 2px;
+  }
+
+  .price-badge {
+    left: auto;
+    right: 18px;
+    top: -13px;
+    transform: none;
+  }
+
+  .price-card h3 {
+    grid-area: title;
+    font-size: 1.05rem;
+    line-height: 1.1;
+  }
+
+  .price-card p {
+    grid-area: subtitle;
+    margin-top: 5px;
+    font-size: 0.82rem;
+  }
+
+  .price {
+    grid-area: price;
+    margin: 0 0 0 16px !important;
+    font-size: 1.65rem !important;
+    white-space: nowrap;
+  }
+
+  .check-line {
+    grid-area: check;
+    justify-content: flex-start;
+    margin-top: 14px;
+    font-size: 0.82rem;
+  }
+
+  .contact-panel {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    padding: 28px 22px !important;
+    border-radius: 22px;
+    box-shadow: 0 18px 44px rgba(0, 120, 111, 0.08);
+    overflow: hidden;
+  }
+
+  .contact-panel h2 {
+    max-width: 320px;
+  }
+
+  .contact-info p {
+    margin-top: 12px;
+    font-size: 0.96rem;
+  }
+
+  .contact-info ul {
+    margin-top: 24px;
+    gap: 14px;
+  }
+
+  .contact-info li {
+    font-size: 0.95rem;
+  }
+
+  .form-row {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  .contact-form {
+    gap: 12px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    min-height: 54px;
+    border-radius: 11px;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .contact-form textarea {
+    min-height: 124px;
+  }
+
+  .contact-form .btn {
+    width: 100%;
+    min-height: 58px;
+    border-radius: 11px;
+    font-size: 1rem;
+  }
+
+  .site-footer {
+    padding: 22px 24px 28px !important;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .header-cta {
+    display: none !important;
+  }
+
+  .hero-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
