@@ -14,11 +14,11 @@ export const projects = [
     details: "NordClean on selkeä ja luotettava siivouspalvelun sivusto, jossa on palvelut, hinnat, tarjouslomake ja asiakasarvostelut."
   },
   {
-    title: "Vihreä Piha",
-    description: "Viherrakentajan sivusto luonnonläheisellä ilmeellä.",
-    image: "https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=900&q=84",
+    title: "Barber Studio",
+    description: "Tumman tyylikäs sivusto modernille parturille ja kampaamolle.",
+    image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=84",
     tags: ["HTML", "CSS", "JavaScript"],
-    details: "Vihreä Piha on fiktiivinen demo viherrakennusyritykselle. Siinä korostuu rauhallinen visuaalinen tyyli, palvelut ja yhteydenotto."
+    details: "Barber Studio on moderni parturi-/kampaamosivusto, jossa on palvelut, ajanvarauspainike, tunnelmallinen visuaalinen ilme ja mobiiliystävällinen rakenne."
   }
 ];
 
@@ -43,23 +43,23 @@ export const services = [
 export const reasons = [
   {
     icon: "⚡",
-    title: "Nopea",
+    title: "Nopea toimitus",
     text: "Toimitan projektit sovitussa aikataulussa."
   },
   {
-    icon: "◉",
-    title: "Moderni ulkoasu",
-    text: "Tyylikkäät ja ajanmukaiset ratkaisut yrityksesi ilmeeseen."
-  },
-  {
-    icon: "▯",
-    title: "Mobiiliystävällinen",
-    text: "Sivustot toimivat täydellisesti puhelimilla ja tableteilla."
+    icon: "✓",
+    title: "Kiinteä hinta",
+    text: "Sovitaan hinta selkeästi ennen työn aloittamista."
   },
   {
     icon: "●",
     title: "Selkeä viestintä",
     text: "Pidän sinut ajan tasalla koko projektin ajan."
+  },
+  {
+    icon: "◉",
+    title: "Moderni design",
+    text: "Tyylikkäät ja ajanmukaiset ratkaisut yrityksesi ilmeeseen."
   }
 ];
 
