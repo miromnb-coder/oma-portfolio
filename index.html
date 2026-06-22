@@ -2,25 +2,22 @@
 <html lang="fi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Miro Web Studio | Premium nettisivuja yrityksille</title>
-  <meta name="description" content="Miro Web Studio tekee moderneja, nopeita ja mobiiliystävällisiä premium-nettisivuja pienyrityksille." />
+  <meta name="description" content="Miro Web Studio rakentaa moderneja, nopeita ja visuaalisesti vahvoja nettisivuja pienyrityksille." />
   <meta name="theme-color" content="#070a0e" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/base.css?v=10" />
-  <link rel="stylesheet" href="styles/layout.css?v=10" />
-  <link rel="stylesheet" href="styles/components.css?v=10" />
-  <link rel="stylesheet" href="styles/responsive.css?v=10" />
-  <link rel="stylesheet" href="styles/premium.css?v=10" />
-  <link rel="stylesheet" href="styles/icons.css?v=10" />
-  <link rel="stylesheet" href="styles/mobile-perfect.css?v=10" />
-  <link rel="stylesheet" href="styles/final-polish.css?v=10" />
-  <link rel="stylesheet" href="styles/studio-2.css?v=10" />
+  <link rel="stylesheet" href="styles/base.css?v=12" />
+  <link rel="stylesheet" href="styles/icons.css?v=12" />
+  <link rel="stylesheet" href="styles/premium-redesign.css?v=1" />
 </head>
-<body class="studio-v2">
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
   <header class="site-header" id="top">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Miro Web Studio etusivulle">
@@ -30,7 +27,7 @@
 
       <nav class="desktop-nav" aria-label="Päävalikko">
         <a class="active" href="#top">Etusivu</a>
-        <a href="#projektit">Projektit</a>
+        <a href="#projektit">Caset</a>
         <a href="#palvelut">Palvelut</a>
         <a href="#prosessi">Prosessi</a>
         <a href="#hinnat">Hinnat</a>
@@ -39,7 +36,7 @@
 
       <button class="header-cta js-open-quote" type="button">
         Pyydä tarjous
-        <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span>
+        <span aria-hidden="true"></span>
       </button>
 
       <button class="menu-toggle" type="button" aria-label="Avaa valikko" aria-expanded="false" aria-controls="mobileMenu">
@@ -51,7 +48,7 @@
 
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilivalikko">
       <a href="#top">Etusivu</a>
-      <a href="#projektit">Projektit</a>
+      <a href="#projektit">Caset</a>
       <a href="#palvelut">Palvelut</a>
       <a href="#prosessi">Prosessi</a>
       <a href="#hinnat">Hinnat</a>
@@ -61,83 +58,124 @@
 
   <main>
     <section class="hero section-shell" aria-labelledby="hero-title">
-      <div class="hero-content reveal">
-        <p class="eyebrow"><span></span> Premium-nettisivuja yrityksille</p>
-        <h1 id="hero-title">Teen moderneja nettisivuja yrityksille</h1>
+      <div class="hero-copy reveal">
+        <p class="section-label">01 / MIRO WEB STUDIO</p>
+        <p class="eyebrow"><span></span> Premium-nettisivuja pienyrityksille</p>
+        <h1 id="hero-title">
+          <span>Nettisivuja, jotka tuntuvat</span>
+          <span>laadukkailta heti.</span>
+        </h1>
         <p class="hero-text">
-          Autan yrityksiä näyttämään paremmalta verkossa. Rakennan selkeitä,
-          nopeita ja visuaalisesti vahvoja sivuja, jotka tuntuvat laadukkailta heti ensimmäisestä sekunnista.
+          Rakennan moderneja, nopeita ja visuaalisesti vahvoja sivustoja, jotka tekevät
+          yrityksestäsi luotettavan näköisen heti ensimmäisestä sekunnista.
         </p>
+
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projektit">Katso projektit <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></a>
-          <button class="btn btn-secondary js-open-contact" type="button">Ota yhteyttä <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><rect x="4.5" y="6.5" width="15" height="11" rx="1"/><path d="m5 7 7 6 7-6"/></svg></span></button>
+          <a class="btn btn-primary" href="#projektit">Katso caset <span aria-hidden="true"></span></a>
+          <button class="btn btn-secondary js-open-contact" type="button">Ota yhteyttä <span aria-hidden="true"></span></button>
         </div>
+
         <div class="trust-row" aria-label="Hyödyt">
-          <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Nopea toimitus</span>
-          <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Kiinteä hinta</span>
-          <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Responsiivinen toteutus</span>
+          <span>Nopea toimitus</span>
+          <span>Kiinteä aloitushinta</span>
+          <span>Mobiili ensin</span>
         </div>
       </div>
 
-      <div class="hero-showcase hero-showcase-ready reveal" aria-label="Projektiesimerkit laitteilla">
-        <img
-          src="assets/images/hero-showcase.PNG"
-          alt="Miro Web Studion nettisivuesimerkkejä läppärillä ja puhelimella"
-          class="hero-showcase-image"
-          width="1448"
-          height="1086"
-        />
+      <div class="hero-visual reveal" aria-label="Premium-sivuston esikatselu">
+        <div class="hero-orbit" aria-hidden="true"></div>
+        <div class="showcase-frame">
+          <div class="browser-bar">
+            <div class="browser-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <p>mirowebstudio.fi / case</p>
+          </div>
+
+          <div class="showcase-screen">
+            <div class="mockup-site">
+              <span>Case Study</span>
+              <h2>Kahvila Lumi</h2>
+              <p>Lämmin, selkeä ja mobiilissa nopeasti toimiva sivu paikalliselle kahvilalle.</p>
+              <div class="mockup-cta">Katso menu</div>
+              <div class="mockup-lines" aria-hidden="true">
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+
+            <div class="mockup-phone" aria-hidden="true">
+              <div class="phone-notch"></div>
+              <span>Mobile</span>
+              <strong>Varaa pöytä</strong>
+              <p>Auki tänään 9–18</p>
+              <div class="phone-card-line"></div>
+              <div class="phone-card-line short"></div>
+            </div>
+          </div>
+
+          <div class="floating-result">
+            <span>+38%</span>
+            <p>selkeämpi ensivaikutelma</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="projects section-shell" id="projektit" aria-labelledby="projects-title">
       <div class="section-heading reveal">
-        <h2 id="projects-title">Valitut projektit</h2>
-        <button class="text-link js-show-all-projects" type="button">Näytä kaikki <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></button>
+        <div>
+          <p class="section-label">02 / SELECTED CASES</p>
+          <h2 id="projects-title">Fiktiiviset case study -mockupit</h2>
+          <p>Kolme esimerkkiprojektia, joiden avulla asiakas näkee nopeasti millaista laatua ja tyyliä sivusto voi edustaa.</p>
+        </div>
+        <button class="text-link js-show-all-projects" type="button">Selaa caseja <span aria-hidden="true"></span></button>
       </div>
       <div class="project-grid" id="projectGrid" aria-live="polite"></div>
     </section>
 
     <section class="services-why section-shell" id="palvelut" aria-labelledby="services-title">
       <div class="services-block reveal">
-        <h2 id="services-title">Palvelut</h2>
+        <p class="section-label">03 / PALVELUT</p>
+        <h2 id="services-title">Selkeät palvelut ilman turhaa monimutkaisuutta</h2>
+        <p class="section-copy">
+          Jokainen sivu suunnitellaan niin, että se näyttää laadukkaalta, latautuu nopeasti ja ohjaa asiakkaan oikeaan toimintaan.
+        </p>
         <div class="service-grid" id="serviceGrid"></div>
       </div>
 
       <div class="why-block reveal" id="minusta">
-        <h2>Miksi valita minut</h2>
+        <p class="section-label">MIKSI VALITA MIRO</p>
         <div class="why-grid" id="whyGrid"></div>
       </div>
     </section>
 
     <section class="process section-shell" id="prosessi" aria-labelledby="process-title">
       <div class="process-copy reveal">
-        <h2 id="process-title">Selkeä prosessi alusta julkaisuun</h2>
+        <p class="section-label">04 / PROSESSI</p>
+        <h2 id="process-title">Premium-fiilis syntyy hallitusta prosessista</h2>
         <p>
-          Laadukas sivu ei synny sattumalta. Ensin suunnitellaan viesti ja ulkoasu,
-          sitten rakennetaan responsiivinen toteutus ja viimeistellään kokonaisuus julkaisuvalmiiksi.
+          Ensin selkeytetään viesti ja rakenne, sitten rakennetaan visuaalinen toteutus ja lopuksi hiotaan mobiili, animaatiot ja julkaisuvalmius.
         </p>
       </div>
+
       <div class="process-grid">
         <article class="process-card reveal">
           <span class="process-number">01</span>
           <div>
             <h3>Suunnittelu</h3>
-            <p>Selkeytetään tavoite, rakenne, tyyli ja asiakkaalle tärkein viesti.</p>
+            <p>Tavoite, rakenne, tyyli ja asiakkaalle tärkein viesti kirkastetaan ennen toteutusta.</p>
           </div>
         </article>
         <article class="process-card reveal">
           <span class="process-number">02</span>
           <div>
-            <h3>Toteutus</h3>
-            <p>Rakennan sivun HTML:llä, CSS:llä ja JavaScriptillä niin, että se toimii kaikilla laitteilla.</p>
+            <h3>Design & toteutus</h3>
+            <p>Rakennan responsiivisen sivun modernilla HTML-, CSS- ja JavaScript-pohjalla.</p>
           </div>
         </article>
         <article class="process-card reveal">
           <span class="process-number">03</span>
           <div>
             <h3>Viimeistely</h3>
-            <p>Hion animaatiot, mobiilin, nopeuden ja julkaisuun tarvittavat yksityiskohdat.</p>
+            <p>Hion animaatiot, hoverit, lomakkeet, mobiilin ja pienet yksityiskohdat premium-tasolle.</p>
           </div>
         </article>
       </div>
@@ -145,18 +183,23 @@
 
     <section class="pricing-contact section-shell" id="hinnat" aria-labelledby="pricing-title">
       <div class="pricing-block reveal">
-        <h2 id="pricing-title">Hinnat alkaen</h2>
+        <p class="section-label">05 / HINNAT</p>
+        <h2 id="pricing-title">Projektit alkaen 790 €</h2>
+        <p class="section-copy">
+          Hinnat pidetään kevyesti esillä. Lopullinen hinta riippuu sivun laajuudesta, sisällöstä ja tarvittavista ominaisuuksista.
+        </p>
         <div class="price-grid" id="priceGrid"></div>
       </div>
 
       <aside class="contact-panel reveal" id="yhteys" aria-labelledby="contact-title">
         <div class="contact-info">
-          <h2 id="contact-title">Valmis uudet nettisivut?</h2>
-          <p>Kerro lyhyesti projektistasi, niin palaan sinulle pian.</p>
+          <p class="section-label">06 / YHTEYS</p>
+          <h2 id="contact-title">Rakennetaan sivu, joka näyttää heti laadukkaalta.</h2>
+          <p>Kerro lyhyesti projektistasi, niin teen sinulle selkeän ehdotuksen seuraavasta vaiheesta.</p>
           <ul>
-            <li><span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><rect x="4.5" y="6.5" width="15" height="11" rx="1"/><path d="m5 7 7 6 7-6"/></svg></span> miro@mirowebstudio.fi</li>
-            <li><span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7.4 4.8 9.6 7c.6.6.7 1.5.2 2.2l-1 1.4a12.4 12.4 0 0 0 4.6 4.6l1.4-1c.7-.5 1.6-.4 2.2.2l2.2 2.2c.6.6.6 1.7 0 2.3-.8.8-2 1.3-3.2 1.1-6.1-.8-11-5.7-11.8-11.8-.2-1.2.3-2.4 1.1-3.2.7-.8 1.7-.8 2.1-.2Z"/></svg></span> +358 40 123 4567</li>
-            <li><span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg></span> Helsinki, Suomi</li>
+            <li><span aria-hidden="true">✉</span> miro@mirowebstudio.fi</li>
+            <li><span aria-hidden="true">☎</span> +358 40 123 4567</li>
+            <li><span aria-hidden="true">⌖</span> Helsinki, Suomi</li>
           </ul>
         </div>
 
@@ -173,9 +216,9 @@
           </div>
           <label>
             <span class="sr-only">Projektin kuvaus</span>
-            <textarea required name="message" rows="4" placeholder="Projektin kuvaus"></textarea>
+            <textarea required name="message" rows="5" placeholder="Kuvaile lyhyesti, millaisen sivun tarvitset"></textarea>
           </label>
-          <button class="btn btn-primary" type="submit">Lähetä viesti <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M21 3 10.8 13.2"/><path d="m21 3-6.2 18-4-7.8L3 9.2Z"/></svg></span></button>
+          <button class="btn btn-primary" type="submit">Lähetä viesti <span aria-hidden="true"></span></button>
           <p class="form-status" id="contactStatus" aria-live="polite"></p>
         </form>
       </aside>
@@ -183,14 +226,14 @@
   </main>
 
   <footer class="site-footer section-shell">
-    <p>© <span id="year"></span> Miro Web Studio <span>|</span> Kaikki oikeudet pidätetään.</p>
+    <p>© <span id="year"></span> Miro Web Studio <span>|</span> Premium-nettisivuja yrityksille.</p>
     <div class="footer-socials" aria-label="Sosiaalisen median linkit">
-      <a href="#" aria-label="LinkedIn"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8"/><path d="M6.5 6.5h.01"/><path d="M11 18v-8"/><path d="M11 13.5c0-2 1.2-3.5 3.3-3.5 2 0 3.2 1.4 3.2 3.8V18"/></svg></a>
-      <a href="#" aria-label="Instagram"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.2"/><path d="M17 7.2h.01"/></svg></a>
-      <a href="#" aria-label="GitHub"><svg class="site-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8a9.2 9.2 0 0 0-2.9 17.9c.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1.1 1.6 1.1.9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.7-1.4-2.2-.3-4.6-1.1-4.6-4.8 0-1.1.4-1.9 1-2.6-.1-.3-.5-1.3.1-2.6 0 0 .9-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.8-1.3 2.7-1 2.7-1 .6 1.3.2 2.3.1 2.6.7.7 1 1.5 1 2.6 0 3.7-2.3 4.5-4.6 4.8.4.3.8 1 .8 2v2.9c0 .3.2.6.8.5A9.2 9.2 0 0 0 12 2.8Z"/></svg></a>
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="Instagram">ig</a>
+      <a href="#" aria-label="GitHub">gh</a>
     </div>
   </footer>
 
-  <script type="module" src="scripts/main.js?v=10"></script>
+  <script type="module" src="scripts/main.js?v=12"></script>
 </body>
 </html>
