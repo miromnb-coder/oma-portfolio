@@ -149,7 +149,7 @@ export function setupNavigation() {
 
   links.forEach((link) => link.addEventListener("click", closeMenu));
 
-  const sections = ["top", "projektit", "palvelut", "hinnat", "minusta", "yhteys"]
+  const sections = ["top", "projektit", "palvelut", "prosessi", "hinnat", "minusta", "yhteys"]
     .map((id) => document.getElementById(id))
     .filter(Boolean);
 
@@ -215,7 +215,7 @@ export function setupQuoteModal() {
         <form class="contact-form" id="quoteForm">
           <div class="form-row">
             <label><span class="sr-only">Nimi</span><input required name="name" placeholder="Nimi" autocomplete="name" /></label>
-            <label><span class="sr-only">Sähköposti</span><input required type="email" name="email" placeholder="Sähköposti" autocomplete="email" /></label>
+            <label><span class="sr-only">Sähköposti</span><input required type="email" name="email" placeholder="Sähköposti" /></label>
           </div>
           <label><span class="sr-only">Projektin kuvaus</span><textarea required name="message" rows="4" placeholder="Kuvaile projektisi lyhyesti"></textarea></label>
           <button class="btn btn-primary" type="submit">Lähetä tarjouspyyntö</button>
