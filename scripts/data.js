@@ -24,17 +24,17 @@ export const projects = [
 
 export const services = [
   {
-    icon: "▣",
+    icon: "monitor",
     title: "Yrityssivut",
     text: "Kokonaiset yrityssivut, jotka esittelevät palvelusi ja luovat luottamusta."
   },
   {
-    icon: "↗",
+    icon: "rocket",
     title: "Landing page",
     text: "Tehokkaat ja konversio-optimoidut laskeutumissivut kampanjoihisi."
   },
   {
-    icon: "▯",
+    icon: "phone",
     title: "Responsiivinen design",
     text: "Sivustot, jotka toimivat moitteettomasti kaikilla laitteilla."
   }
@@ -42,22 +42,22 @@ export const services = [
 
 export const reasons = [
   {
-    icon: "⚡",
+    icon: "lightning",
     title: "Nopea toimitus",
     text: "Toimitan projektit sovitussa aikataulussa."
   },
   {
-    icon: "✓",
+    icon: "check",
     title: "Kiinteä hinta",
     text: "Sovitaan hinta selkeästi ennen työn aloittamista."
   },
   {
-    icon: "●",
+    icon: "chat",
     title: "Selkeä viestintä",
     text: "Pidän sinut ajan tasalla koko projektin ajan."
   },
   {
-    icon: "◉",
+    icon: "palette",
     title: "Moderni design",
     text: "Tyylikkäät ja ajanmukaiset ratkaisut yrityksesi ilmeeseen."
   }
