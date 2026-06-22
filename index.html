@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Web Studio | Laadukkaita nettisivuja yrityksille</title>
+  <meta name="description" content="Premium-henkisiä, nopeita ja mobiiliystävällisiä nettisivuja moderneille yrityksille." />
+  <meta name="theme-color" content="#F7F8F8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="site-header" data-header>
+    <div class="page-shell header-inner">
+      <a class="brand" href="#top" aria-label="Web Studio etusivulle">WEB STUDIO</a>
+
+      <nav class="desktop-nav" aria-label="Päävalikko">
+        <a href="#palvelut">Palvelut</a>
+        <a href="#tyonaytteet">Työnäytteet</a>
+        <a href="#prosessi">Prosessi</a>
+        <a href="#hinnoittelu">Hinnoittelu</a>
+        <a href="#yhteys">Tietoa meistä</a>
+      </nav>
+
+      <a class="header-cta" href="#yhteys">Ota yhteyttä <span aria-hidden="true">↗</span></a>
+
+      <button class="menu-toggle" type="button" aria-label="Avaa valikko" aria-controls="mobileMenu" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobiilivalikko" data-mobile-menu>
+      <a href="#palvelut">Palvelut</a>
+      <a href="#tyonaytteet">Työnäytteet</a>
+      <a href="#prosessi">Prosessi</a>
+      <a href="#hinnoittelu">Hinnoittelu</a>
+      <a href="#yhteys">Ota yhteyttä</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero page-shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="section-label"><span></span> WEB DESIGN / 2026</p>
+        <h1 id="hero-title">Nettisivuja, jotka tuntuvat heti laadukkailta<span class="accent-dot">.</span></h1>
+        <p class="hero-lead">Suunnittelemme ja toteutamme nopeat, visuaalisesti vahvat ja hakukoneystävälliset verkkosivut, jotka tukevat liiketoimintaasi ja kasvattavat vaikutustasi verkossa.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#tyonaytteet">Katso työnäytteet <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#yhteys">Pyydä tarjous <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal" aria-label="Esimerkki asiakkaalle tehdystä nettisivusta">
+        <div class="mockup-stage">
+          <article class="laptop-frame" aria-label="Kahvila Saaga desktop-sivuston esikatselu">
+            <div class="mockup-browser">
+              <div class="mockup-topbar">
+                <p class="mockup-logo">KAHVILA<br />SAAGA</p>
+                <nav aria-label="Mockup-valikko">
+                  <a href="#">Etusivu</a>
+                  <a href="#">Menu</a>
+                  <a href="#">Meistä</a>
+                  <a href="#">Yhteystiedot</a>
+                </nav>
+                <button type="button">Varaa pöytä</button>
+              </div>
+
+              <div class="mockup-hero-grid">
+                <div>
+                  <p class="mockup-kicker">Tervetuloa Kahvila Saagaan</p>
+                  <h2>Paikallinen kahvila tunnelmalla ja maulla.</h2>
+                  <p>Tuoretta kahvia, käsintehtyjä leivonnaisia ja rentoa palvelua Kauppatorin kupeessa.</p>
+                  <div class="mockup-actions">
+                    <span>Tutustu menuun ↗</span>
+                    <span>Varaa pöytä ↗</span>
+                  </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=84" alt="Tunnelmallinen kahvilan sisustus" />
+              </div>
+
+              <div class="mockup-features" aria-hidden="true">
+                <div><span>✦</span><strong>Paikalliset raaka-aineet</strong><small>Sesongin parhaat.</small></div>
+                <div><span>⌂</span><strong>Käsintehty & tuore</strong><small>Joka päivä.</small></div>
+                <div><span>♡</span><strong>Rentoa tunnelmaa</strong><small>Tule viihtymään.</small></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="phone-frame" aria-label="Kahvila Saaga mobiilisivuston esikatselu">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="phone-screen">
+              <div class="phone-nav">
+                <p>KAHVILA<br />SAAGA</p>
+                <span aria-hidden="true">☰</span>
+              </div>
+              <p class="mockup-kicker">Tervetuloa Kahvila Saagaan</p>
+              <h3>Hyvää kahvia.<br />Joka päivä.</h3>
+              <p>Tervetuloa nauttimaan laadukkaista kahveista ja herkullisista leivonnaisista.</p>
+              <a href="#">Tutustu menuun ↗</a>
+              <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=520&q=84" alt="Kahvikuppi ja leivonnaisia" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section-space" id="tyonaytteet" aria-labelledby="work-title">
+      <div class="page-shell">
+        <div class="work-layout">
+          <div class="section-intro reveal">
+            <p class="section-label"><span></span> 02 / TYÖNÄYTTEET</p>
+            <h2 id="work-title">Työnäytteet, jotka näyttävät laadun käytännössä<span class="accent-dot">.</span></h2>
+            <p>Jokainen projekti suunnitellaan tavoitteellisesti, visuaalisesti vahvasti ja teknisesti kestävällä pohjalla.</p>
+            <a class="btn btn-ghost" href="#projektit">Kaikki projektit <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <article class="case-card case-card-featured reveal" id="projektit">
+            <div class="case-meta">
+              <span class="pill">PÄÄPROJEKTI</span>
+              <p class="case-year">2026</p>
+              <h3>Kahvila Saaga</h3>
+              <p>Tunnelmallinen verkkosivusto ja brändi pienelle kaupunkikahvilalle.</p>
+              <a class="btn btn-ghost" href="#yhteys">Avaa case <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="case-preview case-preview-large">
+              <div class="case-laptop mini-site cafe-site">
+                <div class="mini-nav"><strong>KAHVILA<br />SAAGA</strong><span>Etusivu Menu Meistä</span></div>
+                <div class="mini-grid">
+                  <div><h4>Paikallinen kahvila tunnelmalla ja maulla.</h4><p>Tuoretta kahvia ja käsintehtyjä leivonnaisia.</p><button>Tutustu menuun</button></div>
+                  <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=82" alt="Kahvila Saaga sivuston kuva" />
+                </div>
+              </div>
+              <div class="case-phone cafe-phone"><span>KAHVILA SAAGA</span><strong>Hyvää kahvia.<br />Joka päivä.</strong><img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=420&q=82" alt="Kahvi ja leivonnainen" /></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card reveal">
+            <div class="case-meta">
+              <p class="case-year">2026</p>
+              <h3>NordClean</h3>
+              <p>Selkeä ja luotettava sivusto siivouspalveluyritykselle.</p>
+              <a class="case-arrow" href="#yhteys" aria-label="Avaa NordClean case">↗</a>
+            </div>
+            <div class="case-preview small-preview clean-preview">
+              <div class="case-phone"><span>NordClean</span><strong>Puhdasta, johon voit luottaa.</strong></div>
+            </div>
+          </article>
+
+          <article class="case-card reveal">
+            <div class="case-meta">
+              <p class="case-year">2025</p>
+              <h3>Studio Aalto</h3>
+              <p>Moderni portfolio ja brändi arkkitehtuuritoimistolle.</p>
+              <a class="case-arrow" href="#yhteys" aria-label="Avaa Studio Aalto case">↗</a>
+            </div>
+            <div class="case-preview small-preview architecture-preview">
+              <div class="case-phone"><span>STUDIO AALTO</span><strong>Ajateltua arkkitehtuuria.</strong></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-process section-space" id="palvelut" aria-labelledby="services-title">
+      <div class="page-shell">
+        <div class="split-layout services-block">
+          <div class="section-intro reveal">
+            <p class="section-label"><span></span> PALVELUT</p>
+            <h2 id="services-title">Digitaaliset ratkaisut, jotka kasvattavat yritystäsi<span class="accent-dot">.</span></h2>
+            <p>Suunnittelemme ja toteutamme näyttävät, nopeat ja hakukoneystävälliset verkkosivut, jotka tuovat tuloksia.</p>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card reveal">
+              <span class="icon-bubble" aria-hidden="true">▧</span>
+              <span class="card-number">01</span>
+              <h3>Yrityssivut</h3>
+              <p>Laadukkaat ja räätälöidyt yrityssivut, jotka vahvistavat brändiäsi ja kasvattavat luottamusta.</p>
+              <a href="#yhteys">Lue lisää <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="service-card reveal">
+              <span class="icon-bubble" aria-hidden="true">↟</span>
+              <span class="card-number">02</span>
+              <h3>Landing page</h3>
+              <p>Konversioon optimoidut landing sivut kampanjoihin ja tuotelanseerauksiin, jotka tuottavat tuloksia.</p>
+              <a href="#yhteys">Lue lisää <span aria-hidden="true">↗</span></a>
+            </article>
+            <article class="service-card reveal">
+              <span class="icon-bubble" aria-hidden="true">▯</span>
+              <span class="card-number">03</span>
+              <h3>Mobiiliystävällinen design</h3>
+              <p>Responsiiviset ja mobiiliystävälliset ratkaisut, jotka toimivat saumattomasti kaikilla laitteilla.</p>
+              <a href="#yhteys">Lue lisää <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+        </div>
+
+        <div class="split-layout process-block" id="prosessi">
+          <div class="section-intro reveal">
+            <p class="section-label"><span></span> PROSESSI</p>
+            <h2>Selkeä prosessi, parempia tuloksia<span class="accent-dot">.</span></h2>
+            <p>Kolme selkeää vaihetta ideasta valmiiseen verkkosivuun – tehokkaasti ja läpinäkyvästi.</p>
+          </div>
+
+          <div class="process-timeline">
+            <article class="process-card reveal">
+              <span class="process-number">01</span>
+              <div class="process-content"><span class="icon-bubble" aria-hidden="true">⌕</span><h3>Suunnittelu</h3><p>Kartoitamme tavoitteesi ja kohderyhmäsi. Suunnittelemme rakenteen, sisällöt ja visuaalisen ilmeen, jotka tukevat tavoitteitasi.</p></div>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-number">02</span>
+              <div class="process-content"><span class="icon-bubble" aria-hidden="true">⌘</span><h3>Toteutus</h3><p>Rakennamme nopeat, turvalliset ja hakukoneystävälliset verkkosivut modernilla teknologialla.</p></div>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-number">03</span>
+              <div class="process-content"><span class="icon-bubble" aria-hidden="true">✓</span><h3>Viimeistely</h3><p>Testaamme, hiomme ja optimoimme jokaisen yksityiskohdan ennen julkaisua – valmiina tuottamaan tuloksia.</p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-contact section-space" id="hinnoittelu" aria-labelledby="pricing-title">
+      <div class="page-shell pricing-contact-grid">
+        <div class="pricing-block reveal">
+          <p class="section-label"><span></span> 04 / HINNAT</p>
+          <h2 id="pricing-title">Projektit alkaen 790 €<span class="accent-dot">.</span></h2>
+          <p>Selkeät paketit, kiinteä hinnoittelu ja läpinäkyvä prosessi. Saat ammattimaisen sivuston, joka tukee liiketoimintaasi ja kasvattaa vaikutustasi verkossa.</p>
+
+          <div class="price-grid">
+            <article class="price-card reveal">
+              <span class="price-icon" aria-hidden="true">▧</span>
+              <h3>Landing page</h3>
+              <span class="price-label">alkaen</span>
+              <strong class="price">790 €</strong>
+              <p>Yksi tehokas sivu kampanjalle, tuotteelle tai palvelulle.</p>
+              <ul>
+                <li>Suunnittelu ja toteutus</li>
+                <li>Responsiivinen ja nopea</li>
+                <li>Yhteydenottolomake</li>
+                <li>Perus-SEO ja analytiikka</li>
+              </ul>
+              <a class="btn btn-ghost" href="#yhteys">Tutustu tarkemmin <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="price-card featured reveal">
+              <span class="price-icon" aria-hidden="true">▥</span>
+              <span class="popular">Suosituin</span>
+              <h3>Yrityssivu</h3>
+              <span class="price-label">alkaen</span>
+              <strong class="price">1 490 €</strong>
+              <p>Usean sivun yrityssivusto, joka esittelee yrityksesi selkeästi.</p>
+              <ul>
+                <li>5–8 sivua</li>
+                <li>Suunnittelu ja toteutus</li>
+                <li>Responsiivinen ja nopea</li>
+                <li>Perus-SEO ja analytiikka</li>
+                <li>Yhteydenottolomake</li>
+              </ul>
+              <a class="btn btn-primary" href="#yhteys">Tutustu tarkemmin <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article class="price-card reveal">
+              <span class="price-icon" aria-hidden="true">▱</span>
+              <h3>Laajempi sivusto</h3>
+              <span class="price-label">alkaen</span>
+              <strong class="price">2 990 €</strong>
+              <p>Räätälöidyt sivustot ja vaativammat kokonaisuudet.</p>
+              <ul>
+                <li>Räätälöity suunnittelu</li>
+                <li>Laajempi sisältörakenne</li>
+                <li>Integraatiot ja lisätoiminnot</li>
+                <li>Perus-SEO ja analytiikka</li>
+                <li>Koulutus ja tuki</li>
+              </ul>
+              <a class="btn btn-ghost" href="#yhteys">Tutustu tarkemmin <span aria-hidden="true">↗</span></a>
+            </article>
+          </div>
+
+          <div class="benefit-strip reveal" aria-label="Hyödyt">
+            <div><span>♢</span><strong>Kiinteä hinta</strong><small>Ei yllätyksiä.</small></div>
+            <div><span>◷</span><strong>Nopea toimitus</strong><small>Selkeä aikataulu.</small></div>
+            <div><span>✓</span><strong>Laatu edellä</strong><small>Kestäviä ratkaisuja.</small></div>
+            <div><span>♧</span><strong>Tuki mukana</strong><small>Myös julkaisun jälkeen.</small></div>
+          </div>
+          <p class="pricing-note">Hinnat ovat alv 0 %. Lopullinen hinta määräytyy projektin laajuuden mukaan.</p>
+        </div>
+
+        <aside class="contact-panel reveal" id="yhteys" aria-labelledby="contact-title">
+          <p class="section-label"><span></span> 05 / YHTEYS</p>
+          <h2 id="contact-title">Rakennetaan sivu, joka näyttää heti laadukkaalta<span class="accent-dot">.</span></h2>
+          <p>Kerro lyhyesti projektistasi, niin palaamme asiaan mahdollisimman pian ja suunnitellaan yhdessä ratkaisu, joka vie sinut eteenpäin.</p>
+
+          <div class="contact-content">
+            <div class="contact-details">
+              <div><span aria-hidden="true">✉</span><strong>Sähköposti</strong><a href="mailto:hello@webstudio.fi">hello@webstudio.fi</a></div>
+              <div><span aria-hidden="true">☎</span><strong>Puhelin</strong><a href="tel:+358401234567">040 123 4567</a></div>
+              <div><span aria-hidden="true">⌖</span><strong>Sijainti</strong><p>Helsinki, Suomi</p></div>
+              <div class="privacy-card"><span aria-hidden="true">▢</span><small>Tietosi käsitellään luottamuksellisesti. Emme jaa tietojasi eteenpäin.</small></div>
+            </div>
+
+            <form class="contact-form" data-contact-form>
+              <div class="form-row">
+                <label><span class="sr-only">Nimi</span><input name="name" placeholder="Nimi" autocomplete="name" required /></label>
+                <label><span class="sr-only">Sähköposti</span><input name="email" type="email" placeholder="Sähköposti" autocomplete="email" required /></label>
+              </div>
+              <label><span class="sr-only">Kiinnostava palvelu</span><select name="service" required><option value="">Kiinnostava palvelu</option><option>Landing page</option><option>Yrityssivu</option><option>Laajempi sivusto</option></select></label>
+              <label><span class="sr-only">Kuvaile projektia</span><textarea name="message" rows="5" placeholder="Kuvaile projektia&#10;Mitä haluat saavuttaa ja millaisia toimintoja tarvitset?" required></textarea></label>
+              <button class="btn btn-primary" type="submit">Lähetä viesti <span aria-hidden="true">↗</span></button>
+              <p class="form-status" data-form-status aria-live="polite">Vastaamme yleensä 24 tunnin sisällä.</p>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-inner">
+      <p>© <span data-year></span> WEB STUDIO. Laadukkaita nettisivuja moderneille yrityksille.</p>
+      <a href="#top">Takaisin ylös ↑</a>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>
