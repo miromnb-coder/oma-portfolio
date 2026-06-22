@@ -1,4 +1,5 @@
 import { projects } from "./data.js";
+import { iconSvg } from "./icons.js";
 
 let activeModal = null;
 
@@ -24,7 +25,7 @@ export function renderServices(items, container) {
 
   container.innerHTML = items.map((item) => `
     <article class="service-card reveal">
-      <span class="icon-bubble" aria-hidden="true">${item.icon}</span>
+      <span class="icon-bubble" aria-hidden="true">${iconSvg(item.icon)}</span>
       <h3>${item.title}</h3>
       <p>${item.text}</p>
     </article>
@@ -36,7 +37,7 @@ export function renderReasons(items, container) {
 
   container.innerHTML = items.map((item) => `
     <article class="why-card reveal">
-      <span class="icon-bubble" aria-hidden="true">${item.icon}</span>
+      <span class="icon-bubble" aria-hidden="true">${iconSvg(item.icon)}</span>
       <h3>${item.title}</h3>
       <p>${item.text}</p>
     </article>
