@@ -1,0 +1,721 @@
+/* Miro Web Studio 2.0 — dark premium / creative studio redesign */
+
+:root {
+  --studio-bg: #070a0e;
+  --studio-bg-2: #0b1117;
+  --studio-panel: rgba(255,255,255,.065);
+  --studio-panel-strong: rgba(255,255,255,.105);
+  --studio-line: rgba(255,255,255,.12);
+  --studio-line-soft: rgba(255,255,255,.08);
+  --studio-text: #f6fbfb;
+  --studio-muted: rgba(246,251,251,.66);
+  --studio-muted-2: rgba(246,251,251,.45);
+  --studio-teal: #24c7b8;
+  --studio-teal-dark: #00786f;
+  --studio-glow: rgba(36,199,184,.22);
+  --studio-shadow: 0 28px 90px rgba(0,0,0,.42);
+  --studio-radius: 28px;
+  --studio-page: 1180px;
+}
+
+html,
+body {
+  overflow-x: hidden !important;
+  background: var(--studio-bg) !important;
+}
+
+body.studio-v2 {
+  color: var(--studio-text);
+  background:
+    radial-gradient(circle at 82% 8%, rgba(36,199,184,.22), transparent 28rem),
+    radial-gradient(circle at 16% 18%, rgba(72,92,255,.10), transparent 24rem),
+    radial-gradient(circle at 72% 78%, rgba(36,199,184,.10), transparent 26rem),
+    linear-gradient(180deg, #070a0e 0%, #0b1117 46%, #070a0e 100%) !important;
+}
+
+body.studio-v2::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,.8), transparent 78%);
+}
+
+body.studio-v2 .section-shell,
+body.studio-v2 .header-inner {
+  width: min(var(--studio-page), calc(100% - 56px));
+  max-width: var(--studio-page);
+  margin-inline: auto;
+}
+
+body.studio-v2 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,10,14,.72);
+  border-bottom: 1px solid var(--studio-line-soft);
+  backdrop-filter: blur(22px);
+}
+
+body.studio-v2 .header-inner {
+  min-height: 84px;
+  padding-inline: 0 !important;
+  gap: 28px;
+}
+
+body.studio-v2 .brand-title {
+  color: var(--studio-teal);
+  font-size: 1.85rem;
+  letter-spacing: .15em;
+  text-shadow: 0 0 26px rgba(36,199,184,.18);
+}
+
+body.studio-v2 .brand-subtitle {
+  color: rgba(246,251,251,.86);
+  font-size: .68rem;
+  letter-spacing: .22em;
+}
+
+body.studio-v2 .desktop-nav {
+  gap: clamp(24px, 3vw, 42px);
+  font-size: .82rem;
+}
+
+body.studio-v2 .desktop-nav a,
+body.studio-v2 .mobile-menu a {
+  color: rgba(246,251,251,.68);
+}
+
+body.studio-v2 .desktop-nav a:hover,
+body.studio-v2 .desktop-nav a.active {
+  color: var(--studio-text);
+}
+
+body.studio-v2 .desktop-nav a.active::after {
+  background: var(--studio-teal);
+  box-shadow: 0 0 18px rgba(36,199,184,.44);
+}
+
+body.studio-v2 .header-cta,
+body.studio-v2 .btn-primary,
+body.studio-v2 .contact-form .btn-primary {
+  color: #04100f;
+  background: linear-gradient(135deg, #62f0df 0%, #16b7aa 48%, #087f76 100%);
+  box-shadow: 0 18px 44px rgba(36,199,184,.22);
+}
+
+body.studio-v2 .btn-secondary {
+  color: var(--studio-text);
+  background: rgba(255,255,255,.055);
+  border: 1px solid var(--studio-line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+body.studio-v2 .menu-toggle span {
+  background: var(--studio-text);
+}
+
+body.studio-v2 .hero {
+  width: min(var(--studio-page), calc(100% - 56px));
+  min-height: clamp(660px, 86vh, 850px);
+  padding: 82px 0 72px !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+  align-items: center;
+  gap: 54px;
+  background: transparent !important;
+  border: 0;
+}
+
+body.studio-v2 .hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+body.studio-v2 .hero-content::before {
+  content: "01 / MIRO WEB STUDIO";
+  display: block;
+  margin-bottom: 22px;
+  color: rgba(246,251,251,.38);
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+
+body.studio-v2 .eyebrow {
+  width: max-content;
+  max-width: 100%;
+  min-height: 36px;
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  border: 1px solid rgba(36,199,184,.22);
+  border-radius: 999px;
+  color: var(--studio-teal);
+  background: rgba(36,199,184,.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 18px 44px rgba(0,0,0,.16);
+  font-size: .72rem;
+  letter-spacing: .16em;
+}
+
+body.studio-v2 .eyebrow span {
+  background: var(--studio-teal);
+  box-shadow: 0 0 18px rgba(36,199,184,.7);
+}
+
+body.studio-v2 .hero h1 {
+  max-width: 760px;
+  color: var(--studio-text);
+  font-size: clamp(4.85rem, 7.1vw, 7.2rem);
+  line-height: .91;
+  letter-spacing: -.095em;
+  font-weight: 900;
+}
+
+body.studio-v2 .hero-text {
+  max-width: 610px;
+  margin-top: 26px;
+  color: var(--studio-muted);
+  font-size: clamp(1rem, 1.28vw, 1.18rem);
+  line-height: 1.72;
+}
+
+body.studio-v2 .hero-actions {
+  margin-top: 34px;
+  gap: 14px;
+}
+
+body.studio-v2 .hero-actions .btn,
+body.studio-v2 .header-cta {
+  min-height: 52px;
+  border-radius: 999px;
+  padding-inline: 26px;
+}
+
+body.studio-v2 .trust-row {
+  margin-top: 34px;
+  gap: 18px;
+  color: rgba(246,251,251,.78);
+}
+
+body.studio-v2 .trust-row span {
+  padding: 10px 13px;
+  border: 1px solid var(--studio-line-soft);
+  border-radius: 999px;
+  background: rgba(255,255,255,.045);
+  font-size: .82rem;
+}
+
+body.studio-v2 .trust-icon {
+  color: var(--studio-teal);
+}
+
+body.studio-v2 .hero-showcase {
+  position: relative;
+  min-height: 540px;
+  border: 1px solid var(--studio-line);
+  border-radius: 42px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035)),
+    radial-gradient(circle at 70% 18%, rgba(36,199,184,.22), transparent 18rem);
+  box-shadow: var(--studio-shadow), inset 0 1px 0 rgba(255,255,255,.14);
+  overflow: hidden;
+}
+
+body.studio-v2 .hero-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 32px;
+  pointer-events: none;
+}
+
+body.studio-v2 .hero-showcase::after {
+  content: "Parempi näkyvyys. Enemmän asiakkaita.";
+  position: absolute;
+  left: 32px;
+  bottom: 30px;
+  max-width: 270px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 20px;
+  color: var(--studio-text);
+  background: rgba(7,10,14,.52);
+  box-shadow: 0 20px 55px rgba(0,0,0,.28);
+  backdrop-filter: blur(18px);
+  font-size: .9rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+body.studio-v2 .hero-showcase-image {
+  width: min(110%, 760px);
+  max-height: none;
+  filter: drop-shadow(0 34px 62px rgba(0,0,0,.42));
+  transform: translate(22px, -6px) scale(1.06);
+}
+
+body.studio-v2 .projects,
+body.studio-v2 .services-why,
+body.studio-v2 .pricing-contact,
+body.studio-v2 .process {
+  width: min(var(--studio-page), calc(100% - 56px));
+  padding: 90px 0 0 !important;
+  background: transparent !important;
+}
+
+body.studio-v2 .section-heading {
+  margin-bottom: 28px;
+  align-items: end;
+}
+
+body.studio-v2 .section-heading h2,
+body.studio-v2 .services-block h2,
+body.studio-v2 .why-block h2,
+body.studio-v2 .pricing-block h2,
+body.studio-v2 .contact-panel h2,
+body.studio-v2 .process h2 {
+  color: var(--studio-text);
+  font-size: clamp(2.45rem, 4vw, 4.2rem);
+  line-height: .95;
+  letter-spacing: -.08em;
+  font-weight: 900;
+}
+
+body.studio-v2 .text-link {
+  color: var(--studio-teal);
+}
+
+body.studio-v2 .project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+}
+
+body.studio-v2 .project-card,
+body.studio-v2 .service-card,
+body.studio-v2 .why-card,
+body.studio-v2 .price-card,
+body.studio-v2 .process-card,
+body.studio-v2 .contact-panel {
+  border: 1px solid var(--studio-line);
+  background: linear-gradient(145deg, rgba(255,255,255,.105), rgba(255,255,255,.035));
+  box-shadow: 0 24px 70px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter: blur(18px);
+}
+
+body.studio-v2 .project-card {
+  min-height: 430px;
+  border-radius: 28px;
+  transform: translateY(0);
+}
+
+body.studio-v2 .project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 36px 90px rgba(0,0,0,.28), 0 0 60px rgba(36,199,184,.10);
+}
+
+body.studio-v2 .project-image {
+  height: 245px;
+  padding: 22px;
+  border-radius: 26px 26px 0 0;
+}
+
+body.studio-v2 .project-image span {
+  display: inline-flex;
+  padding: 8px 12px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(12px);
+}
+
+body.studio-v2 .project-body {
+  padding: 26px;
+}
+
+body.studio-v2 .project-body h3 {
+  color: var(--studio-text);
+  font-size: 1.55rem;
+}
+
+body.studio-v2 .project-body p {
+  margin-top: 10px;
+  color: var(--studio-muted);
+  font-size: .98rem;
+  line-height: 1.62;
+}
+
+body.studio-v2 .tags {
+  margin-top: 22px;
+}
+
+body.studio-v2 .tags span {
+  color: var(--studio-teal);
+  border: 1px solid rgba(36,199,184,.18);
+  background: rgba(36,199,184,.09);
+}
+
+body.studio-v2 .services-why {
+  grid-template-columns: 1fr;
+  gap: 72px;
+}
+
+body.studio-v2 .service-grid {
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+body.studio-v2 .service-card {
+  min-height: 230px;
+  padding: 30px;
+  border-radius: 26px;
+}
+
+body.studio-v2 .icon-bubble {
+  width: 58px;
+  height: 58px;
+  color: var(--studio-teal);
+  border-color: rgba(36,199,184,.22);
+  background: rgba(36,199,184,.10);
+  box-shadow: 0 0 34px rgba(36,199,184,.12);
+}
+
+body.studio-v2 .service-card h3,
+body.studio-v2 .why-card h3 {
+  color: var(--studio-text);
+  font-size: 1.16rem;
+}
+
+body.studio-v2 .service-card p,
+body.studio-v2 .why-card p {
+  color: var(--studio-muted);
+  font-size: .92rem;
+  line-height: 1.6;
+}
+
+body.studio-v2 .why-grid {
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+body.studio-v2 .why-card {
+  min-height: 190px;
+  padding: 28px 18px;
+  border-radius: 24px;
+}
+
+body.studio-v2 .process {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 34px;
+  align-items: start;
+}
+
+body.studio-v2 .process-copy p {
+  max-width: 430px;
+  margin-top: 18px;
+  color: var(--studio-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+body.studio-v2 .process-grid {
+  display: grid;
+  gap: 14px;
+}
+
+body.studio-v2 .process-card {
+  display: grid;
+  grid-template-columns: 76px minmax(0,1fr);
+  gap: 22px;
+  padding: 24px;
+  border-radius: 24px;
+}
+
+body.studio-v2 .process-number {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(36,199,184,.25);
+  border-radius: 18px;
+  color: var(--studio-teal);
+  background: rgba(36,199,184,.10);
+  font-size: .92rem;
+  font-weight: 900;
+}
+
+body.studio-v2 .process-card h3 {
+  color: var(--studio-text);
+  font-size: 1.2rem;
+}
+
+body.studio-v2 .process-card p {
+  margin-top: 7px;
+  color: var(--studio-muted);
+  line-height: 1.6;
+}
+
+body.studio-v2 .pricing-contact {
+  grid-template-columns: .9fr 1.1fr;
+  gap: 22px;
+  align-items: stretch;
+  padding-bottom: 74px !important;
+}
+
+body.studio-v2 .price-grid {
+  margin-top: 26px;
+  gap: 14px;
+}
+
+body.studio-v2 .price-card {
+  min-height: 210px;
+  border-radius: 24px;
+  padding: 26px 20px;
+}
+
+body.studio-v2 .price-card h3,
+body.studio-v2 .price {
+  color: var(--studio-text);
+}
+
+body.studio-v2 .price-card p,
+body.studio-v2 .check-line,
+body.studio-v2 .price small {
+  color: var(--studio-muted);
+}
+
+body.studio-v2 .price-badge {
+  background: linear-gradient(135deg, #62f0df, #087f76);
+  color: #04100f;
+}
+
+body.studio-v2 .contact-panel {
+  padding: 36px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 92% 88%, rgba(36,199,184,.18), transparent 15rem),
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.035));
+}
+
+body.studio-v2 .contact-info p,
+body.studio-v2 .contact-info li {
+  color: var(--studio-muted);
+}
+
+body.studio-v2 .contact-info li span {
+  color: var(--studio-teal);
+}
+
+body.studio-v2 .contact-form input,
+body.studio-v2 .contact-form textarea {
+  color: var(--studio-text);
+  border: 1px solid var(--studio-line);
+  background: rgba(0,0,0,.20);
+}
+
+body.studio-v2 .contact-form input::placeholder,
+body.studio-v2 .contact-form textarea::placeholder {
+  color: rgba(246,251,251,.42);
+}
+
+body.studio-v2 .site-footer {
+  color: var(--studio-muted-2);
+  border-top: 1px solid var(--studio-line-soft);
+  background: transparent;
+}
+
+body.studio-v2 .footer-socials a {
+  color: var(--studio-muted);
+}
+
+@media (max-width: 980px) {
+  body.studio-v2 .section-shell,
+  body.studio-v2 .header-inner,
+  body.studio-v2 .hero,
+  body.studio-v2 .projects,
+  body.studio-v2 .services-why,
+  body.studio-v2 .pricing-contact,
+  body.studio-v2 .process,
+  body.studio-v2 .site-footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  body.studio-v2 .header-inner {
+    min-height: 78px;
+    padding-inline: 22px !important;
+  }
+
+  body.studio-v2 .mobile-menu {
+    background: rgba(7,10,14,.92);
+    border-color: var(--studio-line);
+    backdrop-filter: blur(18px);
+  }
+
+  body.studio-v2 .mobile-menu a {
+    color: var(--studio-text);
+    background: rgba(255,255,255,.06);
+  }
+
+  body.studio-v2 .hero {
+    min-height: auto;
+    padding: 52px 22px 54px !important;
+    display: block !important;
+  }
+
+  body.studio-v2 .hero-content::before {
+    margin-bottom: 18px;
+    font-size: .68rem;
+  }
+
+  body.studio-v2 .eyebrow {
+    font-size: .58rem;
+  }
+
+  body.studio-v2 .hero h1 {
+    font-size: clamp(3.35rem, 14vw, 5.25rem);
+    line-height: .92;
+  }
+
+  body.studio-v2 .hero-text {
+    font-size: 1.05rem;
+  }
+
+  body.studio-v2 .hero-showcase {
+    display: none !important;
+  }
+
+  body.studio-v2 .hero-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.studio-v2 .trust-row {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  body.studio-v2 .trust-row span {
+    width: max-content;
+  }
+
+  body.studio-v2 .projects,
+  body.studio-v2 .services-why,
+  body.studio-v2 .pricing-contact,
+  body.studio-v2 .process {
+    padding: 62px 22px 0 !important;
+  }
+
+  body.studio-v2 .section-heading h2,
+  body.studio-v2 .services-block h2,
+  body.studio-v2 .why-block h2,
+  body.studio-v2 .pricing-block h2,
+  body.studio-v2 .contact-panel h2,
+  body.studio-v2 .process h2 {
+    font-size: clamp(2.35rem, 11vw, 3.4rem);
+  }
+
+  body.studio-v2 .project-grid,
+  body.studio-v2 .service-grid,
+  body.studio-v2 .why-grid,
+  body.studio-v2 .price-grid,
+  body.studio-v2 .pricing-contact,
+  body.studio-v2 .process {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.studio-v2 .project-card {
+    min-height: 0;
+  }
+
+  body.studio-v2 .project-image {
+    height: 245px !important;
+  }
+
+  body.studio-v2 .service-card {
+    min-height: 0 !important;
+    display: grid !important;
+    grid-template-columns: 64px minmax(0, 1fr);
+    align-items: center;
+    text-align: left;
+    gap: 18px;
+  }
+
+  body.studio-v2 .service-card h3 {
+    margin-top: 0;
+  }
+
+  body.studio-v2 .why-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  body.studio-v2 .why-card p {
+    display: none;
+  }
+
+  body.studio-v2 .process-card {
+    grid-template-columns: 58px minmax(0,1fr);
+    padding: 20px;
+  }
+
+  body.studio-v2 .pricing-contact {
+    gap: 34px !important;
+    padding-bottom: 54px !important;
+  }
+
+  body.studio-v2 .price-card {
+    min-height: 0;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "title price" "subtitle price" "check check";
+    text-align: left;
+    align-items: center;
+  }
+
+  body.studio-v2 .price-card h3 { grid-area: title; }
+  body.studio-v2 .price-card p { grid-area: subtitle; }
+  body.studio-v2 .price { grid-area: price; margin: 0 0 0 18px; white-space: nowrap; }
+  body.studio-v2 .check-line { grid-area: check; justify-content: flex-start; margin-top: 16px; }
+
+  body.studio-v2 .contact-panel {
+    grid-template-columns: 1fr;
+    padding: 28px 22px;
+  }
+
+  body.studio-v2 .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  body.studio-v2 .site-footer {
+    padding: 24px 22px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  body.studio-v2 .header-cta {
+    display: none !important;
+  }
+
+  body.studio-v2 .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  body.studio-v2 .why-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.studio-v2 .project-image {
+    height: 205px !important;
+  }
+}
