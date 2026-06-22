@@ -136,8 +136,8 @@ button {
   opacity: 0.5;
   mix-blend-mode: normal;
   filter: contrast(1.2) brightness(1.06);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 8%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 24%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.24) 100%);
-  mask-image: radial-gradient(ellipse at 50% 8%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 24%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.24) 100%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 8%, black 0%, black 28%, rgba(0,0,0,0.68) 54%, rgba(0,0,0,0.34) 100%);
+  mask-image: radial-gradient(ellipse at 50% 8%, black 0%, black 28%, rgba(0,0,0,0.68) 54%, rgba(0,0,0,0.34) 100%);
 }
 
 .panel-texture::after {
@@ -366,7 +366,7 @@ button {
 
   body::before {
     background-size: 330px 330px;
-    opacity: 0.25;
+    opacity: 0.26;
     filter: contrast(1.18) brightness(1.06);
   }
 
@@ -394,9 +394,9 @@ button {
   .panel-texture {
     background-size: 360px 360px;
     opacity: 0.44;
-    filter: contrast(1.22) brightness(1.06);
-    -webkit-mask-image: radial-gradient(ellipse at 50% 6%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,0.48) 62%, rgba(0,0,0,0.18) 100%);
-    mask-image: radial-gradient(ellipse at 50% 6%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,0.48) 62%, rgba(0,0,0,0.18) 100%);
+    filter: contrast(1.2) brightness(1.06);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 8%, black 0%, black 32%, rgba(0,0,0,0.62) 58%, rgba(0,0,0,0.22) 100%);
+    mask-image: radial-gradient(ellipse at 50% 8%, black 0%, black 32%, rgba(0,0,0,0.62) 58%, rgba(0,0,0,0.22) 100%);
   }
 
   .top-light {
@@ -410,14 +410,18 @@ button {
     align-items: flex-start;
   }
 
+  .brand {
+    gap: 10px;
+  }
+
   .brand span {
-    font-size: 25px;
-    letter-spacing: 0.37em;
+    font-size: 26px;
+    letter-spacing: 0.36em;
   }
 
   .brand small {
     font-size: 10px;
-    letter-spacing: 0.42em;
+    letter-spacing: 0.4em;
   }
 
   .nav {
@@ -426,7 +430,7 @@ button {
 
   .menu-button {
     width: 38px;
-    height: 28px;
+    height: 30px;
     border: 0;
     display: grid;
     gap: 7px;
@@ -436,15 +440,15 @@ button {
   }
 
   .menu-button span {
-    width: 34px;
-    height: 1.4px;
+    width: 36px;
+    height: 1.25px;
     display: block;
     background: rgba(244, 242, 234, 0.82);
     transition: transform 240ms ease, opacity 240ms ease;
   }
 
   .panel.menu-open .menu-button span:nth-child(1) {
-    transform: translateY(8.4px) rotate(45deg);
+    transform: translateY(8.25px) rotate(45deg);
   }
 
   .panel.menu-open .menu-button span:nth-child(2) {
@@ -452,7 +456,7 @@ button {
   }
 
   .panel.menu-open .menu-button span:nth-child(3) {
-    transform: translateY(-8.4px) rotate(-45deg);
+    transform: translateY(-8.25px) rotate(-45deg);
   }
 
   .mobile-nav {
@@ -479,28 +483,28 @@ button {
 
   .mobile-nav a {
     color: rgba(244, 242, 234, 0.82);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.28em;
     text-transform: uppercase;
   }
 
   .hero {
-    width: calc(100% - 28px);
-    margin-top: 76px;
+    width: calc(100% - 44px);
+    margin-top: 78px;
     margin-bottom: 58px;
   }
 
   .ghost {
     top: 31%;
-    color: rgba(244, 242, 234, 0.038);
-    font-size: clamp(112px, 42vw, 190px);
+    color: rgba(244, 242, 234, 0.04);
+    font-size: clamp(118px, 43vw, 190px);
   }
 
   .hero h1 {
-    font-size: clamp(36px, 10.2vw, 46px);
+    font-size: clamp(38px, 10.5vw, 56px);
     line-height: 1.15;
-    letter-spacing: 0.025em;
+    letter-spacing: 0.02em;
   }
 
   .subtitle {
@@ -521,7 +525,7 @@ button {
   }
 
   .feature {
-    padding: 40px 30px 42px;
+    padding: 42px 30px 44px;
     border-right: 0;
     border-bottom: 1px solid var(--line-soft);
   }
@@ -532,7 +536,7 @@ button {
 
   .feature-top {
     display: grid;
-    grid-template-columns: 68px 40px 1fr;
+    grid-template-columns: 68px 38px 1fr;
     align-items: center;
     gap: 0;
   }
@@ -552,10 +556,9 @@ button {
   }
 
   .feature p {
-    margin-top: 22px;
-    padding-left: 0;
-    margin-left: 108px;
-    font-size: 14px;
+    margin-top: 24px;
+    padding-left: 106px;
+    font-size: 15px;
     line-height: 1.75;
   }
 }
@@ -571,7 +574,17 @@ button {
   }
 
   .brand small {
-    font-size: 10px;
+    font-size: 9.5px;
+  }
+
+  .menu-button {
+    width: 36px;
+    height: 28px;
+    gap: 6.5px;
+  }
+
+  .menu-button span {
+    width: 34px;
   }
 
   .mobile-nav {
@@ -580,19 +593,26 @@ button {
   }
 
   .hero {
-    width: calc(100% - 24px);
-    margin-top: 72px;
-    margin-bottom: 56px;
+    width: calc(100% - 44px);
+    margin-top: 70px;
+    margin-bottom: 54px;
   }
 
   .hero h1 {
-    font-size: clamp(35px, 9.9vw, 42px);
-    line-height: 1.15;
+    font-size: clamp(36px, 9.8vw, 43px);
+    line-height: 1.16;
+    letter-spacing: 0.018em;
   }
 
   .subtitle {
-    font-size: 15px;
-    line-height: 1.65;
+    font-size: 14.5px;
+    line-height: 1.62;
+  }
+
+  .ghost {
+    top: 30%;
+    font-size: clamp(114px, 40vw, 172px);
+    color: rgba(244, 242, 234, 0.038);
   }
 
   .feature {
@@ -600,31 +620,28 @@ button {
   }
 
   .feature-top {
-    grid-template-columns: 64px 38px 1fr;
+    grid-template-columns: 58px 38px 1fr;
   }
 
   .feature-top span {
     font-size: 48px;
   }
 
-  .feature p {
-    margin-left: 102px;
-    font-size: 14px;
-    line-height: 1.75;
-  }
-}
-
-@media (max-width: 370px) {
-  .hero h1 {
-    font-size: 34px;
+  .feature-top i {
+    width: 30px;
   }
 
-  .subtitle {
-    font-size: 14px;
+  .feature h2 {
+    font-size: 12px;
+    letter-spacing: 0.32em;
   }
 
   .feature p {
+    padding-left: 0;
     margin-left: 96px;
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.72;
   }
 }
 
