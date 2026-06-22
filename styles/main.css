@@ -48,10 +48,11 @@ body::before {
   z-index: -2;
   pointer-events: none;
   background-image: var(--texture);
-  background-size: 540px 540px;
+  background-size: 500px 500px;
   background-position: center top;
-  opacity: 0.18;
-  mix-blend-mode: soft-light;
+  opacity: 0.34;
+  mix-blend-mode: normal;
+  filter: contrast(1.18) brightness(1.08);
 }
 
 body::after {
@@ -130,18 +131,21 @@ button {
   z-index: 1;
   pointer-events: none;
   background-image: var(--texture);
-  background-size: 620px 620px;
+  background-size: 540px 540px;
   background-position: center top;
-  opacity: 0.28;
-  mix-blend-mode: soft-light;
+  opacity: 0.52;
+  mix-blend-mode: normal;
+  filter: contrast(1.22) brightness(1.08);
 }
 
 .panel-texture::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.035), transparent 22%, transparent 78%, rgba(0,0,0,0.18));
-  opacity: 0.36;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(244,242,234,0.06), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent 24%, transparent 78%, rgba(0,0,0,0.22));
+  opacity: 0.32;
 }
 
 .top-light {
@@ -359,8 +363,9 @@ button {
   }
 
   body::before {
-    background-size: 360px 360px;
-    opacity: 0.16;
+    background-size: 330px 330px;
+    opacity: 0.28;
+    filter: contrast(1.2) brightness(1.08);
   }
 
   .stage {
@@ -385,8 +390,9 @@ button {
   }
 
   .panel-texture {
-    background-size: 420px 420px;
-    opacity: 0.24;
+    background-size: 360px 360px;
+    opacity: 0.48;
+    filter: contrast(1.24) brightness(1.08);
   }
 
   .top-light {
