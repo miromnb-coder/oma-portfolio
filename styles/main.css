@@ -133,9 +133,11 @@ button {
   background-image: var(--texture);
   background-size: 540px 540px;
   background-position: center top;
-  opacity: 0.52;
+  opacity: 0.5;
   mix-blend-mode: normal;
-  filter: contrast(1.22) brightness(1.08);
+  filter: contrast(1.2) brightness(1.06);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 8%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 24%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.24) 100%);
+  mask-image: radial-gradient(ellipse at 50% 8%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 24%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.24) 100%);
 }
 
 .panel-texture::after {
@@ -364,8 +366,8 @@ button {
 
   body::before {
     background-size: 330px 330px;
-    opacity: 0.28;
-    filter: contrast(1.2) brightness(1.08);
+    opacity: 0.25;
+    filter: contrast(1.18) brightness(1.06);
   }
 
   .stage {
@@ -391,8 +393,10 @@ button {
 
   .panel-texture {
     background-size: 360px 360px;
-    opacity: 0.48;
-    filter: contrast(1.24) brightness(1.08);
+    opacity: 0.44;
+    filter: contrast(1.22) brightness(1.06);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 6%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,0.48) 62%, rgba(0,0,0,0.18) 100%);
+    mask-image: radial-gradient(ellipse at 50% 6%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,0.48) 62%, rgba(0,0,0,0.18) 100%);
   }
 
   .top-light {
@@ -402,17 +406,17 @@ button {
   }
 
   .header {
-    padding: 44px 32px 0;
+    padding: 40px 30px 0;
     align-items: flex-start;
   }
 
   .brand span {
-    font-size: 28px;
-    letter-spacing: 0.38em;
+    font-size: 25px;
+    letter-spacing: 0.37em;
   }
 
   .brand small {
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0.42em;
   }
 
@@ -421,26 +425,26 @@ button {
   }
 
   .menu-button {
-    width: 42px;
-    height: 32px;
+    width: 38px;
+    height: 28px;
     border: 0;
     display: grid;
-    gap: 8px;
+    gap: 7px;
     place-content: center;
     background: transparent;
     cursor: pointer;
   }
 
   .menu-button span {
-    width: 38px;
-    height: 1.5px;
+    width: 34px;
+    height: 1.4px;
     display: block;
     background: rgba(244, 242, 234, 0.82);
     transition: transform 240ms ease, opacity 240ms ease;
   }
 
   .panel.menu-open .menu-button span:nth-child(1) {
-    transform: translateY(9.5px) rotate(45deg);
+    transform: translateY(8.4px) rotate(45deg);
   }
 
   .panel.menu-open .menu-button span:nth-child(2) {
@@ -448,18 +452,18 @@ button {
   }
 
   .panel.menu-open .menu-button span:nth-child(3) {
-    transform: translateY(-9.5px) rotate(-45deg);
+    transform: translateY(-8.4px) rotate(-45deg);
   }
 
   .mobile-nav {
     position: relative;
     z-index: 6;
-    margin: 28px 32px 0;
-    padding: 18px 0;
+    margin: 24px 30px 0;
+    padding: 16px 0;
     border-top: 1px solid var(--line-soft);
     border-bottom: 1px solid var(--line-soft);
     display: grid;
-    gap: 18px;
+    gap: 16px;
     opacity: 0;
     visibility: hidden;
     max-height: 0;
@@ -470,39 +474,40 @@ button {
   .panel.menu-open .mobile-nav {
     opacity: 1;
     visibility: visible;
-    max-height: 240px;
+    max-height: 220px;
   }
 
   .mobile-nav a {
     color: rgba(244, 242, 234, 0.82);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.28em;
     text-transform: uppercase;
   }
 
   .hero {
-    width: calc(100% - 48px);
-    margin-top: 92px;
-    margin-bottom: 74px;
+    width: calc(100% - 28px);
+    margin-top: 76px;
+    margin-bottom: 58px;
   }
 
   .ghost {
-    top: 34%;
-    font-size: clamp(120px, 42vw, 220px);
+    top: 31%;
+    color: rgba(244, 242, 234, 0.038);
+    font-size: clamp(112px, 42vw, 190px);
   }
 
   .hero h1 {
-    font-size: clamp(44px, 12vw, 68px);
-    line-height: 1.12;
+    font-size: clamp(36px, 10.2vw, 46px);
+    line-height: 1.15;
     letter-spacing: 0.025em;
   }
 
   .subtitle {
     max-width: 320px;
-    margin-top: 28px;
-    font-size: 16px;
-    line-height: 1.7;
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   .arrow {
@@ -516,7 +521,7 @@ button {
   }
 
   .feature {
-    padding: 48px 32px 50px;
+    padding: 40px 30px 42px;
     border-right: 0;
     border-bottom: 1px solid var(--line-soft);
   }
@@ -527,40 +532,41 @@ button {
 
   .feature-top {
     display: grid;
-    grid-template-columns: 72px 42px 1fr;
+    grid-template-columns: 68px 40px 1fr;
     align-items: center;
     gap: 0;
   }
 
   .feature-top span {
-    font-size: 58px;
+    font-size: 52px;
   }
 
   .feature-top i {
-    width: 34px;
-    flex-basis: 34px;
+    width: 32px;
+    flex-basis: 32px;
   }
 
   .feature h2 {
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 0.34em;
   }
 
   .feature p {
-    margin-top: 28px;
-    padding-left: 114px;
-    font-size: 16px;
-    line-height: 1.8;
+    margin-top: 22px;
+    padding-left: 0;
+    margin-left: 108px;
+    font-size: 14px;
+    line-height: 1.75;
   }
 }
 
 @media (max-width: 430px) {
   .header {
-    padding: 38px 24px 0;
+    padding: 34px 28px 0;
   }
 
   .brand span {
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 0.34em;
   }
 
@@ -569,22 +575,28 @@ button {
   }
 
   .mobile-nav {
-    margin-left: 24px;
-    margin-right: 24px;
+    margin-left: 28px;
+    margin-right: 28px;
   }
 
   .hero {
-    width: calc(100% - 40px);
-    margin-top: 82px;
+    width: calc(100% - 24px);
+    margin-top: 72px;
+    margin-bottom: 56px;
   }
 
   .hero h1 {
-    font-size: clamp(40px, 11.2vw, 54px);
+    font-size: clamp(35px, 9.9vw, 42px);
+    line-height: 1.15;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   .feature {
-    padding-left: 24px;
-    padding-right: 24px;
+    padding: 38px 28px 40px;
   }
 
   .feature-top {
@@ -592,13 +604,27 @@ button {
   }
 
   .feature-top span {
-    font-size: 52px;
+    font-size: 48px;
   }
 
   .feature p {
-    padding-left: 0;
     margin-left: 102px;
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 370px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .feature p {
+    margin-left: 96px;
   }
 }
 
