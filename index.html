@@ -3,23 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <title>Miro Web Studio | Moderneja nettisivuja yrityksille</title>
-  <meta name="description" content="Miro Web Studio tekee moderneja, nopeita ja mobiiliystävällisiä nettisivuja pienyrityksille." />
-  <meta name="theme-color" content="#00796f" />
+  <title>Miro Web Studio | Premium nettisivuja yrityksille</title>
+  <meta name="description" content="Miro Web Studio tekee moderneja, nopeita ja mobiiliystävällisiä premium-nettisivuja pienyrityksille." />
+  <meta name="theme-color" content="#070a0e" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles/base.css?v=8" />
-  <link rel="stylesheet" href="styles/layout.css?v=8" />
-  <link rel="stylesheet" href="styles/components.css?v=8" />
-  <link rel="stylesheet" href="styles/responsive.css?v=8" />
-  <link rel="stylesheet" href="styles/premium.css?v=8" />
-  <link rel="stylesheet" href="styles/icons.css?v=8" />
-  <link rel="stylesheet" href="styles/mobile-perfect.css?v=8" />
-  <link rel="stylesheet" href="styles/final-polish.css?v=8" />
+  <link rel="stylesheet" href="styles/base.css?v=10" />
+  <link rel="stylesheet" href="styles/layout.css?v=10" />
+  <link rel="stylesheet" href="styles/components.css?v=10" />
+  <link rel="stylesheet" href="styles/responsive.css?v=10" />
+  <link rel="stylesheet" href="styles/premium.css?v=10" />
+  <link rel="stylesheet" href="styles/icons.css?v=10" />
+  <link rel="stylesheet" href="styles/mobile-perfect.css?v=10" />
+  <link rel="stylesheet" href="styles/final-polish.css?v=10" />
+  <link rel="stylesheet" href="styles/studio-2.css?v=10" />
 </head>
-<body>
+<body class="studio-v2">
   <header class="site-header" id="top">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="Miro Web Studio etusivulle">
@@ -31,8 +32,8 @@
         <a class="active" href="#top">Etusivu</a>
         <a href="#projektit">Projektit</a>
         <a href="#palvelut">Palvelut</a>
+        <a href="#prosessi">Prosessi</a>
         <a href="#hinnat">Hinnat</a>
-        <a href="#minusta">Minusta</a>
         <a href="#yhteys">Yhteys</a>
       </nav>
 
@@ -52,8 +53,8 @@
       <a href="#top">Etusivu</a>
       <a href="#projektit">Projektit</a>
       <a href="#palvelut">Palvelut</a>
+      <a href="#prosessi">Prosessi</a>
       <a href="#hinnat">Hinnat</a>
-      <a href="#minusta">Minusta</a>
       <a href="#yhteys">Yhteys</a>
     </nav>
   </header>
@@ -61,11 +62,11 @@
   <main>
     <section class="hero section-shell" aria-labelledby="hero-title">
       <div class="hero-content reveal">
-        <p class="eyebrow"><span></span> Moderneja nettisivuja yrityksille</p>
+        <p class="eyebrow"><span></span> Premium-nettisivuja yrityksille</p>
         <h1 id="hero-title">Teen moderneja nettisivuja yrityksille</h1>
         <p class="hero-text">
-          Suunnittelen tyylikkäitä, nopeita ja responsiivisia verkkosivustoja,
-          jotka tuovat yrityksesi parhaat puolet esiin ja kasvattavat asiakkaitasi.
+          Autan yrityksiä näyttämään paremmalta verkossa. Rakennan selkeitä,
+          nopeita ja visuaalisesti vahvoja sivuja, jotka tuntuvat laadukkailta heti ensimmäisestä sekunnista.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projektit">Katso projektit <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></a>
@@ -74,7 +75,7 @@
         <div class="trust-row" aria-label="Hyödyt">
           <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Nopea toimitus</span>
           <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Kiinteä hinta</span>
-          <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Tyytyväisyystakuu</span>
+          <span><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m8.4 12.2 2.3 2.3 4.9-5.1"/></svg> Responsiivinen toteutus</span>
         </div>
       </div>
 
@@ -91,8 +92,8 @@
 
     <section class="projects section-shell" id="projektit" aria-labelledby="projects-title">
       <div class="section-heading reveal">
-        <h2 id="projects-title">Projektit</h2>
-        <button class="text-link js-show-all-projects" type="button">Näytä kaikki projektit <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></button>
+        <h2 id="projects-title">Valitut projektit</h2>
+        <button class="text-link js-show-all-projects" type="button">Näytä kaikki <span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg></span></button>
       </div>
       <div class="project-grid" id="projectGrid" aria-live="polite"></div>
     </section>
@@ -109,6 +110,39 @@
       </div>
     </section>
 
+    <section class="process section-shell" id="prosessi" aria-labelledby="process-title">
+      <div class="process-copy reveal">
+        <h2 id="process-title">Selkeä prosessi alusta julkaisuun</h2>
+        <p>
+          Laadukas sivu ei synny sattumalta. Ensin suunnitellaan viesti ja ulkoasu,
+          sitten rakennetaan responsiivinen toteutus ja viimeistellään kokonaisuus julkaisuvalmiiksi.
+        </p>
+      </div>
+      <div class="process-grid">
+        <article class="process-card reveal">
+          <span class="process-number">01</span>
+          <div>
+            <h3>Suunnittelu</h3>
+            <p>Selkeytetään tavoite, rakenne, tyyli ja asiakkaalle tärkein viesti.</p>
+          </div>
+        </article>
+        <article class="process-card reveal">
+          <span class="process-number">02</span>
+          <div>
+            <h3>Toteutus</h3>
+            <p>Rakennan sivun HTML:llä, CSS:llä ja JavaScriptillä niin, että se toimii kaikilla laitteilla.</p>
+          </div>
+        </article>
+        <article class="process-card reveal">
+          <span class="process-number">03</span>
+          <div>
+            <h3>Viimeistely</h3>
+            <p>Hion animaatiot, mobiilin, nopeuden ja julkaisuun tarvittavat yksityiskohdat.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="pricing-contact section-shell" id="hinnat" aria-labelledby="pricing-title">
       <div class="pricing-block reveal">
         <h2 id="pricing-title">Hinnat alkaen</h2>
@@ -118,7 +152,7 @@
       <aside class="contact-panel reveal" id="yhteys" aria-labelledby="contact-title">
         <div class="contact-info">
           <h2 id="contact-title">Valmis uudet nettisivut?</h2>
-          <p>Kerro lyhyesti projektistasi, niin palaan sinulle pian!</p>
+          <p>Kerro lyhyesti projektistasi, niin palaan sinulle pian.</p>
           <ul>
             <li><span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><rect x="4.5" y="6.5" width="15" height="11" rx="1"/><path d="m5 7 7 6 7-6"/></svg></span> miro@mirowebstudio.fi</li>
             <li><span aria-hidden="true"><svg class="site-icon" viewBox="0 0 24 24"><path d="M7.4 4.8 9.6 7c.6.6.7 1.5.2 2.2l-1 1.4a12.4 12.4 0 0 0 4.6 4.6l1.4-1c.7-.5 1.6-.4 2.2.2l2.2 2.2c.6.6.6 1.7 0 2.3-.8.8-2 1.3-3.2 1.1-6.1-.8-11-5.7-11.8-11.8-.2-1.2.3-2.4 1.1-3.2.7-.8 1.7-.8 2.1-.2Z"/></svg></span> +358 40 123 4567</li>
@@ -157,6 +191,6 @@
     </div>
   </footer>
 
-  <script type="module" src="scripts/main.js?v=8"></script>
+  <script type="module" src="scripts/main.js?v=10"></script>
 </body>
 </html>
