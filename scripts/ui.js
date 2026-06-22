@@ -53,7 +53,7 @@ export function renderPrices(items, container) {
       <h3>${item.title}</h3>
       <p>${item.subtitle}</p>
       <div class="price">${item.price} <small>alkaen</small></div>
-      <div class="check-line"><span>✓</span> Responsiivinen design</div>
+      <div class="check-line"><span aria-hidden="true">${iconSvg("check")}</span> Responsiivinen design</div>
     </article>
   `).join("");
 }
