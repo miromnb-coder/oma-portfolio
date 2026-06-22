@@ -1,4 +1,5 @@
 import { projects, services, reasons, prices } from "./data.js";
+import { setupDecorativeIcons } from "./icons.js";
 import {
   renderProjects,
   renderServices,
@@ -13,17 +14,18 @@ import {
   setCurrentYear
 } from "./ui.js";
 
-function loadPremiumStyles() {
-  const href = "styles/premium.css";
-  if (document.querySelector(`link[href="${href}"]`)) return;
+function loadFinishingStyles() {
+  ["styles/premium.css"].forEach((href) => {
+    if (document.querySelector(`link[href="${href}"]`)) return;
 
-  const link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = href;
-  document.head.appendChild(link);
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = href;
+    document.head.appendChild(link);
+  });
 }
 
-loadPremiumStyles();
+loadFinishingStyles();
 
 const projectGrid = document.querySelector("#projectGrid");
 const serviceGrid = document.querySelector("#serviceGrid");
@@ -34,6 +36,7 @@ renderProjects(projects, projectGrid);
 renderServices(services, serviceGrid);
 renderReasons(reasons, whyGrid);
 renderPrices(prices, priceGrid);
+setupDecorativeIcons();
 
 setupNavigation();
 setupProjectCards(projectGrid);
