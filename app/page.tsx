@@ -1,13 +1,5 @@
-import DesktopPage from "@/components/DesktopPage";
-import MobilePage from "@/components/MobilePage";
+import ResponsiveExperimentPage from "@/components/ResponsiveExperimentPage";
 
 export default function Page() {
-  return (
-    <>
-      <MobilePage />
-      <div className="hidden md:block">
-        <DesktopPage />
-      </div>
-    </>
-  );
+  return <ResponsiveExperimentPage />;
 }
