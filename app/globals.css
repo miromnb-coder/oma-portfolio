@@ -59,6 +59,7 @@ body::before {
     linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.14) 1px, transparent 1px);
   background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 50% 8%, black, transparent 72%);
 }
 
 body::after {
@@ -181,6 +182,10 @@ canvas {
   transform: translateX(125%);
 }
 
+.premium-button:active {
+  transform: translateY(0) scale(0.985);
+}
+
 .premium-button--light {
   border-color: transparent;
   background: var(--cream);
@@ -209,6 +214,7 @@ canvas {
   border-bottom: 1px solid rgba(255,255,255,0.055);
   background: linear-gradient(to bottom, rgba(5,5,5,0.82), rgba(5,5,5,0.25), transparent);
   backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
 .nav-shell {
@@ -238,11 +244,12 @@ canvas {
 }
 
 .desktop-nav a:not(.premium-button) {
-  transition: color 280ms var(--ease), opacity 280ms var(--ease);
+  transition: color 280ms var(--ease), opacity 280ms var(--ease), transform 280ms var(--ease);
 }
 
 .desktop-nav a:not(.premium-button):hover {
   color: #fff;
+  transform: translateY(-1px);
 }
 
 .nav-cta {
@@ -259,6 +266,11 @@ canvas {
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.035);
   color: var(--text);
+  transition: transform 280ms var(--ease), border-color 280ms var(--ease), background 280ms var(--ease);
+}
+
+.mobile-menu-button:active {
+  transform: scale(0.96);
 }
 
 .mobile-menu-backdrop {
@@ -273,9 +285,18 @@ canvas {
   position: fixed;
   inset: 18px 18px auto 18px;
   z-index: 100;
+  overflow: hidden;
   border: 1px solid var(--line);
   background: rgba(8,8,8,0.94);
   box-shadow: 0 34px 120px rgba(0,0,0,0.62);
+}
+
+.mobile-menu-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 18% 0%, rgba(255,255,255,0.11), transparent 34%);
 }
 
 .mobile-menu-top {
@@ -312,7 +333,10 @@ canvas {
 }
 
 .hero-section::after {
-  content: "";
+  display: none;
+}
+
+.hero-surface {
   position: absolute;
   left: -10%;
   right: -10%;
@@ -382,6 +406,15 @@ canvas {
   font-weight: 700;
 }
 
+.hero-socials a {
+  transition: transform 280ms var(--ease), color 280ms var(--ease), opacity 280ms var(--ease);
+}
+
+.hero-socials a:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+
 .scroll-indicator {
   position: absolute;
   left: 50%;
@@ -441,6 +474,11 @@ canvas {
   gap: 24px;
 }
 
+.project-reveal,
+.project-reveal > .project-card {
+  height: 100%;
+}
+
 .project-card {
   position: relative;
   min-height: 430px;
@@ -448,7 +486,7 @@ canvas {
   border: 1px solid var(--line);
   background: #090909;
   box-shadow: 0 28px 90px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.06);
-  transition: transform 520ms var(--ease), border-color 520ms var(--ease), box-shadow 520ms var(--ease);
+  transition: transform 560ms var(--ease), border-color 560ms var(--ease), box-shadow 560ms var(--ease);
 }
 
 .project-card::before {
@@ -458,7 +496,7 @@ canvas {
   z-index: 0;
   opacity: 0.82;
   background: radial-gradient(circle at 28% 20%, rgba(255,255,255,0.16), transparent 28%), linear-gradient(135deg, rgba(255,255,255,0.08), transparent 44%);
-  transition: transform 720ms var(--ease), opacity 520ms var(--ease);
+  transition: transform 760ms var(--ease), opacity 560ms var(--ease), filter 560ms var(--ease);
 }
 
 .project-card--cafe::before {
@@ -490,6 +528,7 @@ canvas {
 .project-card:hover::before {
   opacity: 1;
   transform: scale(1.06);
+  filter: contrast(1.08) brightness(1.04);
 }
 
 .project-card-inner {
@@ -546,6 +585,7 @@ canvas {
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  transition: color 320ms var(--ease), letter-spacing 320ms var(--ease);
 }
 
 .arrow-button {
@@ -555,6 +595,18 @@ canvas {
   place-items: center;
   border: 1px solid rgba(255,255,255,0.18);
   color: var(--text);
+  transition: transform 420ms var(--ease), border-color 420ms var(--ease), background 420ms var(--ease);
+}
+
+.project-card:hover .arrow-button {
+  transform: translate(3px, -3px);
+  border-color: rgba(255,255,255,0.36);
+  background: rgba(255,255,255,0.06);
+}
+
+.project-card:hover .project-link {
+  color: #fff;
+  letter-spacing: 0.16em;
 }
 
 .projects-action {
@@ -612,6 +664,12 @@ canvas {
   display: flex;
   align-items: center;
   gap: 14px;
+  transition: color 280ms var(--ease), transform 280ms var(--ease);
+}
+
+a.contact-item:hover {
+  color: #fff;
+  transform: translateX(3px);
 }
 
 .contact-socials {
@@ -620,6 +678,15 @@ canvas {
   gap: 20px;
   color: rgba(244,244,240,0.64);
   font-weight: 760;
+}
+
+.contact-socials a {
+  transition: color 280ms var(--ease), transform 280ms var(--ease);
+}
+
+.contact-socials a:hover {
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .contact-form {
@@ -647,6 +714,10 @@ canvas {
   gap: 18px;
 }
 
+.form-reveal {
+  width: 100%;
+}
+
 .form-field {
   width: 100%;
   height: 54px;
@@ -655,7 +726,7 @@ canvas {
   background: transparent;
   color: var(--text);
   outline: none;
-  transition: border-color 260ms var(--ease), background 260ms var(--ease);
+  transition: border-color 260ms var(--ease), background 260ms var(--ease), transform 260ms var(--ease);
 }
 
 textarea.form-field {
@@ -671,6 +742,7 @@ textarea.form-field {
 
 .form-field:focus {
   border-color: rgba(255,255,255,0.38);
+  background: rgba(255,255,255,0.025);
 }
 
 .form-submit {
@@ -762,6 +834,12 @@ textarea.form-field {
     gap: 12px;
   }
 
+  .hero-surface {
+    bottom: -4%;
+    height: 30%;
+    opacity: 0.74;
+  }
+
   .scroll-indicator {
     bottom: 28px;
   }
@@ -826,6 +904,10 @@ textarea.form-field {
     font-size: 14px;
   }
 
+  .form-grid {
+    gap: 10px;
+  }
+
   .form-field {
     height: 44px;
     border: 1px solid rgba(255,255,255,0.16);
@@ -836,6 +918,17 @@ textarea.form-field {
   textarea.form-field {
     min-height: 92px;
     padding: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-actions .premium-button {
+    min-width: calc(50% - 8px);
+    padding-inline: 10px;
+  }
+
+  .mobile-menu-links a {
+    font-size: 28px;
   }
 }
 
