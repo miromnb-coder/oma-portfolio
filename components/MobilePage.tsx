@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactNode } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -35,6 +36,7 @@ import {
 
 type NavItem = { id: string; label: string };
 type IconCard = { title: string; text: string; icon: LucideIcon };
+type ContactItem = { icon: LucideIcon; title: string; text: string };
 
 const navItems: NavItem[] = [
   { id: "m-palvelut", label: "Palvelut" },
@@ -82,6 +84,12 @@ const faqs = [
   { question: "Tarvitsenko domainin ja webhotellin?", answer: "Kyllä. Voin neuvoa niiden hankinnassa ja valinnassa." }
 ];
 
+const contactItems: ContactItem[] = [
+  { icon: Clock3, title: "Vastaan mahdollisimman pian", text: "Pyrin vastaamaan kaikkiin viesteihin 24 tunnin kuluessa." },
+  { icon: MapPin, title: "Etänä koko Suomeen", text: "Palvelen asiakkaita joustavasti missä päin Suomea tahansa." },
+  { icon: ShieldCheck, title: "Selkeä tarjous ilman sitoumusta", text: "Saat selkeän ehdotuksen ja hinnan ilman piilokuluja." }
+];
+
 function goTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -96,7 +104,7 @@ function Logo({ onClick }: { onClick?: () => void }) {
 
 function SectionIntro({ id, title, subtitle, dark = false }: { id: string; title: string; subtitle: string; dark?: boolean }) {
   return (
-    <div id={id} className={`${dark ? "bg-[#111]" : "bg-[#f28a12]"} px-5 pb-12 pt-32 scroll-mt-24`}>
+    <div id={id} className={`${dark ? "bg-[#111]" : "bg-[#f28a12]"} scroll-mt-24 px-5 pb-12 pt-32`}>
       <h2 className="max-w-full font-serif text-[clamp(70px,18vw,96px)] leading-[0.9] tracking-[-0.065em] text-white">
         {title}
       </h2>
@@ -107,8 +115,12 @@ function SectionIntro({ id, title, subtitle, dark = false }: { id: string; title
   );
 }
 
-function DarkCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`w-full rounded-[24px] border border-white/10 bg-[#111] text-white shadow-[0_24px_70px_rgba(0,0,0,0.34)] ${className}`}>{children}</div>;
+function DarkCard({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return (
+    <div className={`w-full rounded-[24px] border border-white/10 bg-[#111] text-white shadow-[0_24px_70px_rgba(0,0,0,0.34)] ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 function CTA({ children, dark = false, onClick }: { children: ReactNode; dark?: boolean; onClick?: () => void }) {
@@ -138,7 +150,7 @@ function MobileHeader({ openMenu }: { openMenu: () => void }) {
 
 function MobileHero() {
   return (
-    <section id="m-hero" className="bg-[#f28a12] px-5 pb-14 pt-32 scroll-mt-24">
+    <section id="m-hero" className="scroll-mt-24 bg-[#f28a12] px-5 pb-14 pt-32">
       <p className="text-[14px] font-bold uppercase leading-6 tracking-[0.16em] text-[#15120d]">
         Verkkosivut, jotka toimivat ja näyttävät hyvältä.
       </p>
@@ -162,22 +174,13 @@ function MobileHero() {
         <div className="grid justify-items-center gap-2 px-2"><CheckCircle2 className="h-8 w-8" /><span className="text-sm leading-tight">Selkeä prosessi</span></div>
         <div className="grid justify-items-center gap-2 px-2"><MapPin className="h-8 w-8" /><span className="text-sm leading-tight">Etänä koko Suomeen</span></div>
       </div>
-      <DarkCard className="mt-12 overflow-hidden rounded-[22px]">
-        <div className="flex items-center gap-3 border-b border-white/10 px-5 py-4">
-          <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-          <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
-          <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-          <div className="ml-auto rounded-lg bg-white/10 px-8 py-2 text-xs text-white/70">puuhaus.fi</div>
-        </div>
-        <div className="relative overflow-hidden bg-[#080808] px-6 py-12">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_32%,rgba(242,138,18,0.35),transparent_36%)]" />
-          <div className="relative">
-            <p className="mb-4 text-sm text-white/50">Lisää tähän myöhemmin oma kuvasi</p>
-            <h2 className="font-serif text-[46px] leading-[0.95] tracking-[-0.055em] text-white">Luotettavaa rakentamista pienille ja suurille kohteille.</h2>
-            <button className="mt-8 rounded-xl bg-[#e7bd91] px-6 py-3 text-[#15120d]">Ota yhteyttä</button>
-          </div>
-        </div>
-      </DarkCard>
+      <img
+        src="/puuhaus-esimerkki.jpg"
+        alt="Puuhaus-esimerkkisivu"
+        loading="eager"
+        decoding="async"
+        className="mt-12 w-full rounded-[22px] shadow-[0_24px_70px_rgba(0,0,0,0.34)]"
+      />
     </section>
   );
 }
@@ -293,18 +296,14 @@ export default function MobilePage() {
       <SectionIntro id="m-yhteys" title="Yhteys" subtitle="Kerro lyhyesti yrityksestäsi ja millaiset sivut tarvitset." />
       <section className="bg-[#f28a12] px-5 pb-14">
         <DarkCard className="p-6">
-          {[
-            [Clock3, "Vastaan mahdollisimman pian", "Pyrin vastaamaan kaikkiin viesteihin 24 tunnin kuluessa."],
-            [MapPin, "Etänä koko Suomeen", "Palvelen asiakkaita joustavasti missä päin Suomea tahansa."],
-            [ShieldCheck, "Selkeä tarjous ilman sitoumusta", "Saat selkeän ehdotuksen ja hinnan ilman piilokuluja."]
-          ].map(([Icon, title, text]) => {
-            const RowIcon = Icon as LucideIcon;
-            return <div key={title as string} className="flex gap-5 border-b border-[#f28a12]/30 py-6 first:pt-0 last:border-0 last:pb-0"><RowIcon className="h-14 w-14 shrink-0 rounded-full border border-[#f28a12] p-3 text-[#f28a12]" /><div><h3 className="font-serif text-2xl text-white">{title as string}</h3><p className="mt-2 leading-7 text-white/62">{text as string}</p></div></div>;
+          {contactItems.map((item) => {
+            const RowIcon = item.icon;
+            return <div key={item.title} className="flex gap-5 border-b border-[#f28a12]/30 py-6 first:pt-0 last:border-0 last:pb-0"><RowIcon className="h-14 w-14 shrink-0 rounded-full border border-[#f28a12] p-3 text-[#f28a12]" /><div><h3 className="font-serif text-2xl text-white">{item.title}</h3><p className="mt-2 leading-7 text-white/62">{item.text}</p></div></div>;
           })}
         </DarkCard>
         <DarkCard className="mt-7 p-6">
           <form onSubmit={(event) => event.preventDefault()} className="grid gap-4">
-            {['Nimi', 'Yritys', 'Sähköposti', 'Puhelin'].map((field) => <input key={field} aria-label={field} placeholder={field} className="h-14 w-full rounded-xl border border-[#f28a12]/25 bg-black/20 px-5 text-white outline-none placeholder:text-white/45" />)}
+            {["Nimi", "Yritys", "Sähköposti", "Puhelin"].map((field) => <input key={field} aria-label={field} placeholder={field} className="h-14 w-full rounded-xl border border-[#f28a12]/25 bg-black/20 px-5 text-white outline-none placeholder:text-white/45" />)}
             <textarea aria-label="Viesti" placeholder="Viesti" rows={7} className="w-full resize-none rounded-xl border border-[#f28a12]/25 bg-black/20 px-5 py-4 text-white outline-none placeholder:text-white/45" />
             <button className="flex min-h-[64px] w-full items-center justify-center rounded-xl bg-[#f28a12] px-6 text-lg font-medium text-[#15120d]">Lähetä viesti <ArrowRight className="ml-3 h-5 w-5" /></button>
             <p className="flex items-center justify-center gap-2 text-sm text-white/45"><LockKeyhole className="h-4 w-4" />Tietosi käsitellään luottamuksellisesti.</p>
