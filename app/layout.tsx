@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import "./mobile.css";
+import "./mobile-fix.css";
 
 const inter = Inter({
   subsets: ["latin"],
