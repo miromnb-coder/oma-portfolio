@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navItems, site } from "@/lib/site-data";
 
-const panelEase = [0.16, 1, 0.3, 1] as const;
+const panelEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const linkParent = {
   open: {
