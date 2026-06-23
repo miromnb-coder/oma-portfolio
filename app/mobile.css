@@ -1,24 +1,26 @@
 @media (max-width: 767px) {
   html,
-  body {
-    background: #f28a12;
+  body,
+  main {
+    background: #f28a12 !important;
   }
 
-  .site-main,
   main {
-    background: #f28a12;
+    overflow-x: hidden !important;
   }
 
   header {
-    padding: 20px 22px 0 !important;
+    padding: 18px 20px 14px !important;
+    background: linear-gradient(180deg, rgba(242, 138, 18, 0.98), rgba(242, 138, 18, 0.9)) !important;
+    backdrop-filter: blur(10px) !important;
   }
 
   header button[aria-label="Avaa valikko"] {
     width: 56px !important;
     height: 56px !important;
-    border-radius: 16px !important;
+    border-radius: 18px !important;
     background: #111 !important;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32) !important;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34) !important;
   }
 
   #hero,
@@ -28,15 +30,37 @@
   #hinnat,
   #yhteys {
     background: #f28a12 !important;
+    scroll-margin-top: 92px !important;
+  }
+
+  #palvelut,
+  #kenelle,
+  #prosessi,
+  #hinnat,
+  #yhteys {
+    padding-top: 140px !important;
+  }
+
+  main [class*="rounded-\[20px\]"] {
+    background: #111 !important;
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.36) !important;
   }
 
   #hero {
-    padding-top: 118px !important;
+    padding-top: 126px !important;
+    padding-bottom: 54px !important;
   }
 
   #hero h1 {
-    font-size: clamp(58px, 16vw, 86px) !important;
+    font-size: clamp(56px, 16vw, 84px) !important;
     line-height: 0.96 !important;
+    letter-spacing: -0.06em !important;
+  }
+
+  #hero p {
+    max-width: 100% !important;
   }
 
   #hero > div > div:last-child {
@@ -53,9 +77,6 @@
   #hero div.mt-10 button {
     width: 100% !important;
     min-height: 58px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
   }
 
   #hero div.mt-14.grid {
@@ -72,11 +93,25 @@
   }
 
   #hero div.mt-14.grid > div + div {
-    border-left: 1px solid rgba(21, 18, 13, 0.18) !important;
+    border-left: 1px solid rgba(21, 18, 13, 0.2) !important;
   }
 
   #hero div.mt-14.grid span {
     font-size: 13px !important;
+    line-height: 1.18 !important;
+  }
+
+  #hero div[class*="grid-cols-4"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #hero div[class*="grid-cols-4"] p:first-child {
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+  }
+
+  #hero div[class*="grid-cols-4"] p:last-child {
+    font-size: 11px !important;
     line-height: 1.25 !important;
   }
 
@@ -94,59 +129,77 @@
     clip-path: inset(0 -100vmax) !important;
   }
 
-  #palvelut [class*="rounded-\[20px\]"] {
-    display: grid !important;
-    grid-template-columns: 92px 1fr !important;
-    gap: 20px !important;
-    align-items: center !important;
-    padding: 24px !important;
-    text-align: left !important;
-  }
-
-  #palvelut [class*="rounded-\[20px\]"] svg {
-    margin: 0 !important;
-    width: 68px !important;
-    height: 68px !important;
-  }
-
-  #palvelut [class*="rounded-\[20px\]"] h3 {
-    margin-top: 0 !important;
-    font-size: 31px !important;
-  }
-
-  #palvelut [class*="rounded-\[20px\]"] div.h-\[2px\] {
-    display: none !important;
-  }
-
-  #palvelut [class*="rounded-\[20px\]"] p {
-    margin-top: 10px !important;
-    font-size: 15px !important;
-    line-height: 1.55 !important;
-  }
-
-  #palvelut > div > div:nth-of-type(3) {
+  #palvelut > div > div:nth-of-type(3),
+  #prosessi > div > div:nth-of-type(3) {
     background: #121212 !important;
     box-shadow: 0 0 0 100vmax #121212 !important;
     clip-path: inset(0 -100vmax) !important;
     margin-top: 0 !important;
-    padding-bottom: 36px !important;
+    padding-bottom: 38px !important;
   }
 
-  #palvelut > div > div:nth-of-type(3) button:last-child {
+  #palvelut [class*="rounded-\[20px\]"] {
+    display: grid !important;
+    grid-template-columns: 86px 1fr !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 18px !important;
+    row-gap: 6px !important;
+    align-items: center !important;
+    padding: 22px !important;
+    text-align: left !important;
+  }
+
+  #palvelut [class*="rounded-\[20px\]"] > svg {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 64px !important;
+    height: 64px !important;
+    margin: 0 !important;
+    color: #f28a12 !important;
+  }
+
+  #palvelut [class*="rounded-\[20px\]"] > h3 {
+    grid-column: 2 !important;
+    margin-top: 0 !important;
+    font-size: 29px !important;
+    line-height: 1.05 !important;
+  }
+
+  #palvelut [class*="rounded-\[20px\]"] > div.h-\[2px\] {
+    display: none !important;
+  }
+
+  #palvelut [class*="rounded-\[20px\]"] > p {
+    grid-column: 2 !important;
+    margin-top: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.55 !important;
+  }
+
+  #palvelut > div > div:nth-of-type(3) button,
+  #prosessi > div > div:nth-of-type(3) button,
+  #kenelle > div > div:last-child button,
+  #hinnat button {
     width: 100% !important;
+  }
+
+  #kenelle h2 {
+    font-size: clamp(72px, 18vw, 96px) !important;
   }
 
   #kenelle [class*="rounded-\[20px\]"] {
     display: grid !important;
-    grid-template-columns: 86px 1fr !important;
+    grid-template-columns: 82px 1fr !important;
     gap: 18px !important;
     align-items: center !important;
     padding: 20px !important;
+    background: #111 !important;
   }
 
   #kenelle [class*="rounded-\[20px\]"] svg {
-    width: 66px !important;
-    height: 66px !important;
+    width: 62px !important;
+    height: 62px !important;
+    color: #f28a12 !important;
   }
 
   #kenelle [class*="rounded-\[20px\]"] div.h-\[2px\] {
@@ -154,11 +207,13 @@
   }
 
   #kenelle [class*="rounded-\[20px\]"] h3 {
-    font-size: 29px !important;
+    font-size: 27px !important;
+    line-height: 1.05 !important;
   }
 
   #kenelle [class*="rounded-\[20px\]"] p {
     margin-top: 8px !important;
+    font-size: 14px !important;
     line-height: 1.55 !important;
   }
 
@@ -173,42 +228,40 @@
     color: white !important;
   }
 
-  #kenelle > div > div:last-child button {
-    width: 100% !important;
-  }
-
   #prosessi [class*="rounded-\[20px\]"] {
     text-align: left !important;
   }
 
   #prosessi > div > div:nth-of-type(2) > div > div > [class*="rounded-\[20px\]"] {
     display: grid !important;
-    grid-template-columns: 64px 78px 1fr !important;
-    gap: 14px !important;
+    grid-template-columns: 54px 68px 1fr !important;
+    gap: 13px !important;
     align-items: center !important;
-    padding: 22px !important;
+    padding: 20px !important;
   }
 
   #prosessi > div > div:nth-of-type(2) > div > div > [class*="rounded-\[20px\]"] > div:first-child {
     grid-column: 1 !important;
     grid-row: 1 / span 3 !important;
+    width: 50px !important;
+    height: 50px !important;
     margin: 0 !important;
-    width: 54px !important;
-    height: 54px !important;
   }
 
   #prosessi > div > div:nth-of-type(2) > div > div > [class*="rounded-\[20px\]"] > svg {
     grid-column: 2 !important;
     grid-row: 1 / span 3 !important;
+    width: 58px !important;
+    height: 58px !important;
     margin: 0 !important;
-    width: 62px !important;
-    height: 62px !important;
+    color: #f28a12 !important;
   }
 
   #prosessi > div > div:nth-of-type(2) > div > div > [class*="rounded-\[20px\]"] h3 {
     grid-column: 3 !important;
     margin-top: 0 !important;
-    font-size: 29px !important;
+    font-size: 27px !important;
+    line-height: 1.08 !important;
   }
 
   #prosessi > div > div:nth-of-type(2) > div > div > [class*="rounded-\[20px\]"] div.h-\[2px\] {
@@ -218,49 +271,42 @@
   #prosessi > div > div:nth-of-type(2) > div > div > [class*="rounded-\[20px\]"] p {
     grid-column: 3 !important;
     margin-top: 8px !important;
+    font-size: 14px !important;
     line-height: 1.55 !important;
-  }
-
-  #prosessi > div > div:nth-of-type(3) {
-    background: #121212 !important;
-    box-shadow: 0 0 0 100vmax #121212 !important;
-    clip-path: inset(0 -100vmax) !important;
-    margin-top: 0 !important;
-    padding-bottom: 38px !important;
-  }
-
-  #prosessi > div > div:nth-of-type(3) button {
-    width: 100% !important;
   }
 
   #hinnat [class*="rounded-\[20px\]"] {
     padding: 28px !important;
     text-align: left !important;
+    background: #111 !important;
   }
 
-  #hinnat [class*="rounded-\[20px\]"] h3,
-  #hinnat [class*="rounded-\[20px\]"] div {
+  #hinnat [class*="rounded-\[20px\]"] h3 {
     text-align: left !important;
+    color: white !important;
   }
 
   #hinnat [class*="rounded-\[20px\]"] span.font-serif {
-    font-size: 72px !important;
+    font-size: 68px !important;
+    color: #f28a12 !important;
   }
 
-  #hinnat button {
-    width: 100% !important;
+  #hinnat [class*="rounded-\[20px\]"] li,
+  #hinnat [class*="rounded-\[20px\]"] li span {
+    color: rgba(255, 255, 255, 0.84) !important;
   }
 
   #ukk {
     position: relative !important;
     background: #121212 !important;
+    padding-top: 132px !important;
   }
 
   #ukk::before {
     content: "";
     position: absolute;
     inset: 0 0 auto 0;
-    height: 94px;
+    height: 96px;
     background: #f28a12;
   }
 
@@ -283,15 +329,17 @@
 
   #yhteys [class*="rounded-\[20px\]"] {
     padding: 24px !important;
+    background: #111 !important;
   }
 
   #yhteys form > div:first-child {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-columns: 1fr 1fr !important;
   }
 
   #yhteys input,
   #yhteys textarea {
     min-height: 58px !important;
+    background: rgba(0, 0, 0, 0.22) !important;
   }
 
   #yhteys form button {
@@ -300,11 +348,12 @@
 
   #footer {
     background: linear-gradient(90deg, #f28a12 0%, #f28a12 50%, #1d1d1d 50%, #1d1d1d 100%) !important;
-    padding-top: 110px !important;
+    padding-top: 118px !important;
   }
 
   #footer [class*="rounded-\[20px\]"] {
     padding: 28px !important;
+    background: #111 !important;
   }
 
   #footer h2 {
