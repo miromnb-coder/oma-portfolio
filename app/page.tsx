@@ -478,20 +478,31 @@ export default function Home() {
             </div>
           </div>
 
-          <form className="grid gap-4">
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            className="grid gap-4"
+          >
+            <input type="hidden" name="access_key" value="de5e3d6d-e641-404c-8a9d-5bb1f5f88cd7" />
+            <input type="hidden" name="subject" value="Uusi yhteydenotto NODRA-sivulta" />
+            <input type="hidden" name="from_name" value="NODRA verkkosivut" />
+            <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+
             <div className="grid gap-4 md:grid-cols-2">
-              <input className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Nimi" />
-              <input className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Sähköposti" />
-              <input className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Puhelin" />
-              <input className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Yritys" />
+              <input name="name" required className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Nimi" />
+              <input name="email" type="email" required className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Sähköposti" />
+              <input name="phone" className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Puhelin" />
+              <input name="company" className="rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]" placeholder="Yritys" />
             </div>
 
             <textarea
+              name="message"
+              required
               className="min-h-32 rounded-xl border border-white/10 bg-white/[0.055] px-4 py-4 text-sm outline-none placeholder:text-[#8f7f76] focus:border-[#b78b6f]"
               placeholder="Kerro lyhyesti projektistasi ja tavoitteistasi"
             />
 
-            <button className="inline-flex w-fit items-center gap-3 rounded-full bg-[#b78b6f] px-8 py-4 text-sm font-semibold text-[#1b100d] transition hover:bg-[#d0a184]">
+            <button type="submit" className="inline-flex w-fit items-center gap-3 rounded-full bg-[#b78b6f] px-8 py-4 text-sm font-semibold text-[#1b100d] transition hover:bg-[#d0a184]">
               Lähetä viesti
               <ArrowRight size={17} />
             </button>
