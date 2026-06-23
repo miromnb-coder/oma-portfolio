@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section id="yhteys" className="section contact-section">
       <div className="container contact-grid">
-        <Reveal>
+        <Reveal x={-36} y={18} duration={1.08}>
           <div className="contact-line" />
           <p className="eyebrow">{contact.eyebrow}</p>
           <h2 className="contact-title">{contact.title}</h2>
@@ -36,16 +36,26 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <Reveal y={36} delay={0.12}>
+        <Reveal x={36} y={18} scale={0.985} duration={1.08} delay={0.12}>
           <form className="contact-form">
             <div className="form-grid">
-              <input className="form-field" name="name" placeholder="Nimi" autoComplete="name" />
-              <input className="form-field" name="email" placeholder="Sähköposti" type="email" autoComplete="email" />
-              <input className="form-field" name="company" placeholder="Yritys" autoComplete="organization" />
-              <textarea className="form-field" name="message" placeholder="Viesti" />
-              <button className="premium-button premium-button--light form-submit" type="button">
-                Lähetä viesti
-              </button>
+              <Reveal className="form-reveal" y={16} delay={0.18} duration={0.72}>
+                <input className="form-field" name="name" placeholder="Nimi" autoComplete="name" />
+              </Reveal>
+              <Reveal className="form-reveal" y={16} delay={0.24} duration={0.72}>
+                <input className="form-field" name="email" placeholder="Sähköposti" type="email" autoComplete="email" />
+              </Reveal>
+              <Reveal className="form-reveal" y={16} delay={0.3} duration={0.72}>
+                <input className="form-field" name="company" placeholder="Yritys" autoComplete="organization" />
+              </Reveal>
+              <Reveal className="form-reveal" y={16} delay={0.36} duration={0.72}>
+                <textarea className="form-field" name="message" placeholder="Viesti" />
+              </Reveal>
+              <Reveal className="form-reveal" y={16} delay={0.42} duration={0.72}>
+                <button className="premium-button premium-button--light form-submit" type="button">
+                  Lähetä viesti
+                </button>
+              </Reveal>
             </div>
           </form>
         </Reveal>
