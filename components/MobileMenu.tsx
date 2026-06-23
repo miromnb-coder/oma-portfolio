@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, type Variants } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { navItems, site } from "@/lib/site-data";
 
 const panelEase: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const linkParent = {
+const linkParent: Variants = {
   open: {
     transition: {
       staggerChildren: 0.065,
@@ -22,7 +22,7 @@ const linkParent = {
   }
 };
 
-const linkItem = {
+const linkItem: Variants = {
   open: { opacity: 1, y: 0, filter: "blur(0px)" },
   closed: { opacity: 0, y: 18, filter: "blur(6px)" }
 };
