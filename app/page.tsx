@@ -7,7 +7,6 @@ import {
   MapPin,
   Monitor,
   PenLine,
-  Phone,
   Rocket,
   Smartphone,
   Tags,
@@ -465,15 +464,15 @@ export default function Home() {
             <div className="mt-8 space-y-4 text-sm text-[#d0c0b6]">
               <p className="flex items-center gap-3">
                 <Mail size={18} className="text-[#b78b6f]" />
-                hello@nodra.fi
+                nodra.verkkosivut@gmail.com
               </p>
               <p className="flex items-center gap-3">
-                <Phone size={18} className="text-[#b78b6f]" />
-                040 123 4567
+                <Check size={18} className="text-[#b78b6f]" />
+                Vastaamme yleensä 1–2 päivän sisällä
               </p>
               <p className="flex items-center gap-3">
                 <MapPin size={18} className="text-[#b78b6f]" />
-                Hämeenkatu 20, 33100 Tampere
+                Pihtipudas, Suomi
               </p>
             </div>
           </div>
@@ -548,9 +547,9 @@ export default function Home() {
               Yhteystiedot
             </h3>
             <ul className="space-y-2 text-sm text-[#cdbdb3]">
-              <li>hello@nodra.fi</li>
-              <li>040 123 4567</li>
-              <li>Hämeenkatu 20, 33100 Tampere</li>
+              <li>nodra.verkkosivut@gmail.com</li>
+              <li>Vastaamme yleensä 1–2 päivän sisällä</li>
+              <li>Pihtipudas, Suomi</li>
             </ul>
           </div>
         </div>
