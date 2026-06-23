@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { CheckCircle2, Diamond, Smartphone, Zap } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { site, socialLinks } from "@/lib/site-data";
+import { heroProof, site, socialLinks } from "@/lib/site-data";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const proofIcons = [Zap, Smartphone, Diamond, CheckCircle2];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -14,6 +17,7 @@ export default function Hero() {
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const subtitleRef = useRef<HTMLDivElement | null>(null);
   const actionsRef = useRef<HTMLDivElement | null>(null);
+  const proofRef = useRef<HTMLDivElement | null>(null);
   const socialsRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const surfaceRef = useRef<HTMLDivElement | null>(null);
@@ -25,16 +29,18 @@ export default function Hero() {
     const title = titleRef.current;
     const subtitle = subtitleRef.current;
     const actions = actionsRef.current;
+    const proof = proofRef.current;
     const socials = socialsRef.current;
     const scroll = scrollRef.current;
     const surface = surfaceRef.current;
 
-    if (!section || !line || !eyebrow || !title || !subtitle || !actions || !socials || !scroll || !surface) return;
+    if (!section || !line || !eyebrow || !title || !subtitle || !actions || !proof || !socials || !scroll || !surface) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
     const actionItems = Array.from(actions.children);
+    const proofItems = Array.from(proof.children);
     const socialItems = Array.from(socials.children);
 
     const context = gsap.context(() => {
@@ -46,43 +52,29 @@ export default function Hero() {
         .fromTo(title, { y: 32, autoAlpha: 0, scale: 0.965 }, { y: 0, autoAlpha: 1, scale: 1, duration: 1.18 }, 0.38)
         .fromTo(subtitle, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.86 }, 0.66)
         .fromTo(actionItems, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.74, stagger: 0.08 }, 0.82)
-        .fromTo(socialItems, { x: -12, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 }, 0.9)
-        .fromTo(scroll, { y: 10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.72 }, 1.05);
+        .fromTo(proofItems, { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.72, stagger: 0.07 }, 0.98)
+        .fromTo(socialItems, { x: -12, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 }, 0.95)
+        .fromTo(scroll, { y: 10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.72 }, 1.14);
 
       gsap.to(title, {
         y: -92,
         autoAlpha: 0.25,
         scale: 0.985,
         ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.15
-        }
+        scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: 1.15 }
       });
 
       gsap.to(surface, {
         y: 86,
         ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.1
-        }
+        scrollTrigger: { trigger: section, start: "top top", end: "bottom top", scrub: 1.1 }
       });
 
       gsap.to(scroll, {
         autoAlpha: 0,
         y: 24,
         ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "35% top",
-          scrub: 0.75
-        }
+        scrollTrigger: { trigger: section, start: "top top", end: "35% top", scrub: 0.75 }
       });
     }, section);
 
@@ -113,12 +105,20 @@ export default function Hero() {
         </div>
 
         <div ref={actionsRef} className="hero-actions">
-          <a className="premium-button premium-button--light" href="#yhteys">
-            {site.primaryCta}
-          </a>
-          <a className="premium-button" href="#tyot">
-            {site.secondaryCta}
-          </a>
+          <a className="premium-button premium-button--light" href="#yhteys">{site.primaryCta} ↗</a>
+          <a className="premium-button" href="#tyot">{site.secondaryCta} ↗</a>
+        </div>
+
+        <div ref={proofRef} className="hero-proof" aria-label="NODRA vahvuudet">
+          {heroProof.map((item, index) => {
+            const Icon = proofIcons[index];
+            return (
+              <span key={item}>
+                <Icon size={16} strokeWidth={1.5} />
+                {item}
+              </span>
+            );
+          })}
         </div>
       </div>
 
