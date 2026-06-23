@@ -1,4 +1,4 @@
-import DesktopPage from "@/components/DesktopPage";
+import CapsuleExperimentPage from "@/components/CapsuleExperimentPage";
 import MobilePage from "@/components/MobilePage";
 
 export default function Page() {
@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <MobilePage />
       <div className="hidden md:block">
-        <DesktopPage />
+        <CapsuleExperimentPage />
       </div>
     </>
   );
