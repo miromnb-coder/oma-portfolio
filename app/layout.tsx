@@ -45,7 +45,13 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              document.addEventListener("DOMContentLoaded", function () {
+              function fixFooterLinks() {
+                document.querySelectorAll("p").forEach(function (element) {
+                  if (element.textContent && element.textContent.trim() === "© 2024 NODRA Oy. Kaikki oikeudet pidätetään.") {
+                    element.textContent = "© 2026 NODRA. Kaikki oikeudet pidätetään.";
+                  }
+                });
+
                 document.querySelectorAll("span").forEach(function (element) {
                   if (element.textContent && element.textContent.trim() === "Tietosuojaseloste") {
                     var link = document.createElement("a");
@@ -55,8 +61,18 @@ export default function RootLayout({
                     link.setAttribute("aria-label", "Avaa tietosuojaseloste");
                     element.replaceWith(link);
                   }
+
+                  if (element.textContent && element.textContent.trim() === "Evästeasetukset") {
+                    element.remove();
+                  }
                 });
-              });
+              }
+
+              fixFooterLinks();
+              document.addEventListener("DOMContentLoaded", fixFooterLinks);
+
+              var observer = new MutationObserver(fixFooterLinks);
+              observer.observe(document.body, { childList: true, subtree: true });
             `
           }}
         />
