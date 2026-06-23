@@ -90,11 +90,11 @@ export default function PrivacyPolicyPage() {
           Takaisin etusivulle
         </a>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-7 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl md:p-10">
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.045] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl sm:p-7 md:p-10">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#b48a6e]">
             NODRA
           </p>
-          <h1 className="font-serif text-5xl leading-tight tracking-[-0.04em] text-[#f3e7df] md:text-7xl">
+          <h1 className="break-words font-serif text-[2.35rem] leading-[1.05] tracking-[-0.05em] text-[#f3e7df] sm:text-5xl md:text-7xl">
             Tietosuojaseloste
           </h1>
           <p className="mt-5 text-base leading-7 text-[#cdbdb3]">
