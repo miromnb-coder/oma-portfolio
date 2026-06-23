@@ -128,12 +128,30 @@ const packages = [
 ];
 
 const faqs = [
-  "Kuinka kauan verkkosivuprojekti kestää?",
-  "Sisältyykö sivuihin hakukoneoptimointi (SEO)?",
-  "Mitä tarvitsette projektin alussa?",
-  "Voinko päivittää sivuja itse julkaisun jälkeen?",
-  "Tarjoatteko ylläpitoa ja tukea julkaisun jälkeen?",
-  "Miten hinnoittelu määräytyy?"
+  {
+    question: "Kuinka kauan verkkosivuprojekti kestää?",
+    answer: "Yhden sivun verkkosivu valmistuu yleensä noin 1–2 viikossa, kun tekstit, kuvat ja tavoitteet ovat selvillä. Laajempi sivusto voi kestää hieman pidempään."
+  },
+  {
+    question: "Sisältyykö sivuihin hakukoneoptimointi (SEO)?",
+    answer: "Kyllä. Kaikkiin paketteihin sisältyy perus-SEO, kuten selkeä rakenne, otsikot, nopea toteutus ja hakukoneystävällinen sisältö."
+  },
+  {
+    question: "Mitä tarvitsette projektin alussa?",
+    answer: "Alussa tarvitsemme lyhyen kuvauksen yrityksestäsi, palveluistasi, tavoitteistasi sekä mahdolliset kuvat, logon ja väritoiveet."
+  },
+  {
+    question: "Voinko päivittää sivuja itse julkaisun jälkeen?",
+    answer: "Tämä riippuu toteutuksesta. Voimme tehdä sivun niin, että pienet tekstimuutokset onnistuvat myöhemmin helposti."
+  },
+  {
+    question: "Tarjoatteko ylläpitoa ja tukea julkaisun jälkeen?",
+    answer: "Kyllä. Julkaisun jälkeen voidaan sopia pienistä muutoksista, päivityksistä ja teknisestä avusta erikseen."
+  },
+  {
+    question: "Miten hinnoittelu määräytyy?",
+    answer: "Hinta määräytyy sivun laajuuden, osioiden määrän, sisällön ja mahdollisten lisätoiveiden mukaan. Aloitamme aina selkeällä arviolla."
+  }
 ];
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -439,13 +457,18 @@ export default function Home() {
 
           <div className="grid gap-4 md:grid-cols-2">
             {faqs.map((faq) => (
-              <div
-                key={faq}
-                className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 text-sm text-[#e6d8cf]"
+              <details
+                key={faq.question}
+                className="group rounded-2xl border border-white/10 bg-white/[0.045] px-5 py-4 text-sm text-[#e6d8cf]"
               >
-                {faq}
-                <ChevronDown size={17} className="text-[#b78b6f]" />
-              </div>
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-medium marker:hidden">
+                  <span>{faq.question}</span>
+                  <ChevronDown size={17} className="shrink-0 text-[#b78b6f] transition group-open:rotate-180" />
+                </summary>
+                <p className="mt-4 border-t border-white/10 pt-4 leading-6 text-[#bca99d]">
+                  {faq.answer}
+                </p>
+              </details>
             ))}
           </div>
         </div>
