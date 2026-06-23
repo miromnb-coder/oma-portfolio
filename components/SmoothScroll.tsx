@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type SmoothScrollProps = {
   children: React.ReactNode;
@@ -12,24 +16,31 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
 
+    const isMobile = window.innerWidth < 768;
+
     const lenis = new Lenis({
-      duration: window.innerWidth < 768 ? 0.78 : 1.12,
+      duration: isMobile ? 0.78 : 1.16,
       smoothWheel: true,
-      wheelMultiplier: 0.86,
-      touchMultiplier: 1.15,
+      wheelMultiplier: isMobile ? 1 : 0.82,
+      touchMultiplier: 1.12,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
     });
 
-    let rafId = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
+    lenis.on("scroll", ScrollTrigger.update);
+
+    const update = (time: number) => {
+      lenis.raf(time * 1000);
     };
 
-    rafId = requestAnimationFrame(raf);
+    gsap.ticker.add(update);
+    gsap.ticker.lagSmoothing(0);
+
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      window.removeEventListener("load", refresh);
+      gsap.ticker.remove(update);
       lenis.destroy();
     };
   }, []);
