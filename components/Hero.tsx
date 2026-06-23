@@ -20,25 +20,33 @@ export default function Hero() {
 
   useEffect(() => {
     const section = sectionRef.current;
+    const line = lineRef.current;
+    const eyebrow = eyebrowRef.current;
     const title = titleRef.current;
-    const surface = surfaceRef.current;
+    const subtitle = subtitleRef.current;
+    const actions = actionsRef.current;
+    const socials = socialsRef.current;
     const scroll = scrollRef.current;
+    const surface = surfaceRef.current;
 
-    if (!section || !title || !surface || !scroll) return;
+    if (!section || !line || !eyebrow || !title || !subtitle || !actions || !socials || !scroll || !surface) return;
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
+
+    const actionItems = Array.from(actions.children);
+    const socialItems = Array.from(socials.children);
 
     const context = gsap.context(() => {
       const intro = gsap.timeline({ defaults: { ease: "power4.out" } });
 
       intro
-        .fromTo(lineRef.current, { scaleX: 0, autoAlpha: 0 }, { scaleX: 1, autoAlpha: 1, duration: 0.8, transformOrigin: "center" }, 0.12)
-        .fromTo(eyebrowRef.current, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, 0.22)
+        .fromTo(line, { scaleX: 0, autoAlpha: 0 }, { scaleX: 1, autoAlpha: 1, duration: 0.8, transformOrigin: "center" }, 0.12)
+        .fromTo(eyebrow, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.8 }, 0.22)
         .fromTo(title, { y: 32, autoAlpha: 0, scale: 0.965 }, { y: 0, autoAlpha: 1, scale: 1, duration: 1.18 }, 0.38)
-        .fromTo(subtitleRef.current, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.86 }, 0.66)
-        .fromTo(actionsRef.current?.children ?? [], { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.74, stagger: 0.08 }, 0.82)
-        .fromTo(socialsRef.current?.children ?? [], { x: -12, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 }, 0.9)
+        .fromTo(subtitle, { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.86 }, 0.66)
+        .fromTo(actionItems, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.74, stagger: 0.08 }, 0.82)
+        .fromTo(socialItems, { x: -12, autoAlpha: 0 }, { x: 0, autoAlpha: 1, duration: 0.7, stagger: 0.08 }, 0.9)
         .fromTo(scroll, { y: 10, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.72 }, 1.05);
 
       gsap.to(title, {
