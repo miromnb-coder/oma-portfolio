@@ -19,7 +19,6 @@ import {
   MapPin,
   MessageCircle,
   MonitorSmartphone,
-  Phone,
   RefreshCcw,
   Rocket,
   Scissors,
@@ -35,6 +34,8 @@ import {
 type NavItem = { id: string; label: string };
 type IconCard = { title: string; text: string; icon: LucideIcon };
 type ContactItem = { icon: LucideIcon; title: string; text: string };
+
+const emailAddress = "nodra.verkkosivut@gmail.com";
 
 const navItems: NavItem[] = [
   { id: "palvelut", label: "Palvelut" },
@@ -93,49 +94,23 @@ function scrollToId(id: string) {
 }
 
 function Logo() {
-  return (
-    <button onClick={() => scrollToId("hero")} className="text-[30px] font-light tracking-[0.38em] text-white" aria-label="Siirry alkuun">
-      NODRA
-    </button>
-  );
+  return <button onClick={() => scrollToId("hero")} className="text-[30px] font-light tracking-[0.38em] text-white" aria-label="Siirry alkuun">NODRA</button>;
 }
 
 function DarkCard({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={`rounded-[20px] border border-white/10 bg-[#111]/92 shadow-[0_30px_90px_rgba(0,0,0,0.36)] backdrop-blur-xl ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`rounded-[20px] border border-white/10 bg-[#111]/92 shadow-[0_30px_90px_rgba(0,0,0,0.36)] backdrop-blur-xl ${className}`}>{children}</div>;
 }
 
 function PrimaryButton({ children, onClick, dark = false }: { children: ReactNode; onClick?: () => void; dark?: boolean }) {
-  return (
-    <button onClick={onClick} className={`group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-[10px] px-7 text-[15px] font-medium transition ${dark ? "border border-[#f28a12]/70 bg-[#111] text-[#f28a12] hover:bg-[#f28a12] hover:text-[#15120d]" : "bg-[#e7bd91] text-[#15120d] hover:bg-[#f3c99a]"}`}>
-      {children}
-      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-    </button>
-  );
+  return <button onClick={onClick} className={`group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-[10px] px-7 text-[15px] font-medium transition ${dark ? "border border-[#f28a12]/70 bg-[#111] text-[#f28a12] hover:bg-[#f28a12] hover:text-[#15120d]" : "bg-[#e7bd91] text-[#15120d] hover:bg-[#f3c99a]"}`}>{children}<ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" /></button>;
 }
 
 function SectionTitle({ title, subtitle }: { title: string; subtitle: string }) {
-  return (
-    <div className="max-w-[760px]">
-      <h2 className="font-serif text-[clamp(76px,9vw,145px)] leading-[0.92] tracking-[-0.065em] text-white">{title}</h2>
-      <p className="mt-7 max-w-[680px] text-[clamp(18px,2vw,24px)] leading-[1.35] text-[#17120d]">{subtitle}</p>
-    </div>
-  );
+  return <div className="max-w-[760px]"><h2 className="font-serif text-[clamp(76px,9vw,145px)] leading-[0.92] tracking-[-0.065em] text-white">{title}</h2><p className="mt-7 max-w-[680px] text-[clamp(18px,2vw,24px)] leading-[1.35] text-[#17120d]">{subtitle}</p></div>;
 }
 
 function PuuhausImage() {
-  return (
-    <img
-      src="/puuhaus-esimerkki.jpg"
-      alt="Puuhaus-esimerkkisivu"
-      loading="eager"
-      decoding="async"
-      className="w-full rounded-[18px] shadow-[0_38px_120px_rgba(0,0,0,0.58)]"
-    />
-  );
+  return <img src="/puuhaus-esimerkki.jpg" alt="Puuhaus-esimerkkisivu" loading="eager" decoding="async" className="w-full rounded-[18px] shadow-[0_38px_120px_rgba(0,0,0,0.58)]" />;
 }
 
 export default function DesktopPage() {
@@ -145,13 +120,10 @@ export default function DesktopPage() {
   useEffect(() => {
     const ids = ["hero", ...navItems.map((item) => item.id), "footer"];
     const elements = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target?.id) setActiveSection(visible.target.id);
-      },
-      { threshold: [0.25, 0.45, 0.65], rootMargin: "-20% 0px -45% 0px" }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActiveSection(visible.target.id);
+    }, { threshold: [0.25, 0.45, 0.65], rootMargin: "-20% 0px -45% 0px" });
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
@@ -162,29 +134,9 @@ export default function DesktopPage() {
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, rgba(255,255,255,.75) 1px, transparent 0)", backgroundSize: "18px 18px" }} />
       <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_52%_0%,rgba(255,255,255,0.14),transparent_34%),linear-gradient(to_bottom,transparent,rgba(0,0,0,0.18))]" />
 
-      <header className="fixed left-0 top-0 z-50 w-full px-12 py-5">
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between">
-          <Logo />
-          <nav className="flex items-center gap-7 text-[15px] text-white/85">
-            {navItems.map((item) => <button key={item.id} onClick={() => scrollToId(item.id)} className={`transition hover:text-[#f28a12] ${activeSection === item.id ? "text-[#f28a12]" : ""}`}>{item.label}</button>)}
-            <button onClick={() => scrollToId("yhteys")} className="ml-3 rounded-[10px] bg-[#e7bd91] px-7 py-4 text-[#18120d] transition hover:bg-[#f3c99a]">Pyydä tarjous</button>
-          </nav>
-        </div>
-      </header>
+      <header className="fixed left-0 top-0 z-50 w-full px-12 py-5"><div className="mx-auto flex max-w-[1500px] items-center justify-between"><Logo /><nav className="flex items-center gap-7 text-[15px] text-white/85">{navItems.map((item) => <button key={item.id} onClick={() => scrollToId(item.id)} className={`transition hover:text-[#f28a12] ${activeSection === item.id ? "text-[#f28a12]" : ""}`}>{item.label}</button>)}<button onClick={() => scrollToId("yhteys")} className="ml-3 rounded-[10px] bg-[#e7bd91] px-7 py-4 text-[#18120d] transition hover:bg-[#f3c99a]">Pyydä tarjous</button></nav></div></header>
 
-      <section id="hero" className="relative z-10 grid min-h-screen items-center px-12 pb-16 pt-28">
-        <div className="mx-auto grid w-full max-w-[1500px] items-center gap-12 lg:grid-cols-2">
-          <div className="max-w-[690px]">
-            <p className="mb-7 text-[13px] font-bold uppercase tracking-[0.12em] text-[#15120d]">Verkkosivut, jotka toimivat ja näyttävät hyvältä.</p>
-            <h1 className="font-serif text-[clamp(58px,7vw,106px)] leading-[0.98] tracking-[-0.058em] text-white">Selkeät verkkosivut pienille yrityksille</h1>
-            <p className="mt-8 max-w-[590px] text-[clamp(18px,2vw,24px)] leading-[1.45] text-[#15120d]">Teen moderneja ja mobiiliystävällisiä verkkosivuja yrityksille, jotka haluavat näyttää luotettavilta ja tehdä yhteydenotosta helppoa.</p>
-            <p className="mt-7 max-w-[560px] text-[clamp(17px,1.8vw,22px)] leading-[1.55] text-[#15120d]/90">Ei turhaa monimutkaisuutta — vain siisti sivu, selkeä rakenne ja toimiva yhteydenotto.</p>
-            <div className="mt-10 flex gap-5"><button onClick={() => scrollToId("yhteys")} className="rounded-[10px] bg-[#111] px-8 py-4 text-lg text-white shadow-[0_18px_50px_rgba(0,0,0,0.3)]">Pyydä tarjous</button><button onClick={() => scrollToId("hinnat")} className="rounded-[10px] border border-[#15120d] px-8 py-4 text-lg text-[#15120d]">Katso hinnat</button></div>
-            <div className="mt-14 grid gap-5 text-[#15120d] sm:grid-cols-3"><div className="flex items-center gap-3"><Zap className="h-7 w-7" />Nopea aloitus</div><div className="flex items-center gap-3"><CheckCircle2 className="h-7 w-7" />Selkeä prosessi</div><div className="flex items-center gap-3"><MapPin className="h-7 w-7" />Etänä koko Suomeen</div></div>
-          </div>
-          <PuuhausImage />
-        </div>
-      </section>
+      <section id="hero" className="relative z-10 grid min-h-screen items-center px-12 pb-16 pt-28"><div className="mx-auto grid w-full max-w-[1500px] items-center gap-12 lg:grid-cols-2"><div className="max-w-[690px]"><p className="mb-7 text-[13px] font-bold uppercase tracking-[0.12em] text-[#15120d]">Verkkosivut, jotka toimivat ja näyttävät hyvältä.</p><h1 className="font-serif text-[clamp(58px,7vw,106px)] leading-[0.98] tracking-[-0.058em] text-white">Selkeät verkkosivut pienille yrityksille</h1><p className="mt-8 max-w-[590px] text-[clamp(18px,2vw,24px)] leading-[1.45] text-[#15120d]">Teen moderneja ja mobiiliystävällisiä verkkosivuja yrityksille, jotka haluavat näyttää luotettavilta ja tehdä yhteydenotosta helppoa.</p><p className="mt-7 max-w-[560px] text-[clamp(17px,1.8vw,22px)] leading-[1.55] text-[#15120d]/90">Ei turhaa monimutkaisuutta — vain siisti sivu, selkeä rakenne ja toimiva yhteydenotto.</p><div className="mt-10 flex gap-5"><button onClick={() => scrollToId("yhteys")} className="rounded-[10px] bg-[#111] px-8 py-4 text-lg text-white shadow-[0_18px_50px_rgba(0,0,0,0.3)]">Pyydä tarjous</button><button onClick={() => scrollToId("hinnat")} className="rounded-[10px] border border-[#15120d] px-8 py-4 text-lg text-[#15120d]">Katso hinnat</button></div><div className="mt-14 grid gap-5 text-[#15120d] sm:grid-cols-3"><div className="flex items-center gap-3"><Zap className="h-7 w-7" />Nopea aloitus</div><div className="flex items-center gap-3"><CheckCircle2 className="h-7 w-7" />Selkeä prosessi</div><div className="flex items-center gap-3"><MapPin className="h-7 w-7" />Etänä koko Suomeen</div></div></div><PuuhausImage /></div></section>
 
       <section id="palvelut" className="relative z-10 min-h-screen px-12 py-28"><div className="mx-auto max-w-[1500px]"><SectionTitle title="Palvelut" subtitle="Kaikki mitä tarvitset selkeään ja toimivaan yrityssivuun." /><div className="mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-4">{services.map((service) => { const Icon = service.icon; return <DarkCard key={service.title} className="p-8 text-center"><Icon className="mx-auto h-16 w-16 text-[#f28a12]" strokeWidth={1.4} /><h3 className="mt-9 font-serif text-3xl leading-tight tracking-[-0.04em]">{service.title}</h3><div className="mx-auto mt-6 h-[2px] w-12 bg-[#f28a12]" /><p className="mt-7 text-[15px] leading-7 text-white/68">{service.text}</p></DarkCard>; })}</div><div className="mt-12 flex justify-between"><button onClick={() => scrollToId("yhteys")} className="group flex items-center gap-4 text-[#15120d]">Kysy lisää palveluistamme <ArrowRight className="h-5 w-5" /></button><PrimaryButton onClick={() => scrollToId("yhteys")} dark>Pyydä tarjous</PrimaryButton></div></div></section>
 
@@ -198,7 +150,7 @@ export default function DesktopPage() {
 
       <section id="yhteys" className="relative z-10 min-h-screen px-12 py-28"><div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.78fr_1.35fr] lg:items-center"><div><h2 className="font-serif text-[clamp(78px,10vw,150px)] leading-none tracking-[-0.07em] text-white">Yhteys</h2><p className="mt-8 max-w-[520px] text-[clamp(20px,2.5vw,30px)] leading-[1.25] text-[#15120d]">Kerro lyhyesti yrityksestäsi ja millaiset sivut tarvitset.</p><DarkCard className="mt-16 grid gap-8 p-8">{contactItems.map((item) => { const RowIcon = item.icon; return <div key={item.title} className="flex gap-6 border-b border-[#f28a12]/35 pb-8 last:border-0 last:pb-0"><RowIcon className="h-14 w-14 shrink-0 rounded-full border border-[#f28a12] p-3 text-[#f28a12]" /><div><h3 className="font-serif text-2xl">{item.title}</h3><p className="mt-2 leading-7 text-white/62">{item.text}</p></div></div>; })}</DarkCard></div><DarkCard className="p-10"><form onSubmit={(event) => event.preventDefault()} className="grid gap-6"><div className="grid gap-6 md:grid-cols-2"><input aria-label="Nimi" placeholder="Nimi" className="h-16 rounded-xl border border-[#f28a12]/25 bg-black/15 px-6 text-white outline-none placeholder:text-white/55" /><input aria-label="Yritys" placeholder="Yritys" className="h-16 rounded-xl border border-[#f28a12]/25 bg-black/15 px-6 text-white outline-none placeholder:text-white/55" /><input aria-label="Sähköposti" placeholder="Sähköposti" type="email" className="h-16 rounded-xl border border-[#f28a12]/25 bg-black/15 px-6 text-white outline-none placeholder:text-white/55" /><input aria-label="Puhelin" placeholder="Puhelin" className="h-16 rounded-xl border border-[#f28a12]/25 bg-black/15 px-6 text-white outline-none placeholder:text-white/55" /></div><textarea aria-label="Viesti" placeholder="Viesti" rows={8} className="resize-none rounded-xl border border-[#f28a12]/25 bg-black/15 px-6 py-5 text-white outline-none placeholder:text-white/55" /><button type="submit" className="group flex min-h-[68px] items-center justify-center rounded-xl bg-[#f28a12] px-8 text-lg font-medium text-[#15120d]">Lähetä viesti<ArrowRight className="ml-auto h-5 w-5" /></button><p className="flex items-center justify-center gap-3 text-sm text-white/45"><LockKeyhole className="h-4 w-4" />Tietosi käsitellään luottamuksellisesti.</p></form></DarkCard></div></section>
 
-      <footer id="footer" className="relative z-10 px-12 pb-12 pt-24"><DarkCard className="mx-auto max-w-[1500px] p-12"><div className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr_1fr]"><div><div className="text-4xl font-light tracking-[0.38em]">NODRA</div><h2 className="mt-12 max-w-[460px] font-serif text-5xl leading-[1.05] tracking-[-0.05em]">Selkeät verkkosivut pienille yrityksille.</h2><div className="mt-7 h-[2px] w-20 bg-[#f28a12]" /><p className="mt-8 max-w-[500px] text-[17px] leading-8 text-white/65">Moderneja ja mobiiliystävällisiä verkkosivuja yrityksille, jotka haluavat näyttää luotettavilta ja tehdä yhteydenotosta helppoa.</p><div className="mt-9 flex gap-6 text-[#f28a12]"><Linkedin /><Instagram /><Mail /></div></div><div className="border-l border-white/10 pl-12"><h3 className="text-xl text-[#f28a12]">Pikavalikot</h3><div className="mt-8 grid">{navItems.map((item) => <button key={item.id} onClick={() => scrollToId(item.id)} className="group flex items-center justify-between border-b border-white/10 py-4 text-left text-lg text-white/82">{item.label}<ArrowRight className="h-5 w-5 text-[#f28a12]" /></button>)}</div></div><div className="border-l border-white/10 pl-12"><h3 className="text-xl text-[#f28a12]">Ota yhteyttä</h3><div className="mt-8 grid gap-8"><p>Sähköposti<br /><span className="text-white/65">hello@nodra.fi</span></p><p>Puhelin<br /><span className="text-white/65">040 123 4567</span></p><p>Etänä koko Suomeen<br /><span className="text-white/65">Palvelen sinua etänä — missä päin Suomea tahansa.</span></p></div></div></div><div className="mt-14 flex justify-between border-t border-white/10 pt-8 text-sm text-white/50"><p>© NODRA 2026 · Kaikki oikeudet pidätetään.</p><div className="flex gap-6"><span>Tietosuojaseloste</span><span>Evästekäytäntö</span></div></div></DarkCard></footer>
+      <footer id="footer" className="relative z-10 px-12 pb-12 pt-24"><DarkCard className="mx-auto max-w-[1500px] p-12"><div className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr_1fr]"><div><div className="text-4xl font-light tracking-[0.38em]">NODRA</div><h2 className="mt-12 max-w-[460px] font-serif text-5xl leading-[1.05] tracking-[-0.05em]">Selkeät verkkosivut pienille yrityksille.</h2><div className="mt-7 h-[2px] w-20 bg-[#f28a12]" /><p className="mt-8 max-w-[500px] text-[17px] leading-8 text-white/65">Moderneja ja mobiiliystävällisiä verkkosivuja yrityksille, jotka haluavat näyttää luotettavilta ja tehdä yhteydenotosta helppoa.</p><div className="mt-9 flex gap-6 text-[#f28a12]"><Linkedin /><Instagram /><Mail /></div></div><div className="border-l border-white/10 pl-12"><h3 className="text-xl text-[#f28a12]">Pikavalikot</h3><div className="mt-8 grid">{navItems.map((item) => <button key={item.id} onClick={() => scrollToId(item.id)} className="group flex items-center justify-between border-b border-white/10 py-4 text-left text-lg text-white/82">{item.label}<ArrowRight className="h-5 w-5 text-[#f28a12]" /></button>)}</div></div><div className="border-l border-white/10 pl-12"><h3 className="text-xl text-[#f28a12]">Ota yhteyttä</h3><div className="mt-8 grid gap-8"><p>Sähköposti<br /><span className="text-white/65">{emailAddress}</span></p><p>Etänä koko Suomeen<br /><span className="text-white/65">Palvelen sinua etänä — missä päin Suomea tahansa.</span></p></div></div></div><div className="mt-14 flex justify-between border-t border-white/10 pt-8 text-sm text-white/50"><p>© NODRA 2026 · Kaikki oikeudet pidätetään.</p><div className="flex gap-6"><span>Tietosuojaseloste</span><span>Evästekäytäntö</span></div></div></DarkCard></footer>
     </main>
   );
 }
