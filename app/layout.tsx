@@ -40,7 +40,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi" className={`${inter.variable} ${interTight.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll("span").forEach(function (element) {
+                  if (element.textContent && element.textContent.trim() === "Tietosuojaseloste") {
+                    var link = document.createElement("a");
+                    link.href = "/tietosuojaseloste";
+                    link.textContent = element.textContent;
+                    link.className = element.className;
+                    link.setAttribute("aria-label", "Avaa tietosuojaseloste");
+                    element.replaceWith(link);
+                  }
+                });
+              });
+            `
+          }}
+        />
+      </body>
     </html>
   );
 }
