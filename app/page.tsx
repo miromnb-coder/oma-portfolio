@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { CheckCircle2, FileText, Layers, PenLine, RefreshCw, Settings, Smartphone, Zap } from "lucide-react";
 import { ContactForm } from "./ContactForm";
+import { MobileMenu } from "./MobileMenu";
 
 type CardItem = {
   title: string;
@@ -106,11 +107,7 @@ export default function Home() {
           <a className="header-cta" href="#yhteys">
             Pyydä tarjous
           </a>
-          <button className="menu-button" type="button" aria-label="Avaa valikko">
-            <span />
-            <span />
-            <span />
-          </button>
+          <MobileMenu />
         </div>
       </header>
 
