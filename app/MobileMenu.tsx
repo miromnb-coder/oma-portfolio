@@ -7,6 +7,7 @@ const menuLinks = [
   { label: "Miksi NODRA", href: "/#miksi" },
   { label: "Minusta", href: "/#minusta" },
   { label: "Hinnat", href: "/#hinnat" },
+  { label: "UKK", href: "/#ukk" },
   { label: "Yhteys", href: "/#yhteys" },
   { label: "Tietosuoja", href: "/tietosuojaseloste" },
 ];
