@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { StyleInjector } from "./StyleInjector";
 
 export const metadata: Metadata = {
   title: "NODRA — Nettisivut yrityksille",
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fi">
-      <body>{children}</body>
+      <body>
+        <StyleInjector />
+        {children}
+      </body>
     </html>
   );
 }
