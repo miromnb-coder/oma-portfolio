@@ -1,0 +1,21 @@
+:root {
+  --bg-main: #fbf7f2;
+  --bg-card: #fffdf9;
+  --text-main: #17191d;
+  --text-muted: #5f5b57;
+  --burgundy: #611820;
+  --burgundy-hover: #4c1118;
+  --border-soft: #e8ded6;
+  --border-strong: #d8c8c0;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: Inter, Arial, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+img { display: block; max-width: 100%; }
