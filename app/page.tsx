@@ -86,13 +86,6 @@ const pricing = [
 export default function Home() {
   return (
     <main className="site-shell">
-      <div className="decor-layer" aria-hidden="true">
-        <Image className="decor-piece decor-piece-hero" src="/burgundy-pystypala.PNG" alt="" width={520} height={980} priority />
-        <Image className="decor-piece decor-piece-services" src="/burgundy-neliopala.PNG" alt="" width={720} height={720} />
-        <Image className="decor-piece decor-piece-soft" src="/Mvaalea-neliopala.PNG" alt="" width={720} height={720} />
-        <Image className="decor-piece decor-piece-wide" src="/vaalea-vaakapala.PNG" alt="" width={920} height={520} />
-      </div>
-
       <header className="site-header">
         <div className="container header-inner">
           <a className="logo" href="#top" aria-label="NODRA etusivulle">
