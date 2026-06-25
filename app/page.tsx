@@ -223,6 +223,9 @@ export default function Home() {
             <div>
               <h2 id="contact-heading">Haluatko paremmat nettisivut yrityksellesi?</h2>
               <p>Kerro lyhyesti mitä tarvitset, niin vastaan sinulle ehdotuksella ja alkaen-hinnalla.</p>
+              <p className="contact-email">
+                Sähköposti: <a href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a>
+              </p>
             </div>
             <ContactForm />
           </section>
@@ -234,6 +237,7 @@ export default function Home() {
           <div>
             <a className="footer-logo" href="#top">NODRA</a>
             <p>Selkeät nettisivut yrityksille</p>
+            <p><a className="footer-email" href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a></p>
           </div>
           <nav aria-label="Alatunnisteen navigaatio">
             <a href="#palvelut">Palvelut</a>
