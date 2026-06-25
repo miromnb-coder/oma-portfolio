@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { CheckCircle2, FileText, Layers, PenLine, RefreshCw, Settings, Smartphone, Zap } from "lucide-react";
+import { ContactForm } from "./ContactForm";
 
 type CardItem = {
   title: string;
@@ -220,15 +221,7 @@ export default function Home() {
               <h2 id="contact-heading">Haluatko paremmat nettisivut yrityksellesi?</h2>
               <p>Kerro lyhyesti mitä tarvitset, niin vastaan sinulle ehdotuksella ja alkaen-hinnalla.</p>
             </div>
-            <form className="contact-form">
-              <div className="form-row">
-                <label><span>Nimi</span><input name="name" type="text" placeholder="Nimi" /></label>
-                <label><span>Yritys</span><input name="company" type="text" placeholder="Yritys" /></label>
-              </div>
-              <label><span>Sähköposti</span><input name="email" type="email" placeholder="Sähköposti" /></label>
-              <label><span>Mitä tarvitset?</span><textarea name="message" placeholder="Mitä tarvitset?" /></label>
-              <button type="submit">Lähetä <span aria-hidden="true">→</span></button>
-            </form>
+            <ContactForm />
           </section>
         </div>
       </section>
