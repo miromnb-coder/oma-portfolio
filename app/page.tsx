@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import { CheckCircle2, FileText, Layers, PenLine, RefreshCw, Settings, Smartphone, Zap } from "lucide-react";
 import { ContactForm } from "./ContactForm";
@@ -121,6 +122,48 @@ const faqItems = [
       "Kyllä. Sivuun voidaan tehdä muutoksia myös julkaisun jälkeen, esimerkiksi tekstien, kuvien, hintojen tai yhteystietojen päivityksiä.",
   },
 ];
+
+const faqCardStyle: CSSProperties = {
+  gridColumn: "1 / -1",
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+  gap: 28,
+  alignItems: "start",
+  border: "1px solid #e8ded6",
+  borderRadius: 16,
+  background: "rgba(255, 253, 249, 0.94)",
+  boxShadow: "0 18px 46px rgba(23, 25, 29, 0.035)",
+  padding: 28,
+};
+
+const faqListStyle: CSSProperties = {
+  display: "grid",
+  gap: 10,
+};
+
+const faqItemStyle: CSSProperties = {
+  border: "1px solid #e8ded6",
+  borderRadius: 12,
+  background: "#fffdf9",
+  overflow: "hidden",
+};
+
+const faqSummaryStyle: CSSProperties = {
+  minHeight: 54,
+  padding: "16px 18px",
+  color: "#17191d",
+  fontSize: 15,
+  fontWeight: 750,
+  cursor: "pointer",
+};
+
+const faqAnswerStyle: CSSProperties = {
+  margin: 0,
+  padding: "0 18px 18px",
+  color: "#5f5b57",
+  fontSize: 14,
+  lineHeight: 1.6,
+};
 
 export default function Home() {
   return (
@@ -253,23 +296,27 @@ export default function Home() {
             <p className="vat-note">Hinnat alv 0 %. Hintoihin lisätään ALV 25,5 %.</p>
           </div>
 
-          <section id="ukk" className="faq-card" aria-labelledby="faq-heading">
+          <section id="ukk" className="faq-card" aria-labelledby="faq-heading" style={faqCardStyle}>
             <div className="faq-heading">
               <p className="section-label">UKK</p>
-              <h2 id="faq-heading">Usein kysyttyä</h2>
-              <p>Vastauksia yleisimpiin kysymyksiin ennen yhteydenottoa.</p>
+              <h2 id="faq-heading" style={{ margin: "0 0 12px", fontSize: 28, fontWeight: 750, letterSpacing: "-0.03em" }}>
+                Usein kysyttyä
+              </h2>
+              <p style={{ margin: 0, color: "#5f5b57", fontSize: 14, lineHeight: 1.55 }}>
+                Vastauksia yleisimpiin kysymyksiin ennen yhteydenottoa.
+              </p>
             </div>
-            <div className="faq-list">
+            <div className="faq-list" style={faqListStyle}>
               {faqItems.map((item) => (
-                <details className="faq-item" key={item.question}>
-                  <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
+                <details className="faq-item" key={item.question} style={faqItemStyle}>
+                  <summary style={faqSummaryStyle}>{item.question}</summary>
+                  <p style={faqAnswerStyle}>{item.answer}</p>
                 </details>
               ))}
             </div>
           </section>
 
-          <section id="yhteys" className="contact-card" aria-labelledby="contact-heading">
+          <section id="yhteys" className="contact-card" aria-labelledby="contact-heading" style={{ gridColumn: "1 / -1" }}>
             <div>
               <h2 id="contact-heading">Haluatko paremmat nettisivut yrityksellesi?</h2>
               <p>Kerro lyhyesti mitä tarvitset, niin vastaan sinulle ehdotuksella ja alkaen-hinnalla.</p>
