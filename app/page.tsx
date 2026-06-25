@@ -89,6 +89,39 @@ const pricing = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "Kuinka kauan nettisivujen tekeminen kestää?",
+    answer:
+      "Aikataulu riippuu sivuston laajuudesta ja siitä, ovatko tekstit ja kuvat valmiina. Yhden sivun nettisivu voidaan yleensä tehdä selvästi nopeammin kuin useamman sivun yrityssivusto.",
+  },
+  {
+    question: "Mitä tarvitsen ennen aloitusta?",
+    answer:
+      "Tarvitsen yrityksen perustiedot, palvelut, yhteystiedot, mahdolliset kuvat sekä ajatuksen siitä, millaisen tyylin haluat sivulle. Autan myös rakenteen ja tekstien selkeyttämisessä.",
+  },
+  {
+    question: "Toimivatko sivut puhelimella?",
+    answer:
+      "Kyllä. Sivut suunnitellaan mobiiliystävällisiksi, jotta ne näyttävät hyvältä ja ovat helppokäyttöiset puhelimella, tabletilla ja tietokoneella.",
+  },
+  {
+    question: "Voitko uudistaa vanhat sivuni?",
+    answer:
+      "Kyllä. Vanhan sivuston ulkoasu, rakenne ja sisältö voidaan päivittää selkeämmäksi, modernimmaksi ja paremmin yhteydenottoihin ohjaavaksi.",
+  },
+  {
+    question: "Sisältyykö ylläpito hintaan?",
+    answer:
+      "Ylläpito ei automaattisesti sisälly kertahintaan. Sen voi ottaa erikseen kuukausihinnalla, jos haluat apua päivityksiin ja pieniin muutoksiin julkaisun jälkeen.",
+  },
+  {
+    question: "Voinko pyytää muutoksia sivuun myöhemmin?",
+    answer:
+      "Kyllä. Sivuun voidaan tehdä muutoksia myös julkaisun jälkeen, esimerkiksi tekstien, kuvien, hintojen tai yhteystietojen päivityksiä.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="site-shell">
@@ -102,6 +135,7 @@ export default function Home() {
             <a href="#miksi">Miksi NODRA</a>
             <a href="#minusta">Minusta</a>
             <a href="#hinnat">Hinnat</a>
+            <a href="#ukk">UKK</a>
             <a href="#yhteys">Yhteys</a>
           </nav>
           <a className="header-cta" href="#yhteys">
@@ -219,6 +253,22 @@ export default function Home() {
             <p className="vat-note">Hinnat alv 0 %. Hintoihin lisätään ALV 25,5 %.</p>
           </div>
 
+          <section id="ukk" className="faq-card" aria-labelledby="faq-heading">
+            <div className="faq-heading">
+              <p className="section-label">UKK</p>
+              <h2 id="faq-heading">Usein kysyttyä</h2>
+              <p>Vastauksia yleisimpiin kysymyksiin ennen yhteydenottoa.</p>
+            </div>
+            <div className="faq-list">
+              {faqItems.map((item) => (
+                <details className="faq-item" key={item.question}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
           <section id="yhteys" className="contact-card" aria-labelledby="contact-heading">
             <div>
               <h2 id="contact-heading">Haluatko paremmat nettisivut yrityksellesi?</h2>
@@ -244,6 +294,7 @@ export default function Home() {
             <a href="#miksi">Miksi NODRA</a>
             <a href="#minusta">Minusta</a>
             <a href="#hinnat">Hinnat</a>
+            <a href="#ukk">UKK</a>
             <a href="#yhteys">Yhteys</a>
             <a href="/tietosuojaseloste">Tietosuoja</a>
           </nav>
