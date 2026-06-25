@@ -7,6 +7,7 @@ type CardItem = {
   title: string;
   text: string;
   icon: LucideIcon;
+  href?: string;
 };
 
 const services: CardItem[] = [
@@ -14,21 +15,25 @@ const services: CardItem[] = [
     title: "Yhden sivun nettisivu",
     text: "Selkeä ja tehokas ratkaisu yritykselle, joka haluaa hyvän ensivaikutelman.",
     icon: FileText,
+    href: "/palvelut/yhden-sivun-nettisivu",
   },
   {
     title: "Yrityssivusto",
     text: "Useamman sivun kokonaisuus palveluiden ja yrityksen esittelyyn.",
     icon: Layers,
+    href: "/palvelut/yrityssivusto",
   },
   {
     title: "Sivuston uudistus",
     text: "Päivitä vanha sivuston moderniksi, selkeämmäksi ja toimivammaksi.",
     icon: RefreshCw,
+    href: "/palvelut/sivuston-uudistus",
   },
   {
     title: "Ylläpito",
     text: "Apua päivityksiin ja pieniin muutoksiin myös julkaisun jälkeen.",
     icon: Settings,
+    href: "/palvelut/yllapito",
   },
 ];
 
@@ -146,14 +151,14 @@ export default function Home() {
               {services.map((service) => {
                 const Icon = service.icon;
                 return (
-                  <article className="service-card" key={service.title}>
+                  <a className="service-card" href={service.href} key={service.title}>
                     <Icon className="icon" />
                     <div>
                       <h3>{service.title}</h3>
                       <p>{service.text}</p>
                     </div>
                     <span className="arrow" aria-hidden="true">→</span>
-                  </article>
+                  </a>
                 );
               })}
             </div>
@@ -188,7 +193,7 @@ export default function Home() {
               <div>
                 <h2>Tekijä NODRAn takana</h2>
                 <p>
-                  Olen NODRAn tekijä ja autan yrityksiä saamaan selkeät, modernit ja toimivat nettisivut ilman
+                  Olen Miro, NODRAn tekijä ja autan yrityksiä saamaan selkeät, modernit ja toimivat nettisivut ilman
                   monimutkaista prosessia. Tavoitteeni on tehdä sivusto, joka näyttää hyvältä, toimii puhelimella
                   ja tekee yrityksestä luotettavamman asiakkaiden silmissä.
                 </p>
@@ -214,6 +219,7 @@ export default function Home() {
                 </article>
               ))}
             </div>
+            <p className="vat-note">Hinnat alv 0 %. Hintoihin lisätään ALV 25,5 %.</p>
           </div>
 
           <section id="yhteys" className="contact-card" aria-labelledby="contact-heading">
@@ -238,6 +244,7 @@ export default function Home() {
             <a href="#minusta">Minusta</a>
             <a href="#hinnat">Hinnat</a>
             <a href="#yhteys">Yhteys</a>
+            <a href="/tietosuojaseloste">Tietosuoja</a>
           </nav>
           <p className="copyright">© NODRA. Kaikki oikeudet pidätetään.</p>
         </div>
