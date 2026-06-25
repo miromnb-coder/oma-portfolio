@@ -2,12 +2,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getServicePage, servicePages } from "../serviceData";
 
+type ServiceRouteProps = {
+  params: Promise<{ slug: string }>;
+};
+
 export function generateStaticParams() {
   return servicePages.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = getServicePage(params.slug);
+export async function generateMetadata({ params }: ServiceRouteProps) {
+  const { slug } = await params;
+  const service = getServicePage(slug);
 
   if (!service) {
     return {
@@ -21,8 +26,9 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getServicePage(params.slug);
+export default async function ServicePage({ params }: ServiceRouteProps) {
+  const { slug } = await params;
+  const service = getServicePage(slug);
 
   if (!service) {
     notFound();
