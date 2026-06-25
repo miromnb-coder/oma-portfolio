@@ -57,7 +57,13 @@ export function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <input type="checkbox" name="botcheck" className="botcheck" tabIndex={-1} autoComplete="off" />
+      <input
+        type="checkbox"
+        name="botcheck"
+        tabIndex={-1}
+        autoComplete="off"
+        style={{ display: "none" }}
+      />
       <div className="form-row">
         <label>
           <span>Nimi</span>
@@ -79,7 +85,15 @@ export function ContactForm() {
       <button type="submit" disabled={status === "sending"}>
         {status === "sending" ? "Lähetetään..." : "Lähetä"} <span aria-hidden="true">→</span>
       </button>
-      {message && <p className={`form-status ${status}`}>{message}</p>}
+      {message && (
+        <p
+          className={`form-status ${status}`}
+          role={status === "error" ? "alert" : "status"}
+          style={{ color: status === "success" ? "#28613b" : "#611820", fontWeight: 700 }}
+        >
+          {message}
+        </p>
+      )}
     </form>
   );
 }
