@@ -189,6 +189,81 @@ img { display: block; max-width: 100%; }
   max-width: 820px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .button,
+  .header-cta,
+  .contact-form button {
+    transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  }
+
+  .button:hover,
+  .header-cta:hover,
+  .contact-form button:hover {
+    transform: translateY(-2px);
+  }
+
+  .service-card {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  }
+
+  .service-card .arrow {
+    display: inline-block;
+    transition: transform 220ms ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: 0 18px 38px rgba(23, 25, 29, 0.07);
+  }
+
+  .service-card:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  .intro-visual {
+    animation: heroVisualIn 720ms ease-out both;
+    animation-delay: 120ms;
+  }
+
+  @supports (animation-timeline: view()) {
+    .services-panel,
+    .why-panel,
+    .about-card,
+    .pricing-area,
+    .contact-card,
+    .service-card,
+    .benefit-item,
+    .price-card {
+      animation: fadeInUp both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 24%;
+    }
+  }
+
+  @keyframes heroVisualIn {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 @media (max-width: 767px) {
   .subpage-section {
     padding: 34px 0 52px;
