@@ -45,6 +45,11 @@ export default function PrivacyPage() {
             <p>
               Voit pyytää sinua koskevien tietojen tarkistamista, korjaamista tai poistamista ottamalla yhteyttä NODRAan.
             </p>
+
+            <h2>Yhteystiedot</h2>
+            <p>
+              Sähköposti: <a className="footer-email" href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a>
+            </p>
           </div>
         </div>
       </section>
