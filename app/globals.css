@@ -116,6 +116,18 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
 }
 
+.contact-email {
+  margin-top: 14px !important;
+  font-weight: 700;
+}
+
+.contact-email a,
+.footer-email {
+  color: var(--burgundy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .vat-note {
   margin: 14px 0 0;
   color: var(--text-muted);
