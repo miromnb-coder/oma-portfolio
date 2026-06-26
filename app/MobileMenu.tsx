@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const menuLinks = [
   { label: "Palvelut", href: "/#palvelut" },
+  { label: "Työnäyte", href: "/#tyonayte" },
   { label: "Miksi NODRA", href: "/#miksi" },
   { label: "Minusta", href: "/#minusta" },
   { label: "Hinnat", href: "/#hinnat" },
