@@ -168,6 +168,130 @@ const faqAnswerStyle: CSSProperties = {
 export default function Home() {
   return (
     <main className="site-shell">
+      <style>{`
+        .showcase-block {
+          padding: 0 0 18px;
+        }
+
+        .showcase-card {
+          display: grid;
+          grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+          gap: 34px;
+          align-items: center;
+          border: 1px solid #e8ded6;
+          border-radius: 18px;
+          background: rgba(255, 253, 249, 0.94);
+          box-shadow: 0 18px 46px rgba(23, 25, 29, 0.035);
+          padding: 32px;
+        }
+
+        .showcase-media {
+          overflow: hidden;
+          border: 1px solid #e8ded6;
+          border-radius: 16px;
+          background: #fbf7f2;
+          box-shadow: 0 18px 46px rgba(23, 25, 29, 0.08);
+        }
+
+        .showcase-media img {
+          width: 100%;
+          height: auto;
+        }
+
+        .showcase-content {
+          display: grid;
+          gap: 18px;
+          align-content: center;
+        }
+
+        .showcase-content h2 {
+          margin: 0;
+          color: #17191d;
+          font-size: clamp(32px, 3.4vw, 52px);
+          font-weight: 750;
+          letter-spacing: -0.045em;
+          line-height: 1.04;
+        }
+
+        .showcase-badge {
+          width: fit-content;
+          margin: 0;
+          border: 1px solid #e8ded6;
+          border-radius: 999px;
+          background: #f2e4e1;
+          color: #611820;
+          padding: 8px 14px;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .showcase-text {
+          display: grid;
+          gap: 14px;
+          color: #343235;
+          font-size: 16px;
+          line-height: 1.65;
+        }
+
+        .showcase-text p {
+          margin: 0;
+        }
+
+        .showcase-actions {
+          display: grid;
+          gap: 14px;
+          justify-items: start;
+          margin-top: 2px;
+        }
+
+        .showcase-note {
+          margin: 0;
+          color: #5f5b57;
+          font-size: 13px;
+          line-height: 1.5;
+        }
+
+        .showcase-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin-top: 2px;
+        }
+
+        .showcase-tags span {
+          display: inline-flex;
+          border: 1px solid #e8ded6;
+          border-radius: 999px;
+          background: #fbf7f2;
+          color: #611820;
+          padding: 7px 13px;
+          font-size: 13px;
+          font-weight: 650;
+        }
+
+        @media (max-width: 900px) {
+          .showcase-card {
+            grid-template-columns: 1fr;
+            padding: 24px 20px;
+          }
+
+          .showcase-content h2 {
+            font-size: 30px;
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+          }
+
+          .showcase-actions,
+          .showcase-actions .button {
+            width: 100%;
+          }
+
+          .showcase-actions .button {
+            justify-content: center;
+          }
+        }
+      `}</style>
+
       <header className="site-header">
         <div className="container header-inner">
           <a className="logo" href="#top" aria-label="NODRA etusivulle">
@@ -175,6 +299,7 @@ export default function Home() {
           </a>
           <nav className="desktop-nav" aria-label="Päänavigaatio">
             <a href="#palvelut">Palvelut</a>
+            <a href="#tyonayte">Työnäyte</a>
             <a href="#miksi">Miksi NODRA</a>
             <a href="#minusta">Minusta</a>
             <a href="#hinnat">Hinnat</a>
@@ -237,6 +362,54 @@ export default function Home() {
               })}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="tyonayte" className="section-block showcase-block">
+        <div className="container">
+          <article className="showcase-card">
+            <div className="showcase-media">
+              <Image
+                src="/kallio-tyonayte.PNG"
+                alt="Kallio Rakennus -konseptisivun työnäyte"
+                width={1792}
+                height={1024}
+                sizes="(min-width: 1024px) 760px, 100vw"
+              />
+            </div>
+
+            <div className="showcase-content">
+              <p className="section-label">Työnäyte</p>
+              <h2>Esimerkkisivu rakennusyritykselle</h2>
+              <p className="showcase-badge">Rakennusalan konseptisivu</p>
+
+              <div className="showcase-text">
+                <p>
+                  Tein konseptisivun rakennusalan yritykselle näyttämään, millainen selkeä yhden sivun nettisivu voisi olla käytännössä.
+                </p>
+                <p>
+                  Sivulla esitellään palvelut, työnäytteet, hinta-arviot ja yhteydenotto helposti ymmärrettävällä tavalla.
+                </p>
+                <p>
+                  Tyyli on suunniteltu niin, että yritys näyttää luotettavalta ja asiakkaan on helppo ottaa yhteyttä.
+                </p>
+              </div>
+
+              <div className="showcase-actions">
+                <a className="button button-primary" href="https://miromnb-coder.github.io/Kallio/" target="_blank" rel="noopener noreferrer">
+                  Katso esimerkkisivu →
+                </a>
+                <p className="showcase-note">Konseptisivu – ei oikea asiakasprojekti.</p>
+              </div>
+
+              <div className="showcase-tags" aria-label="Esimerkkisivun sisältö">
+                <span>Palvelut</span>
+                <span>Työnäytteet</span>
+                <span>Hinta-arviot</span>
+                <span>Yhteydenotto</span>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -338,6 +511,7 @@ export default function Home() {
           </div>
           <nav aria-label="Alatunnisteen navigaatio">
             <a href="#palvelut">Palvelut</a>
+            <a href="#tyonayte">Työnäyte</a>
             <a href="#miksi">Miksi NODRA</a>
             <a href="#minusta">Minusta</a>
             <a href="#hinnat">Hinnat</a>
