@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
+  ArrowUpRight,
   Boxes,
   CalendarDays,
   CheckCircle2,
@@ -251,7 +252,9 @@ function FeatureCards({ items, className = "" }: { items: CardItem[]; className?
 function CtaBand({ title, text, button }: { title: string; text: string; button: string }) {
   return (
     <div className="cta-band" data-animate="fade-up">
-      <div className="cta-mark" aria-hidden="true">↗</div>
+      <div className="cta-mark" aria-hidden="true">
+        <ArrowUpRight />
+      </div>
       <div>
         <h3>{title}</h3>
         <p>{text}</p>
@@ -450,7 +453,7 @@ export default function Home() {
               <h2>Näe, miltä hyvin suunniteltu verkkosivusto voi näyttää.</h2>
               <p>
                 Suunnittelemme sivustoja, jotka eivät vain näytä hyvältä, vaan myös tukevat yrityksesi tavoitteita.
-                Tässä esimerkkisivitä, miltä lopputulos voi näyttää.
+                Tässä esimerkkisivusto, miltä lopputulos voi näyttää.
               </p>
             </div>
             <article className="work-browser" data-animate="fade-right">
@@ -545,17 +548,6 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="container">
-          <div className="footer-cta" data-animate="fade-up">
-            <div className="cta-mark" aria-hidden="true">↗</div>
-            <div>
-              <h2>Valmis rakentamaan uskottava sivusto?</h2>
-              <p>Kerro meille yrityksestäsi – suunnitellaan juuri teille sopiva ratkaisu.</p>
-            </div>
-            <a className="button button-dark" href="#yhteys">
-              Pyydä tarjous <span aria-hidden="true">→</span>
-            </a>
-          </div>
-
           <div className="footer-grid" data-stagger>
             <div className="footer-brand" data-stagger-item>
               <a href="#top" aria-label="NODRA etusivulle">
