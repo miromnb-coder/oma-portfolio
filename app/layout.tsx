@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import "./subpages.css";
+import "./logo.css";
 import { StyleInjector } from "./StyleInjector";
 
 export const metadata: Metadata = {
