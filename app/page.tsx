@@ -1,9 +1,30 @@
 import Image from "next/image";
-import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
-import { CheckCircle2, FileText, Layers, PenLine, RefreshCw, Settings, Smartphone, Zap } from "lucide-react";
+import {
+  Boxes,
+  CalendarDays,
+  CheckCircle2,
+  Clock3,
+  EyeOff,
+  FileText,
+  Gauge,
+  Globe,
+  Headphones,
+  Instagram,
+  Layers,
+  Linkedin,
+  ListChecks,
+  MessageCircle,
+  Monitor,
+  RefreshCw,
+  ShieldCheck,
+  Smartphone,
+  TrendingUp,
+  UserRound,
+} from "lucide-react";
 import { ContactForm } from "./ContactForm";
 import { MobileMenu } from "./MobileMenu";
+import { MotionEffects } from "./MotionEffects";
 
 type CardItem = {
   title: string;
@@ -12,514 +33,573 @@ type CardItem = {
   href?: string;
 };
 
+type PriceItem = {
+  title: string;
+  price: string;
+  subtitle: string;
+  text: string;
+  icon: LucideIcon;
+  items: string[];
+  featured?: boolean;
+};
+
 const services: CardItem[] = [
   {
     title: "Yhden sivun nettisivu",
-    text: "Selkeä ja tehokas ratkaisu yritykselle, joka haluaa hyvän ensivaikutelman.",
+    text: "Tiivis ja vaikuttava yhden sivun verkkosivu, joka esittelee yrityksesi ja ohjaa asiakkaat toimintaan.",
     icon: FileText,
     href: "/palvelut/yhden-sivun-nettisivu",
   },
   {
     title: "Yrityssivusto",
-    text: "Useamman sivun kokonaisuus palveluiden ja yrityksen esittelyyn.",
-    icon: Layers,
+    text: "Kokonaisvaltainen verkkosivusto, joka rakentaa luottamusta ja esittelee palvelusi selkeästi.",
+    icon: Globe,
     href: "/palvelut/yrityssivusto",
   },
   {
     title: "Sivuston uudistus",
-    text: "Päivitä vanha sivuston moderniksi, selkeämmäksi ja toimivammaksi.",
+    text: "Päivitetään vanhentunut sivusto vastaamaan nykyajan vaatimuksia sekä hakukoneita että käyttäjiä varten.",
     icon: RefreshCw,
     href: "/palvelut/sivuston-uudistus",
   },
   {
     title: "Ylläpito",
-    text: "Apua päivityksiin ja pieniin muutoksiin myös julkaisun jälkeen.",
-    icon: Settings,
+    text: "Huolehdimme sivustosi turvallisuudesta, päivityksistä ja varmuuskopioista, jotta voit keskittyä liiketoimintaasi.",
+    icon: ShieldCheck,
     href: "/palvelut/yllapito",
   },
 ];
 
-const benefits: CardItem[] = [
-  {
-    title: "Selkeä prosessi",
-    text: "Tiedät koko ajan, mitä tehdään ja mitä tapahtuu seuraavaksi.",
-    icon: CheckCircle2,
-  },
-  {
-    title: "Moderni ulkoasu",
-    text: "Tyylikäs ja luotettava lopputulos, joka sopii yrityksesi ilmeeseen.",
-    icon: PenLine,
-  },
-  {
-    title: "Toimii mobiilissa",
-    text: "Sivusto näyttää hyvältä puhelimella, tabletilla ja tietokoneella.",
-    icon: Smartphone,
-  },
-  {
-    title: "Nopea toteutus",
-    text: "Tehokas eteneminen ilman turhaa säätöä.",
-    icon: Zap,
-  },
-];
-
-const pricing = [
+const priceItems: PriceItem[] = [
   {
     title: "Startti",
     price: "249 €",
-    text: "Yhden sivun nettisivu pienelle yritykselle.",
-    items: ["Selkeä ja tehokas", "Nopea toimitus", "Mobiiliystävällinen"],
+    subtitle: "Yhden sivun nettisivu",
+    text: "Kompakti ja uskottava nettisivu, joka esittelee yrityksesi ja vahvistaa luottamusta.",
+    icon: FileText,
+    items: ["Yhden sivun design", "Responsiivinen toteutus", "Perus-SEO ja yhteydenottolomake"],
   },
   {
     title: "Yritys",
     price: "499 €",
-    text: "Useamman sivun yrityssivusto.",
-    items: ["Räätälöity ulkoasu", "Useita sivuja", "Hakukoneystävällinen"],
+    subtitle: "Laajempi yrityssivusto",
+    text: "Monisivuinen, moderni verkkosivusto, joka esittelee palvelusi ja tukee liiketoimintasi kasvua.",
+    icon: Layers,
+    items: ["1–5 sivua", "Responsiivinen toteutus", "Perus-SEO ja yhteydenottolomake"],
     featured: true,
   },
   {
     title: "Uudistus",
     price: "299 €",
-    text: "Vanhan sivuston modernisointi.",
-    items: ["Uusi ilme ja rakenne", "Parempi käytettävyys", "Mobiilioptimoitu"],
+    subtitle: "Sivuston päivitys",
+    text: "Päivitä vanhentunut sivustosi moderniksi ja tehokkaaksi ilman, että menetät sisältöäsi.",
+    icon: RefreshCw,
+    items: ["Moderni ilme ja rakenne", "Responsiivinen toteutus", "Sisällön siirto ja optimointi"],
   },
   {
     title: "Ylläpito",
-    price: "29 €/kk",
-    text: "Päivitykset ja tekninen huolenpito.",
-    items: ["Päivitykset", "Varmuuskopiot", "Tuki ja neuvonta"],
+    price: "29 € / kk",
+    subtitle: "Jatkuva tuki",
+    text: "Pidämme huolen päivityksistä, varmuuskopioista ja turvallisuudesta – sinä voit keskittyä liiketoimintaasi.",
+    icon: ShieldCheck,
+    items: ["Päivitykset ja tietoturva", "Varmuuskopiot", "Sähköpostituki"],
+  },
+];
+
+const pricingBenefits: CardItem[] = [
+  { title: "Ei piilokuluja", text: "Selkeä hinnoittelu alusta alkaen.", icon: EyeOff },
+  { title: "Nopea toteutus", text: "Sivut valmiina sovitussa aikataulussa.", icon: Clock3 },
+  { title: "Mahdollisuus ylläpitoon", text: "Jatkuva tuki ja huoleton käyttö.", icon: RefreshCw },
+];
+
+const processRows: CardItem[] = [
+  { title: "Selkeä prosessi", text: "Tiedät aina, missä vaiheessa projekti etenee.", icon: CheckCircle2 },
+  { title: "Nopea viestintä", text: "Pidetään toteutus sujuvana ja päätökset yksinkertaisina.", icon: MessageCircle },
+  { title: "Moderni lopputulos", text: "Sivusto näyttää uskottavalta kaikilla laitteilla.", icon: Monitor },
+  { title: "Jatkuva tuki", text: "Apua päivityksiin, ylläpitoon ja jatkokehitykseen.", icon: Headphones },
+];
+
+const whyCards: CardItem[] = [
+  {
+    title: "Suunnittelusta julkaisuun",
+    text: "Projektit etenevät vaiheittain ideasta valmiiseen sivustoon ilman turhaa monimutkaisuutta.",
+    icon: ListChecks,
+  },
+  {
+    title: "Yrityksesi näköinen",
+    text: "Jokainen sivusto suunnitellaan tukemaan juuri sinun palveluitasi, asiakkaitasi ja tavoitteitasi.",
+    icon: UserRound,
+  },
+  {
+    title: "Tuloksiin rakennettu",
+    text: "Tavoitteena ei ole vain hyvä ulkoasu, vaan myös selkeä rakenne ja enemmän yhteydenottoja.",
+    icon: TrendingUp,
+  },
+];
+
+const workCards: CardItem[] = [
+  {
+    title: "Selkeä rakenne",
+    text: "Looginen sivurakenne ja selkeä navigaatio auttavat käyttäjiä löytämään oleellisen.",
+    icon: Boxes,
+  },
+  {
+    title: "Mobiilioptimoitu",
+    text: "Sivustot toimivat saumattomasti kaikilla laitteilla – aina ensiluokkaisella käyttökokemuksella.",
+    icon: Smartphone,
+  },
+  {
+    title: "Nopea käyttökokemus",
+    text: "Optimoitu suorituskyky takaa nopeat latausajat ja parhaan mahdollisen käyttökokemuksen.",
+    icon: Gauge,
   },
 ];
 
 const faqItems = [
   {
-    question: "Kuinka kauan nettisivujen tekeminen kestää?",
-    answer:
-      "Aikataulu riippuu sivuston laajuudesta ja siitä, ovatko tekstit ja kuvat valmiina. Yhden sivun nettisivu voidaan yleensä tehdä selvästi nopeammin kuin useamman sivun yrityssivusto.",
+    question: "Kuinka nopeasti sivusto valmistuu?",
+    answer: "Useimmat sivustot valmistuvat noin 1–3 viikossa riippuen sisällöstä, laajuudesta ja palautteen nopeudesta.",
   },
   {
-    question: "Mitä tarvitsen ennen aloitusta?",
-    answer:
-      "Tarvitsen yrityksen perustiedot, palvelut, yhteystiedot, mahdolliset kuvat sekä ajatuksen siitä, millaisen tyylin haluat sivulle. Autan myös rakenteen ja tekstien selkeyttämisessä.",
+    question: "Mitä tarvitsen projektin alussa?",
+    answer: "Tarvitset yrityksen perustiedot, palvelut, yhteystiedot ja mahdolliset kuvat. Autan myös tekstien ja rakenteen selkeyttämisessä.",
   },
   {
-    question: "Toimivatko sivut puhelimella?",
-    answer:
-      "Kyllä. Sivut suunnitellaan mobiiliystävällisiksi, jotta ne näyttävät hyvältä ja ovat helppokäyttöiset puhelimella, tabletilla ja tietokoneella.",
+    question: "Voinko päivittää sivustoa itse?",
+    answer: "Kyllä. Toteutus voidaan suunnitella niin, että tärkeimmät sisällöt ovat helposti päivitettävissä myös myöhemmin.",
   },
   {
-    question: "Voitko uudistaa vanhat sivuni?",
-    answer:
-      "Kyllä. Vanhan sivuston ulkoasu, rakenne ja sisältö voidaan päivittää selkeämmäksi, modernimmaksi ja paremmin yhteydenottoihin ohjaavaksi.",
+    question: "Sisältyykö domain tai hosting hintaan?",
+    answer: "Domain ja hosting eivät automaattisesti sisälly paketteihin, mutta autan valitsemaan ja ottamaan käyttöön sopivan ratkaisun.",
   },
   {
-    question: "Sisältyykö ylläpito hintaan?",
-    answer:
-      "Ylläpito ei automaattisesti sisälly kertahintaan. Sen voi ottaa erikseen kuukausihinnalla, jos haluat apua päivityksiin ja pieniin muutoksiin julkaisun jälkeen.",
-  },
-  {
-    question: "Voinko pyytää muutoksia sivuun myöhemmin?",
-    answer:
-      "Kyllä. Sivuun voidaan tehdä muutoksia myös julkaisun jälkeen, esimerkiksi tekstien, kuvien, hintojen tai yhteystietojen päivityksiä.",
+    question: "Tarjoatko ylläpitoa julkaisun jälkeen?",
+    answer: "Kyllä. Ylläpitopalveluun voi sisältyä päivityksiä, varmuuskopioita, tietoturvaa ja pieniä muutoksia sivustolle.",
   },
 ];
 
-const faqCardStyle: CSSProperties = {
-  gridColumn: "1 / -1",
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-  gap: 28,
-  alignItems: "start",
-  border: "1px solid #e8ded6",
-  borderRadius: 16,
-  background: "rgba(255, 253, 249, 0.94)",
-  boxShadow: "0 18px 46px rgba(23, 25, 29, 0.035)",
-  padding: 28,
-};
+const faqCards: CardItem[] = [
+  {
+    title: "Selkeä aikataulu",
+    text: "Suunnittelemme aikataulun yhdessä ja pidämme kiinni sovituista vaiheista.",
+    icon: CalendarDays,
+  },
+  {
+    title: "Nopea viestintä",
+    text: "Pidämme sinut ajan tasalla jokaisessa vaiheessa ja vastaamme nopeasti.",
+    icon: MessageCircle,
+  },
+  {
+    title: "Jatkotuki",
+    text: "Emme jätä sinua yksin julkaisun jälkeen – olemme tukenasi jatkossakin.",
+    icon: Headphones,
+  },
+];
 
-const faqListStyle: CSSProperties = {
-  display: "grid",
-  gap: 10,
-};
+const contactCards: CardItem[] = [
+  {
+    title: "Vastaus nopeasti",
+    text: "Viestit käsitellään nopeasti ja saat vastauksen yleensä saman arkipäivän aikana.",
+    icon: MessageCircle,
+  },
+  {
+    title: "Selkeä aloitus",
+    text: "Projekti alkaa yksinkertaisella keskustelulla ja saat selkeät seuraavat askeleet.",
+    icon: ListChecks,
+  },
+  {
+    title: "Yrityksesi mukaan",
+    text: "Jokainen ratkaisu suunnitellaan yrityksesi tavoitteiden ja tarpeiden mukaan.",
+    icon: UserRound,
+  },
+];
 
-const faqItemStyle: CSSProperties = {
-  border: "1px solid #e8ded6",
-  borderRadius: 12,
-  background: "#fffdf9",
-  overflow: "hidden",
-};
+function FeatureCards({ items, className = "" }: { items: CardItem[]; className?: string }) {
+  return (
+    <div className={`cards-grid ${className}`} data-stagger>
+      {items.map((item) => {
+        const Icon = item.icon;
+        const content = (
+          <>
+            <Icon className="card-icon" aria-hidden="true" />
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+            <span className="card-arrow" aria-hidden="true">→</span>
+          </>
+        );
 
-const faqSummaryStyle: CSSProperties = {
-  minHeight: 54,
-  padding: "16px 18px",
-  color: "#17191d",
-  fontSize: 15,
-  fontWeight: 750,
-  cursor: "pointer",
-};
+        if (item.href) {
+          return (
+            <a className="info-card" href={item.href} key={item.title} data-stagger-item>
+              {content}
+            </a>
+          );
+        }
 
-const faqAnswerStyle: CSSProperties = {
-  margin: 0,
-  padding: "0 18px 18px",
-  color: "#5f5b57",
-  fontSize: 14,
-  lineHeight: 1.6,
-};
+        return (
+          <article className="info-card" key={item.title} data-stagger-item>
+            {content}
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
+function CtaBand({ title, text, button }: { title: string; text: string; button: string }) {
+  return (
+    <div className="cta-band" data-animate="fade-up">
+      <div className="cta-mark" aria-hidden="true">↗</div>
+      <div>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+      <a className="button button-dark" href="#yhteys">
+        {button} <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <main className="site-shell">
-      <style>{`
-        .showcase-block {
-          padding: 0 0 18px;
-        }
-
-        .showcase-card {
-          display: grid;
-          grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-          gap: 34px;
-          align-items: center;
-          border: 1px solid #e8ded6;
-          border-radius: 18px;
-          background: rgba(255, 253, 249, 0.94);
-          box-shadow: 0 18px 46px rgba(23, 25, 29, 0.035);
-          padding: 32px;
-        }
-
-        .showcase-media {
-          overflow: hidden;
-          border: 1px solid #e8ded6;
-          border-radius: 16px;
-          background: #fbf7f2;
-          box-shadow: 0 18px 46px rgba(23, 25, 29, 0.08);
-        }
-
-        .showcase-media img {
-          width: 100%;
-          height: auto;
-        }
-
-        .showcase-content {
-          display: grid;
-          gap: 18px;
-          align-content: center;
-        }
-
-        .showcase-content h2 {
-          margin: 0;
-          color: #17191d;
-          font-size: clamp(32px, 3.4vw, 52px);
-          font-weight: 750;
-          letter-spacing: -0.045em;
-          line-height: 1.04;
-        }
-
-        .showcase-badge {
-          width: fit-content;
-          margin: 0;
-          border: 1px solid #e8ded6;
-          border-radius: 999px;
-          background: #f2e4e1;
-          color: #611820;
-          padding: 8px 14px;
-          font-size: 14px;
-          font-weight: 700;
-        }
-
-        .showcase-text {
-          display: grid;
-          gap: 14px;
-          color: #343235;
-          font-size: 16px;
-          line-height: 1.65;
-        }
-
-        .showcase-text p {
-          margin: 0;
-        }
-
-        .showcase-actions {
-          display: grid;
-          gap: 14px;
-          justify-items: start;
-          margin-top: 2px;
-        }
-
-        .showcase-note {
-          margin: 0;
-          color: #5f5b57;
-          font-size: 13px;
-          line-height: 1.5;
-        }
-
-        .showcase-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-top: 2px;
-        }
-
-        .showcase-tags span {
-          display: inline-flex;
-          border: 1px solid #e8ded6;
-          border-radius: 999px;
-          background: #fbf7f2;
-          color: #611820;
-          padding: 7px 13px;
-          font-size: 13px;
-          font-weight: 650;
-        }
-
-        @media (max-width: 900px) {
-          .showcase-card {
-            grid-template-columns: 1fr;
-            padding: 24px 20px;
-          }
-
-          .showcase-content h2 {
-            font-size: 30px;
-            line-height: 1.08;
-            letter-spacing: -0.035em;
-          }
-
-          .showcase-actions,
-          .showcase-actions .button {
-            width: 100%;
-          }
-
-          .showcase-actions .button {
-            justify-content: center;
-          }
-        }
-      `}</style>
+      <MotionEffects />
 
       <header className="site-header">
         <div className="container header-inner">
           <a className="logo" href="#top" aria-label="NODRA etusivulle">
-            NODRA
+            <Image
+              className="logo-image"
+              src="/IMG_4448.PNG"
+              alt="NODRA"
+              width={420}
+              height={140}
+              priority
+            />
           </a>
           <nav className="desktop-nav" aria-label="Päänavigaatio">
+            <a href="#tyot">Työt</a>
             <a href="#palvelut">Palvelut</a>
-            <a href="#tyonayte">Työnäyte</a>
-            <a href="#miksi">Miksi NODRA</a>
-            <a href="#minusta">Minusta</a>
-            <a href="#hinnat">Hinnat</a>
-            <a href="#ukk">UKK</a>
-            <a href="#yhteys">Yhteys</a>
+            <a href="#miksi">Meistä</a>
+            <a href="#yhteys">Yhteystiedot</a>
           </nav>
           <a className="header-cta" href="#yhteys">
-            Pyydä tarjous
+            Varaa puhelu
           </a>
           <MobileMenu />
         </div>
       </header>
 
-      <section id="top" className="intro-section">
-        <div className="container intro-grid">
-          <div className="intro-content">
-            <div className="eyebrow">Selkeät nettisivut yrityksille</div>
-            <h1>Nettisivut, jotka tekevät yrityksestäsi uskottavamman</h1>
-            <p>
-              NODRA suunnittelee ja toteuttaa selkeät, modernit ja mobiiliystävälliset nettisivut yrityksille,
-              jotka haluavat paremman ensivaikutelman ja enemmän yhteydenottoja.
-            </p>
-            <div className="intro-actions">
-              <a className="button button-primary" href="#yhteys">
-                Pyydä tarjous
-              </a>
-              <a className="button button-secondary" href="#palvelut">
-                Katso palvelut
-              </a>
-            </div>
-            <div className="intro-features" aria-label="NODRAn vahvuudet">
-              <div><CheckCircle2 className="icon" /><span>Selkeä prosessi</span></div>
-              <div><Smartphone className="icon" /><span>Mobiiliystävällinen</span></div>
-              <div><Zap className="icon" /><span>Nopea toteutus</span></div>
-            </div>
-          </div>
-          <div className="intro-visual" aria-hidden="true">
-            <Image src="/Esimerkki.PNG" alt="" width={1040} height={768} priority sizes="(min-width: 1024px) 600px, 100vw" />
-          </div>
-        </div>
-      </section>
-
-      <section id="palvelut" className="section-block services-block">
+      <section id="top" className="hero-section">
         <div className="container">
-          <div className="panel services-panel">
-            <h2>Palvelut</h2>
-            <div className="services-grid">
-              {services.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <a className="service-card" href={service.href} key={service.title}>
-                    <Icon className="icon" />
-                    <div>
-                      <h3>{service.title}</h3>
-                      <p>{service.text}</p>
-                    </div>
-                    <span className="arrow" aria-hidden="true">→</span>
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="tyonayte" className="section-block showcase-block">
-        <div className="container">
-          <article className="showcase-card">
-            <div className="showcase-media">
-              <Image
-                src="/kallio-tyonayte.PNG"
-                alt="Kallio Rakennus -konseptisivun työnäyte"
-                width={1792}
-                height={1024}
-                sizes="(min-width: 1024px) 760px, 100vw"
-              />
-            </div>
-
-            <div className="showcase-content">
-              <p className="section-label">Työnäyte</p>
-              <h2>Esimerkkisivu rakennusyritykselle</h2>
-              <p className="showcase-badge">Rakennusalan konseptisivu</p>
-
-              <div className="showcase-text">
-                <p>
-                  Tein konseptisivun rakennusalan yritykselle näyttämään, millainen selkeä yhden sivun nettisivu voisi olla käytännössä.
-                </p>
-                <p>
-                  Sivulla esitellään palvelut, työnäytteet, hinta-arviot ja yhteydenotto helposti ymmärrettävällä tavalla.
-                </p>
-                <p>
-                  Tyyli on suunniteltu niin, että yritys näyttää luotettavalta ja asiakkaan on helppo ottaa yhteyttä.
-                </p>
-              </div>
-
-              <div className="showcase-actions">
-                <a className="button button-primary" href="https://miromnb-coder.github.io/Kallio/" target="_blank" rel="noopener noreferrer">
-                  Katso esimerkkisivu →
-                </a>
-                <p className="showcase-note">Konseptisivu – ei oikea asiakasprojekti.</p>
-              </div>
-
-              <div className="showcase-tags" aria-label="Esimerkkisivun sisältö">
-                <span>Palvelut</span>
-                <span>Työnäytteet</span>
-                <span>Hinta-arviot</span>
-                <span>Yhteydenotto</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="miksi" className="section-block why-about-block">
-        <div className="container why-about-grid">
-          <div className="why-panel">
-            <h2>Miksi NODRA?</h2>
-            <div className="benefit-grid">
-              {benefits.map((benefit) => {
-                const Icon = benefit.icon;
-                return (
-                  <article className="benefit-item" key={benefit.title}>
-                    <Icon className="icon" />
-                    <div>
-                      <h3>{benefit.title}</h3>
-                      <p>{benefit.text}</p>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-
-          <article id="minusta" className="about-card">
-            <p className="section-label">Minusta</p>
-            <div className="about-inner">
-              <Image src="/Minusta.PNG" alt="NODRAn tekijä profiilikuvassa" width={512} height={512} sizes="132px" />
-              <div>
-                <h2>Tekijä NODRAn takana</h2>
-                <p>
-                  Olen Miro, NODRAn tekijä ja autan yrityksiä saamaan selkeät, modernit ja toimivat nettisivut ilman
-                  monimutkaista prosessia. Tavoitteeni on tehdä sivusto, joka näyttää hyvältä, toimii puhelimella
-                  ja tekee yrityksestä luotettavamman asiakkaiden silmissä.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="hinnat" className="section-block pricing-contact-block">
-        <div className="container pricing-contact-grid">
-          <div className="pricing-area">
-            <h2>Hinnat</h2>
-            <div className="pricing-grid">
-              {pricing.map((item) => (
-                <article className={`price-card${item.featured ? " featured" : ""}`} key={item.title}>
-                  {item.featured && <div className="featured-label">Suosituin</div>}
-                  <h3>{item.title}</h3>
-                  <p className="price-prefix">alk.</p>
-                  <p className="price">{item.price}</p>
-                  <p className="price-text">{item.text}</p>
-                  <ul>{item.items.map((feature) => <li key={feature}>{feature}</li>)}</ul>
-                </article>
-              ))}
-            </div>
-            <p className="vat-note">Hinnat alv 0 %. Hintoihin lisätään ALV 25,5 %.</p>
-          </div>
-
-          <section id="ukk" className="faq-card" aria-labelledby="faq-heading" style={faqCardStyle}>
-            <div className="faq-heading">
-              <p className="section-label">UKK</p>
-              <h2 id="faq-heading" style={{ margin: "0 0 12px", fontSize: 28, fontWeight: 750, letterSpacing: "-0.03em" }}>
-                Usein kysyttyä
-              </h2>
-              <p style={{ margin: 0, color: "#5f5b57", fontSize: 14, lineHeight: 1.55 }}>
-                Vastauksia yleisimpiin kysymyksiin ennen yhteydenottoa.
+          <div className="hero-grid">
+            <div className="hero-side">
+              <p className="hero-kicker">Mitä teemme</p>
+              <h2>Suunnittelemme ja rakennamme moderneja verkkosivuja.</h2>
+              <p>
+                Jotka auttavat yrityksiä näyttämään luotettavilta ja saamaan enemmän yhteydenottoja.
               </p>
             </div>
-            <div className="faq-list" style={faqListStyle}>
-              {faqItems.map((item) => (
-                <details className="faq-item" key={item.question} style={faqItemStyle}>
-                  <summary style={faqSummaryStyle}>{item.question}</summary>
-                  <p style={faqAnswerStyle}>{item.answer}</p>
+            <div className="hero-main">
+              <h1>
+                <span className="hero-title-line">Rakennamme moderneja</span>
+                <span className="hero-title-line">verkkosivuja, jotka tekevät</span>
+                <span className="hero-title-line">yrityksestäsi uskottavan.</span>
+              </h1>
+              <p className="hero-lead">Selkeä design, nopea toteutus ja toimiva käyttökokemus kaikilla laitteilla.</p>
+            </div>
+          </div>
+        </div>
+        <div className="hero-media parallax-media">
+          <Image
+            src="/Esimerkki.PNG"
+            alt="Tumma 3D-rakenne, joka kuvastaa moderneja verkkosivuja"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
+      </section>
+
+      <section id="palvelut" className="content-section services-section">
+        <div className="container">
+          <div className="split-layout">
+            <div className="section-copy" data-animate="fade-left">
+              <p className="section-label">Palvelut</p>
+              <h2>Ratkaisut yrityksille, jotka tarvitsevat selkeät ja uskottavat verkkosivut.</h2>
+              <p>
+                Suunnittelemme ja toteutamme moderneja, tehokkaita verkkosivustoja pienyrityksille.
+                Jokainen ratkaisu räätälöidään liiketoimintasi tavoitteiden mukaan ja rakennetaan tuottamaan tuloksia.
+              </p>
+            </div>
+            <div className="media-card parallax-media" data-animate="fade-right">
+              <Image src="/Esimerkki.PNG" alt="NODRA-palveluiden visuaalinen rakenne" fill sizes="(min-width: 1024px) 560px, 100vw" />
+            </div>
+          </div>
+          <FeatureCards items={services} className="four-columns" />
+        </div>
+      </section>
+
+      <section id="hinnat" className="content-section pricing-section">
+        <div className="container">
+          <div className="split-layout pricing-top">
+            <div className="section-copy" data-animate="fade-left">
+              <p className="section-label">Hinnat</p>
+              <h2>Selkeät paketit ilman turhaa monimutkaisuutta.</h2>
+              <p>
+                NODRA tarjoaa selkeät ja läpinäkyvät hinnat pienyrityksille. Oikea paketti riippuu sivuston
+                laajuudesta ja tavoitteista – valitset helposti sen, mikä sopii juuri sinulle.
+              </p>
+            </div>
+            <div className="benefit-list-card" data-animate="fade-right">
+              {pricingBenefits.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div className="benefit-row" key={item.title}>
+                    <span className="round-icon"><Icon aria-hidden="true" /></span>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="price-grid" data-stagger>
+            {priceItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <article className={`price-card${item.featured ? " featured-card" : ""}`} key={item.title} data-stagger-item>
+                  {item.featured && <div className="featured-label">★ Suosituin</div>}
+                  <div className="price-card-body">
+                    <Icon className="card-icon" aria-hidden="true" />
+                    <h3>{item.title}</h3>
+                    <p className="price-value">{item.price}</p>
+                    <p className="price-subtitle">{item.subtitle}</p>
+                    <p className="price-description">{item.text}</p>
+                    <ul>
+                      {item.items.map((feature) => (
+                        <li key={feature}>✓ {feature}</li>
+                      ))}
+                    </ul>
+                    <span className="card-arrow" aria-hidden="true">→</span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <CtaBand
+            title="Tarvitsetko räätälöidyn ratkaisun?"
+            text="Jokainen yritys on erilainen. Tehdään yhdessä juuri sinun tavoitteitasi tukeva sivusto."
+            button="Pyydä tarjous"
+          />
+        </div>
+      </section>
+
+      <section id="miksi" className="content-section why-section">
+        <div className="container">
+          <div className="split-layout why-top">
+            <div className="section-copy" data-animate="fade-left">
+              <p className="section-label">Miksi NODRA</p>
+              <h2>Selkeä prosessi, moderni toteutus ja sivusto, joka tukee liiketoimintaasi.</h2>
+              <p>
+                NODRA keskittyy siihen, mikä pienyritykselle on tärkeintä: uskottava ilme, helppo käyttökokemus
+                ja sivusto, joka ohjaa asiakkaat ottamaan yhteyttä.
+              </p>
+            </div>
+            <div className="process-card parallax-media" data-animate="fade-right">
+              <Image src="/Esimerkki.PNG" alt="Tumma prosessikortti NODRA-palvelulle" fill sizes="(min-width: 1024px) 620px, 100vw" />
+              <div className="process-overlay" />
+              <div className="process-content">
+                {processRows.map((row) => {
+                  const Icon = row.icon;
+                  return (
+                    <div className="process-row" key={row.title}>
+                      <Icon aria-hidden="true" />
+                      <span className="process-line" aria-hidden="true" />
+                      <div>
+                        <h3>{row.title}</h3>
+                        <p>{row.text}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <FeatureCards items={whyCards} className="three-columns" />
+          <CtaBand
+            title="Haluatko saman yrityksellesi?"
+            text="Keskustellaan, miten voimme rakentaa sivuston, joka tuo tuloksia myös sinulle."
+            button="Pyydä tarjous"
+          />
+        </div>
+      </section>
+
+      <section id="tyot" className="content-section work-section">
+        <div className="container">
+          <div className="split-layout work-top">
+            <div className="section-copy" data-animate="fade-left">
+              <p className="section-label">Työt</p>
+              <h2>Näe, miltä hyvin suunniteltu verkkosivusto voi näyttää.</h2>
+              <p>
+                Suunnittelemme sivustoja, jotka eivät vain näytä hyvältä, vaan myös tukevat yrityksesi tavoitteita.
+                Tässä esimerkkisivitä, miltä lopputulos voi näyttää.
+              </p>
+            </div>
+            <article className="work-browser" data-animate="fade-right">
+              <div className="browser-top">
+                <span />
+                <span />
+                <span />
+                <div className="browser-url">🔒 esimerkkiyritys.fi</div>
+              </div>
+              <div className="work-browser-image">
+                <Image
+                  src="/kallio-tyonayte.PNG"
+                  alt="Esimerkkiprojekti verkkosivun selainmockupissa"
+                  width={1792}
+                  height={1024}
+                  sizes="(min-width: 1024px) 680px, 100vw"
+                />
+              </div>
+              <div className="browser-footer">
+                <div>
+                  <h3>Esimerkkiprojekti</h3>
+                  <p>Yrityssivusto / Uudistus</p>
+                </div>
+                <a className="button button-dark small" href="https://miromnb-coder.github.io/Kallio/" target="_blank" rel="noopener noreferrer">
+                  Katso projekti <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+          <FeatureCards items={workCards} className="three-columns" />
+        </div>
+      </section>
+
+      <section id="ukk" className="content-section faq-section">
+        <div className="container">
+          <div className="split-layout faq-top">
+            <div className="section-copy" data-animate="fade-left">
+              <p className="section-label">UKK</p>
+              <h2>Vastaukset yleisimpiin kysymyksiin ennen projektin aloittamista.</h2>
+              <p>
+                Haluamme tehdä prosessista mahdollisimman selkeän ja läpinäkyvän. Alla vastaukset yleisimpiin
+                kysymyksiin, joita asiakkaamme esittävät ennen projektin käynnistämistä.
+              </p>
+            </div>
+            <div className="faq-panel" data-animate="fade-right">
+              {faqItems.map((item, index) => (
+                <details className="faq-item" key={item.question} open={index === 0}>
+                  <summary>
+                    <span className="faq-indicator" aria-hidden="true" />
+                    <span>{item.question}</span>
+                    <span className="faq-chevron" aria-hidden="true">⌄</span>
+                  </summary>
+                  <div className="faq-answer">
+                    <p>{item.answer}</p>
+                  </div>
                 </details>
               ))}
             </div>
-          </section>
+          </div>
+          <FeatureCards items={faqCards} className="three-columns" />
+          <CtaBand
+            title="Etkö löytänyt vastausta?"
+            text="Kysy rohkeasti – vastaan mielelläni ja autan valitsemaan sopivan ratkaisun."
+            button="Ota yhteyttä"
+          />
+        </div>
+      </section>
 
-          <section id="yhteys" className="contact-card" aria-labelledby="contact-heading" style={{ gridColumn: "1 / -1" }}>
-            <div>
-              <h2 id="contact-heading">Haluatko paremmat nettisivut yrityksellesi?</h2>
-              <p>Kerro lyhyesti mitä tarvitset, niin vastaan sinulle ehdotuksella ja alkaen-hinnalla.</p>
-              <p className="contact-email">
-                Sähköposti: <a href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a>
+      <section id="yhteys" className="content-section contact-section">
+        <div className="container">
+          <div className="split-layout contact-top">
+            <div className="section-copy" data-animate="fade-left">
+              <p className="section-label">Yhteydenotto</p>
+              <h2>Kerro projektistasi, niin suunnitellaan yrityksellesi sopiva verkkosivusto.</h2>
+              <p>
+                Voit lähettää viestin tai varata puhelun. Vastaan nopeasti ja autan valitsemaan juuri sinun
+                yrityksellesi sopivan ratkaisun.
               </p>
             </div>
-            <ContactForm />
-          </section>
+            <div className="contact-form-card" data-animate="fade-right">
+              <ContactForm />
+            </div>
+          </div>
+          <FeatureCards items={contactCards} className="three-columns" />
+          <CtaBand
+            title="Valmis aloittamaan?"
+            text="Lähetä viesti tai varaa puhelu – katsotaan yhdessä, mikä ratkaisu sopii yrityksellesi parhaiten."
+            button="Pyydä tarjous"
+          />
         </div>
       </section>
 
       <footer className="site-footer">
-        <div className="container footer-inner">
-          <div>
-            <a className="footer-logo" href="#top">NODRA</a>
-            <p>Selkeät nettisivut yrityksille</p>
-            <p><a className="footer-email" href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a></p>
+        <div className="container">
+          <div className="footer-cta" data-animate="fade-up">
+            <div className="cta-mark" aria-hidden="true">↗</div>
+            <div>
+              <h2>Valmis rakentamaan uskottava sivusto?</h2>
+              <p>Kerro meille yrityksestäsi – suunnitellaan juuri teille sopiva ratkaisu.</p>
+            </div>
+            <a className="button button-dark" href="#yhteys">
+              Pyydä tarjous <span aria-hidden="true">→</span>
+            </a>
           </div>
-          <nav aria-label="Alatunnisteen navigaatio">
-            <a href="#palvelut">Palvelut</a>
-            <a href="#tyonayte">Työnäyte</a>
-            <a href="#miksi">Miksi NODRA</a>
-            <a href="#minusta">Minusta</a>
-            <a href="#hinnat">Hinnat</a>
-            <a href="#ukk">UKK</a>
-            <a href="#yhteys">Yhteys</a>
-            <a href="/tietosuojaseloste">Tietosuoja</a>
-          </nav>
-          <p className="copyright">© NODRA. Kaikki oikeudet pidätetään.</p>
+
+          <div className="footer-grid" data-stagger>
+            <div className="footer-brand" data-stagger-item>
+              <a href="#top" aria-label="NODRA etusivulle">
+                <Image className="footer-logo-image" src="/IMG_4448.PNG" alt="NODRA" width={420} height={140} />
+              </a>
+              <p>Autamme pieniä yrityksiä näyttämään uskottavilta verkossa modernien ja helppokäyttöisten verkkosivujen avulla.</p>
+              <div className="social-links" aria-label="Sosiaalisen median linkit">
+                <a href="#top" aria-label="Verkkosivusto"><Globe aria-hidden="true" /></a>
+                <a href="#top" aria-label="LinkedIn"><Linkedin aria-hidden="true" /></a>
+                <a href="#top" aria-label="Instagram"><Instagram aria-hidden="true" /></a>
+              </div>
+            </div>
+
+            <nav className="footer-column" aria-label="Sivukartta" data-stagger-item>
+              <h3>Sivukartta</h3>
+              <a href="#tyot">Työt</a>
+              <a href="#palvelut">Palvelut</a>
+              <a href="#miksi">Meistä</a>
+              <a href="#yhteys">Yhteystiedot</a>
+            </nav>
+
+            <nav className="footer-column" aria-label="Palvelut" data-stagger-item>
+              <h3>Palvelut</h3>
+              <a href="/palvelut/yhden-sivun-nettisivu">Yhden sivun nettisivu</a>
+              <a href="/palvelut/yrityssivusto">Yrityssivusto</a>
+              <a href="/palvelut/sivuston-uudistus">Sivuston uudistus</a>
+              <a href="/palvelut/yllapito">Ylläpito</a>
+            </nav>
+
+            <div className="footer-column" data-stagger-item>
+              <h3>Yhteys</h3>
+              <a href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a>
+              <p>Vastaamme yleensä 1 arkipäivän kuluessa.</p>
+              <a className="footer-call" href="#yhteys">Varaa puhelu <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div className="footer-bottom">
+            <p>© 2026 NODRA</p>
+            <div>
+              <a href="/tietosuojaseloste">Tietosuoja</a>
+              <a href="/ehdot">Ehdot</a>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
