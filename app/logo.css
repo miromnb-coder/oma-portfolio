@@ -1,0 +1,60 @@
+.logo,
+.footer-brand > a {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.logo::before,
+.footer-brand > a::before {
+  content: "";
+  display: block;
+  width: 292px;
+  aspect-ratio: 420 / 140;
+  background-image: url("https://raw.githubusercontent.com/miromnb-coder/oma-portfolio/main/public/IMG_4448.PNG");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+.footer-brand > a::before {
+  width: 310px;
+}
+
+.logo-image,
+.footer-logo-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 1180px) {
+  .logo::before {
+    width: 240px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo::before {
+    width: 190px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo::before {
+    width: 170px;
+  }
+
+  .footer-brand > a::before {
+    width: 210px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo::before {
+    width: 160px;
+  }
+}
