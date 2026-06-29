@@ -121,6 +121,25 @@
   .project-card-content .button {
     width: 100%;
   }
+
+  .process-card {
+    height: auto !important;
+    min-height: 0;
+  }
+
+  .process-content {
+    height: auto !important;
+    align-content: start;
+    padding: 30px 28px 36px;
+  }
+
+  .process-row {
+    align-items: start;
+  }
+
+  .process-line {
+    height: 72px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -130,5 +149,9 @@
 
   .project-image {
     height: 260px;
+  }
+
+  .process-content {
+    padding: 28px 24px 34px;
   }
 }
