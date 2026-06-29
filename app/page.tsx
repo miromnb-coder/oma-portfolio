@@ -456,28 +456,29 @@ export default function Home() {
                 Tässä esimerkkisivusto, miltä lopputulos voi näyttää.
               </p>
             </div>
-            <article className="work-browser" data-animate="fade-right">
-              <div className="browser-top">
-                <span />
-                <span />
-                <span />
-                <div className="browser-url">🔒 esimerkkiyritys.fi</div>
-              </div>
-              <div className="work-browser-image">
+            <article className="project-card" data-animate="fade-right">
+              <a
+                className="project-image-link"
+                href="https://miromnb-coder.github.io/Kallio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Avaa esimerkkiprojekti"
+              >
                 <Image
+                  className="project-image"
                   src="/kallio-tyonayte.PNG"
-                  alt="Esimerkkiprojekti verkkosivun selainmockupissa"
+                  alt="Esimerkkiprojekti verkkosivusta"
                   width={1792}
                   height={1024}
                   sizes="(min-width: 1024px) 680px, 100vw"
                 />
-              </div>
-              <div className="browser-footer">
+              </a>
+              <div className="project-card-content">
                 <div>
                   <h3>Esimerkkiprojekti</h3>
                   <p>Yrityssivusto / Uudistus</p>
                 </div>
-                <a className="button button-dark small" href="https://miromnb-coder.github.io/Kallio/" target="_blank" rel="noopener noreferrer">
+                <a className="button button-dark" href="https://miromnb-coder.github.io/Kallio/" target="_blank" rel="noopener noreferrer">
                   Katso projekti <span aria-hidden="true">→</span>
                 </a>
               </div>
