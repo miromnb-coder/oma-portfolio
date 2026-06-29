@@ -60,7 +60,7 @@ export function MobileMenu() {
           </a>
         ))}
         <a className="mobile-menu-cta" href="/#yhteys" onClick={() => setIsOpen(false)}>
-          Varaa puhelu
+          Ota yhteyttä
         </a>
       </nav>
     </div>
