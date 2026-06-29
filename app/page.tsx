@@ -163,7 +163,7 @@ const faqItems = [
   },
   {
     question: "Mitä tarvitsen projektin alussa?",
-    answer: "Tarvitset yrityksen perustiedot, palvelut, yhteystiedot ja mahdolliset kuvat. Autan myös tekstien ja rakenteen selkeyttämisessä.",
+    answer: "Tarvitset yrityksen perustiedot, palvelut, yhteystiedot ja mahdolliset kuvat. Autamme myös tekstien ja rakenteen selkeyttämisessä.",
   },
   {
     question: "Voinko päivittää sivustoa itse?",
@@ -171,7 +171,7 @@ const faqItems = [
   },
   {
     question: "Sisältyykö domain tai hosting hintaan?",
-    answer: "Domain ja hosting eivät automaattisesti sisälly paketteihin, mutta autan valitsemaan ja ottamaan käyttöön sopivan ratkaisun.",
+    answer: "Domain ja hosting eivät automaattisesti sisälly paketteihin, mutta autamme valitsemaan ja ottamaan käyttöön sopivan ratkaisun.",
   },
   {
     question: "Tarjoatko ylläpitoa julkaisun jälkeen?",
@@ -290,7 +290,7 @@ export default function Home() {
             <a href="#yhteys">Yhteystiedot</a>
           </nav>
           <a className="header-cta" href="#yhteys">
-            Varaa puhelu
+            Ota yhteyttä
           </a>
           <MobileMenu />
         </div>
@@ -517,7 +517,7 @@ export default function Home() {
           <FeatureCards items={faqCards} className="three-columns" />
           <CtaBand
             title="Etkö löytänyt vastausta?"
-            text="Kysy rohkeasti – vastaan mielelläni ja autan valitsemaan sopivan ratkaisun."
+            text="Kysy rohkeasti – vastaamme mielellämme ja autamme valitsemaan sopivan ratkaisun."
             button="Ota yhteyttä"
           />
         </div>
@@ -530,8 +530,8 @@ export default function Home() {
               <p className="section-label">Yhteydenotto</p>
               <h2>Kerro projektistasi, niin suunnitellaan yrityksellesi sopiva verkkosivusto.</h2>
               <p>
-                Voit lähettää viestin tai varata puhelun. Vastaan nopeasti ja autan valitsemaan juuri sinun
-                yrityksellesi sopivan ratkaisun.
+                Voit lähettää viestin lomakkeella tai sähköpostilla. Vastaamme nopeasti ja autamme valitsemaan
+                juuri sinun yrityksellesi sopivan ratkaisun.
               </p>
             </div>
             <div className="contact-form-card" data-animate="fade-right">
@@ -541,8 +541,8 @@ export default function Home() {
           <FeatureCards items={contactCards} className="three-columns" />
           <CtaBand
             title="Valmis aloittamaan?"
-            text="Lähetä viesti tai varaa puhelu – katsotaan yhdessä, mikä ratkaisu sopii yrityksellesi parhaiten."
-            button="Pyydä tarjous"
+            text="Lähetä viesti lomakkeella tai sähköpostilla – autamme valitsemaan yrityksellesi sopivan ratkaisun."
+            button="Lähetä viesti"
           />
         </div>
       </section>
@@ -582,7 +582,7 @@ export default function Home() {
               <h3>Yhteys</h3>
               <a href="mailto:nodra.verkkosivut@gmail.com">nodra.verkkosivut@gmail.com</a>
               <p>Vastaamme yleensä 1 arkipäivän kuluessa.</p>
-              <a className="footer-call" href="#yhteys">Varaa puhelu <span aria-hidden="true">→</span></a>
+              <a className="footer-call" href="#yhteys">Lähetä viesti <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
