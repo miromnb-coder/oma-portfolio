@@ -101,7 +101,7 @@ export function ContactForm() {
         <button className="button button-dark" type="submit" disabled={status === "sending"}>
           {status === "sending" ? "Lähetetään..." : "Lähetä viesti"}
         </button>
-        <a href="mailto:nodra.verkkosivut@gmail.com">Tai varaa puhelu <span aria-hidden="true">→</span></a>
+        <a href="mailto:nodra.verkkosivut@gmail.com">Tai lähetä sähköpostia <span aria-hidden="true">→</span></a>
       </div>
 
       {message && (
