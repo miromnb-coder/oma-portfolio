@@ -318,8 +318,8 @@ export default function Home() {
         </div>
         <div className="hero-media parallax-media">
           <Image
-            src="/Esimerkki.PNG"
-            alt="Tumma 3D-rakenne, joka kuvastaa moderneja verkkosivuja"
+            src="/C.PNG"
+            alt="Tumma abstrakti viivarakenne, joka kuvastaa moderneja verkkosivuja"
             fill
             priority
             sizes="100vw"
@@ -339,7 +339,7 @@ export default function Home() {
               </p>
             </div>
             <div className="media-card parallax-media" data-animate="fade-right">
-              <Image src="/Esimerkki.PNG" alt="NODRA-palveluiden visuaalinen rakenne" fill sizes="(min-width: 1024px) 560px, 100vw" />
+              <Image src="/C.PNG" alt="NODRA-palveluiden abstrakti viivarakenne" fill sizes="(min-width: 1024px) 560px, 100vw" />
             </div>
           </div>
           <FeatureCards items={services} className="four-columns" />
@@ -417,7 +417,7 @@ export default function Home() {
               </p>
             </div>
             <div className="process-card parallax-media" data-animate="fade-right">
-              <Image src="/Esimerkki.PNG" alt="Tumma prosessikortti NODRA-palvelulle" fill sizes="(min-width: 1024px) 620px, 100vw" />
+              <Image src="/C.PNG" alt="Tumma abstrakti prosessitausta NODRA-palvelulle" fill sizes="(min-width: 1024px) 620px, 100vw" />
               <div className="process-overlay" />
               <div className="process-content">
                 {processRows.map((row) => {
