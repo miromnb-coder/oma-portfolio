@@ -62,35 +62,50 @@ export function ContactForm() {
         name="botcheck"
         tabIndex={-1}
         autoComplete="off"
-        style={{ display: "none" }}
+        className="botcheck"
       />
-      <div className="form-row">
-        <label>
-          <span>Nimi</span>
-          <input name="name" type="text" placeholder="Nimi" autoComplete="name" required />
-        </label>
-        <label>
-          <span>Yritys</span>
-          <input name="company" type="text" placeholder="Yritys" autoComplete="organization" />
-        </label>
-      </div>
-      <label>
+
+      <label className="form-field">
+        <span>Nimi</span>
+        <input name="name" type="text" placeholder="Etunimi Sukunimi" autoComplete="name" required />
+      </label>
+
+      <label className="form-field">
         <span>Sähköposti</span>
-        <input name="email" type="email" placeholder="Sähköposti" autoComplete="email" required />
+        <input name="email" type="email" placeholder="esimerkki@yritys.fi" autoComplete="email" required />
       </label>
-      <label>
-        <span>Mitä tarvitset?</span>
-        <textarea name="message" placeholder="Mitä tarvitset?" required />
+
+      <label className="form-field">
+        <span>Yritys</span>
+        <input name="company" type="text" placeholder="Yrityksen nimi" autoComplete="organization" />
       </label>
-      <button type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Lähetetään..." : "Lähetä"} <span aria-hidden="true">→</span>
-      </button>
+
+      <label className="form-field">
+        <span>Tarvitsemasi sivusto</span>
+        <select name="service" defaultValue="">
+          <option value="" disabled>Valitse vaihtoehto</option>
+          <option value="Yhden sivun nettisivu">Yhden sivun nettisivu</option>
+          <option value="Yrityssivusto">Yrityssivusto</option>
+          <option value="Sivuston uudistus">Sivuston uudistus</option>
+          <option value="Ylläpito">Ylläpito</option>
+          <option value="En ole vielä varma">En ole vielä varma</option>
+        </select>
+      </label>
+
+      <label className="form-field align-start">
+        <span>Viesti</span>
+        <textarea name="message" placeholder="Kerro lyhyesti projektistasi ja tavoitteistasi..." required />
+      </label>
+
+      <div className="form-actions">
+        <button className="button button-dark" type="submit" disabled={status === "sending"}>
+          {status === "sending" ? "Lähetetään..." : "Lähetä viesti"}
+        </button>
+        <a href="mailto:nodra.verkkosivut@gmail.com">Tai lähetä sähköpostia <span aria-hidden="true">→</span></a>
+      </div>
+
       {message && (
-        <p
-          className={`form-status ${status}`}
-          role={status === "error" ? "alert" : "status"}
-          style={{ color: status === "success" ? "#28613b" : "#611820", fontWeight: 700 }}
-        >
+        <p className={`form-status ${status}`} role={status === "error" ? "alert" : "status"}>
           {message}
         </p>
       )}

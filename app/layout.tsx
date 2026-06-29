@@ -1,18 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import "./subpages.css";
+import "./logo.css";
 import { StyleInjector } from "./StyleInjector";
 
 export const metadata: Metadata = {
-  title: "NODRA — Nettisivut yrityksille",
+  title: "NODRA — Modernit verkkosivut yrityksille",
   description:
-    "NODRA suunnittelee ja toteuttaa selkeät, modernit ja mobiiliystävälliset nettisivut yrityksille.",
+    "NODRA suunnittelee ja toteuttaa moderneja, selkeitä ja mobiiliystävällisiä verkkosivuja yrityksille.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#FBF7F2",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({

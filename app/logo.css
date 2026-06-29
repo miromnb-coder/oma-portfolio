@@ -1,0 +1,157 @@
+.logo,
+.footer-brand > a {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.logo::before,
+.footer-brand > a::before {
+  content: "";
+  display: block;
+  width: 292px;
+  aspect-ratio: 420 / 140;
+  background-image: url("https://raw.githubusercontent.com/miromnb-coder/oma-portfolio/main/public/IMG_4448.PNG");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+.footer-brand > a::before {
+  width: 310px;
+}
+
+.logo-image,
+.footer-logo-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cta-mark svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 1.8;
+}
+
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.06);
+}
+
+.project-image-link {
+  display: block;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.project-image {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 260ms ease;
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.025);
+}
+
+.project-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 34px 34px;
+}
+
+.project-card-content h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 550;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.project-card-content p {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+@media (max-width: 1180px) {
+  .logo::before {
+    width: 240px;
+  }
+}
+
+@media (max-width: 900px) {
+  .logo::before {
+    width: 190px;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo::before {
+    width: 170px;
+  }
+
+  .footer-brand > a::before {
+    width: 210px;
+  }
+
+  .project-image {
+    height: 300px;
+  }
+
+  .project-card-content {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .project-card-content .button {
+    width: 100%;
+  }
+
+  .process-card {
+    height: auto !important;
+    min-height: 0;
+  }
+
+  .process-content {
+    height: auto !important;
+    align-content: start;
+    padding: 30px 28px 36px;
+  }
+
+  .process-row {
+    align-items: start;
+  }
+
+  .process-line {
+    height: 72px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo::before {
+    width: 160px;
+  }
+
+  .project-image {
+    height: 260px;
+  }
+
+  .process-content {
+    padding: 28px 24px 34px;
+  }
+}
